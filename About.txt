@@ -1,0 +1,13 @@
+Sprawy organizacyjne:
+1. Strony maj¹ wymairy 600/900
+2. Proponujê nastêpuj¹c¹ strukturê stron:
+
+	MainWindow- logowanie/rejestracja
+	DashboardWindow - panel aplikacji. okienko z szukajk¹ i lista piosenek ewentualnie guziki dodawania kolekcji utworów. Podzial na kolekcjeitp mozna radio buttonami i tab panelami zrobic
+	EditableWindow -okno dodawania/edytowania piosenki/ kolekcji
+	ViewWindow - okno szczegó³ów kolekcji/piosenki
+	
+	
+	
+	
+		

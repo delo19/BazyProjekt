@@ -24,7 +24,7 @@ namespace Bazy_projekt
         {
             InitializeComponent();
 			//treololo
-            //hahaha
+            //hhehehehehhehehehehheheehhe
         }
     }
 }

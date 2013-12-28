@@ -23,6 +23,7 @@ namespace Bazy_projekt
         public MainWindow()
         {
             InitializeComponent();
+			//treololo
         }
     }
 }

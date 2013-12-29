@@ -4,6 +4,7 @@ using Bazy_projekt.Other;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,27 +30,26 @@ namespace Bazy_projekt
             InitializeComponent();
         }
 
-        private void ustawGwiazdki(object sender, TextChangedEventArgs e)
-        {
-            //TODO fokus na koncu ustawic
-            TextBox textBox = (TextBox)sender;
-            int liczbaZnakow = textBox.Text.Length;
-            String tmp = "";
-            for (int i = 0; i < liczbaZnakow; i++)
-            {
-                tmp += "*";
-            }
-            textBox.Text = tmp;
-        }
-
         private void login(object sender, MouseButtonEventArgs e)
         {
-            if (checkLoginAndPassword(loginTextBox.Text, passwordBox.Password))
-            {
-                DashboardWindow w = new DashboardWindow();
-                w.Show();
-                this.Close();
-            }
+            Directory.CreateDirectory(@"Music");
+            Directory.CreateDirectory(@"Awatars");
+            using (StreamWriter sw = new StreamWriter(@"Awatars/Test.txt")) 
+        {           
+            sw.Write("Writing Text ");
+            sw.WriteLine("Here we go.");
+            sw.WriteLine("-------------------");
+            sw.Write("Today is is: " + DateTime.Now);
+            sw.WriteLine("Done");
+        }
+
+
+            //if (checkLoginAndPassword(loginTextBox.Text, passwordBox.Password))
+            //{
+            //    DashboardWindow w = new DashboardWindow();
+            //    w.Show();
+            //    this.Close();
+            //}
 
         }
 

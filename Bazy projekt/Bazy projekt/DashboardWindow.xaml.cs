@@ -22,6 +22,53 @@ namespace Bazy_projekt
         public DashboardWindow()
         {
             InitializeComponent();
+            dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
+            dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
+            utwory.Visibility = System.Windows.Visibility.Visible;
+            mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+        
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void utworyIKolekcje(object sender, MouseButtonEventArgs e)
+        {
+            dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
+            dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
+            utwory.Visibility = System.Windows.Visibility.Visible;
+            mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void dodajUtwor(object sender, MouseButtonEventArgs e)
+        {
+            dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
+            dodajUtwor2.Visibility = System.Windows.Visibility.Visible;
+            utwory.Visibility = System.Windows.Visibility.Hidden;
+            mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void dodajKolekcje(object sender, MouseButtonEventArgs e)
+        {
+            dodajKolekcje2.Visibility = System.Windows.Visibility.Visible;
+            dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
+            utwory.Visibility = System.Windows.Visibility.Hidden;
+            mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void mojeUtworyIKolekcje(object sender, MouseButtonEventArgs e)
+        {
+            dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
+            dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
+            utwory.Visibility = System.Windows.Visibility.Hidden;
+            mojeUtwory.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -15,7 +15,7 @@
         <TextBlock x:Name="wykonawcaZakladka" HorizontalAlignment="Left" Margin="250,28,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wykonawca" VerticalAlignment="Top" FontSize="25" MouseUp="pokazRejestracjeWykonawcy"/>
         <TextBlock x:Name="klientZakladka" HorizontalAlignment="Left" Margin="129,28,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Klient" VerticalAlignment="Top" FontSize="25" MouseUp="pokazRejestracjeKlienta"/>
         <Rectangle Fill="#FFAEAEAE" HorizontalAlignment="Left" Height="38" Margin="220,28,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1"/>
-        <Grid x:Name="klientRejestracja" HorizontalAlignment="Left" Height="273" Margin="108,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="970" d:IsHidden="True">
+        <Grid x:Name="klientRejestracja" HorizontalAlignment="Left" Height="273" Margin="108,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="970">
             <TextBox x:Name="loginTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="87,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -44,11 +44,11 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="22,114,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.49"/>
-            <DatePicker x:Name="klientDataUrodzenia" HorizontalAlignment="Left" Margin="87,162,0,0" VerticalAlignment="Top" Height="28" Width="288" Text="Data urodzenia:"/>
+            <DatePicker x:Name="klientDataUrodzenia" HorizontalAlignment="Left" Margin="22,162,0,0" VerticalAlignment="Top" Height="28" Width="353" Text="Data urodzenia:"/>
             <Image HorizontalAlignment="Left" Height="42" Margin="232,213,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestrujKlienta"/>
         </Grid>
 
-        <Grid x:Name="wykonawcaRejestracja" HorizontalAlignment="Left" Height="273" Margin="108,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="970">
+        <Grid x:Name="wykonawcaRejestracja" HorizontalAlignment="Left" Height="273" Margin="108,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="970" d:IsHidden="True">
             <TextBox x:Name="loginTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="87,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -77,7 +77,7 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="22,114,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <DatePicker HorizontalAlignment="Left" Margin="87,162,0,0" VerticalAlignment="Top" Height="28" Width="288" Text="Data urodzenia:"/>
+            <DatePicker HorizontalAlignment="Left" Margin="22,162,0,0" VerticalAlignment="Top" Height="28" Width="353" Text="Data urodzenia:"/>
             <Image HorizontalAlignment="Left" Height="42" Margin="795,214,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestracjaWykonawca"/>
             <TextBox x:Name="loginTextBoxWykonawca_Copy" HorizontalAlignment="Left" Height="33" Margin="650,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>

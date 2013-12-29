@@ -28,28 +28,20 @@ namespace Bazy_projekt
         public MainWindow()
         {
             InitializeComponent();
+
+            Directory.CreateDirectory(@"Music");
+            Directory.CreateDirectory(@"Awatars");
         }
 
         private void login(object sender, MouseButtonEventArgs e)
         {
-            Directory.CreateDirectory(@"Music");
-            Directory.CreateDirectory(@"Awatars");
-            using (StreamWriter sw = new StreamWriter(@"Awatars/Test.txt")) 
-        {           
-            sw.Write("Writing Text ");
-            sw.WriteLine("Here we go.");
-            sw.WriteLine("-------------------");
-            sw.Write("Today is is: " + DateTime.Now);
-            sw.WriteLine("Done");
-        }
 
-
-            //if (checkLoginAndPassword(loginTextBox.Text, passwordBox.Password))
-            //{
-            //    DashboardWindow w = new DashboardWindow();
-            //    w.Show();
-            //    this.Close();
-            //}
+            if (checkLoginAndPassword(loginTextBox.Text, passwordBox.Password))
+            {
+                DashboardWindow w = new DashboardWindow();
+                w.Show();
+                this.Close();
+            }
 
         }
 
@@ -63,7 +55,15 @@ namespace Bazy_projekt
                 alertMainWidnow.Text = "Dane logowania nieprawidłowe";
                 return false;
             }
+            SessionSingleton.zalogowanyUser = users.FindByLogin(login);
             return true;
+        }
+
+        private void register(object sender, MouseButtonEventArgs e)
+        {
+            RegisterWindow w = new RegisterWindow();
+            w.Show();
+            this.Close();
         }
 
 

@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Bazy_projekt.DashboardWindow"
-        Title="DashboardWindow" Height="700" Width="1200" UseLayoutRounding="True">
+        Title="Muzyka dla nas" Height="700" Width="1200" UseLayoutRounding="True" Icon="Resources/Images/icon.ico">
     <Window.Background>
         <ImageBrush ImageSource="Resources/Images/bgDashboard.jpg"/>
     </Window.Background>
@@ -14,8 +14,8 @@
         <Image Grid.RowSpan="1" Source="Resources/Images/logoZTlem_03.png" Width="219" Stretch="None" Height="63"/>
         <Grid HorizontalAlignment="Left" Height="438" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270">
             <Image HorizontalAlignment="Center" Height="107" Margin="0,50,0,0" VerticalAlignment="Top" Width="108" Source="Resources/Images/avatarDomyslny_03.png"/>
-            <TextBlock Margin="0,22,0,0" TextWrapping="Wrap" Text="Michał56" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"/>
-            <TextBlock Margin="0,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"><Run FontSize="12" Language="pl-pl" Text="Saldo: 15.23 zł"/></TextBlock>
+            <TextBlock x:Name="loginTextBox" Margin="0,22,0,0" TextWrapping="Wrap" Text="Michał56" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"/>
+            <TextBlock x:Name="saldoTextBox" Margin="0,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"><Run FontSize="12" Language="pl-pl" Text="Saldo: 15.23 zł"/></TextBlock>
             <Image HorizontalAlignment="Center" Height="34" Margin="48,254,48,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/przyciskiDashboard_07.png" MouseUp="mojeUtworyIKolekcje"/>
             <Image HorizontalAlignment="Center" Height="34" Margin="48,304,48,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/przyciskiDashboard_10.png" MouseUp="dodajUtwor"/>
             <Image HorizontalAlignment="Center" Height="34" Margin="48,354,48,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/przyciskiDashboard_12.png" MouseUp="dodajKolekcje"/>
@@ -27,7 +27,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="51,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
             <TextBlock HorizontalAlignment="Left" Margin="134,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="28" Margin="116,84,0,0" VerticalAlignment="Top" Width="1"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="736,91,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="736,91,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120"/>
         </Grid>
         <Grid x:Name="dodajUtwor2" HorizontalAlignment="Left" Height="438" Margin="260,68,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2" d:IsHidden="True">
             <TextBlock HorizontalAlignment="Left" Margin="56,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="26"><Run Language="pl-pl" Text="Dodaj Utwór"/></TextBlock>
@@ -123,7 +123,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="60,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
             <TextBlock HorizontalAlignment="Left" Margin="143,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="28" Margin="125,94,0,0" VerticalAlignment="Top" Width="1"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="745,101,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="745,101,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120"/>
         </Grid>
     </Grid>
 

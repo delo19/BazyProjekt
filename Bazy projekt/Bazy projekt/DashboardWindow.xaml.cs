@@ -70,5 +70,32 @@ namespace Bazy_projekt
         {
 
         }
+
+        private void dodajUtworDoBazy(object sender, MouseButtonEventArgs e)
+        {
+            //TODO tutaj dodawanie utworu do korzystac z tego:
+           // dodajUtworRokPowstania, dodajUtworTextBoxCena, dodajUtworTextBoxNazwaUtworu, dodajUtworTextBoxOpisUtworu, dodajUtworTextBoxWybierzPlik
+        }
+
+        private void wybierzPiosenkeZDysku(object sender, MouseButtonEventArgs e)
+        {
+            //TODO filepicker i piosenka z dysku
+        }
+
+        private void usunUtworZKolekcji(object sender, MouseButtonEventArgs e)
+        {
+            //TODO usuniecie zaznaczonego na liscie utworu z kolekcji
+        }
+
+        private void dodanieUtworuDoKolekcji(object sender, MouseButtonEventArgs e)
+        {
+            //TODO dodanie zaznaczonego utworu do kolekcji
+        }
+
+        private void DodajKolekcjeDoBazy(object sender, MouseButtonEventArgs e)
+        {
+            //TODO dodanie kolekcji do bazy na podstawie: 
+          //  dodajKolekcjeTextBoxCenaKolekcji, dodajKolekcjeTextBoxListaNowychUtworow, dodajKolekcjeTextBoxListaUtworowUzytkownika, dodajKolekcjeTextBoxNazwaKolekcji, dodajKolekcjeTextBoxOpisKolekcji
+        }
     }
 }

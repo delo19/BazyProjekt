@@ -37,8 +37,8 @@
             <RadioButton Content="+12" HorizontalAlignment="Left" Margin="213,147,0,0" VerticalAlignment="Top"/>
             <RadioButton Content="+16" HorizontalAlignment="Left" Margin="213,167,0,0" VerticalAlignment="Top"/>
             <RadioButton Content="+18" HorizontalAlignment="Left" Margin="213,188,0,0" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="58,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Nazwa utworu:"/></TextBlock>
-            <TextBox x:Name="loginTextBoxKlient" HorizontalAlignment="Left" Height="26" Margin="213,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBlock HorizontalAlignment="Left" Margin="58,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Nazwa utworu:"/></TextBlock>
+            <TextBox x:Name="dodajUtworTextBoxNazwaUtworu" HorizontalAlignment="Left" Height="26" Margin="213,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -46,14 +46,44 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <DatePicker HorizontalAlignment="Left" Margin="213,270,0,0" VerticalAlignment="Top" Height="26" Width="288"/>
-            <TextBlock HorizontalAlignment="Left" Margin="58,271,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Rok powstania:"/></TextBlock>
+            <DatePicker x:Name="dodajUtworRokPowstania" HorizontalAlignment="Left" Margin="213,257,0,0" VerticalAlignment="Top" Height="26" Width="270"/>
+            <TextBlock HorizontalAlignment="Left" Margin="58,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Rok powstania:"/></TextBlock>
+            <Image HorizontalAlignment="Center" Height="26" Margin="731,151,59,0" VerticalAlignment="Top" Width="132" Source="Resources/Images/nowe_15.png" MouseUp="wybierzPiosenkeZDysku" OpacityMask="Black"/>
+            <TextBlock HorizontalAlignment="Left" Margin="60,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Opis utworu:*"/></TextBlock>
+            <TextBox x:Name="dodajUtworTextBoxOpisUtworu" HorizontalAlignment="Left" Height="69" Margin="213,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="522,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" FontSize="16"><Run Language="pl-pl" Text="Wybierz plik:"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+            <TextBox x:Name="dodajUtworTextBoxWybierzPlik" HorizontalAlignment="Left" Height="26" Margin="623,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <Image HorizontalAlignment="Center" Height="34" Margin="700,370,0,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/nowe_13.png" MouseUp="dodajUtworDoBazy" OpacityMask="Black"/>
+            <TextBlock HorizontalAlignment="Left" Margin="570,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
+            <TextBox x:Name="dodajUtworTextBoxCena" HorizontalAlignment="Left" Height="26" Margin="623,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <Rectangle Fill="#FFD4D4D4" HorizontalAlignment="Left" Height="301" Margin="498,127,0,0" VerticalAlignment="Top" Width="1"/>
         </Grid>
-        <Grid x:Name="dodajKolekcje2" HorizontalAlignment="Left" Height="438" Margin="260,68,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2" d:IsHidden="True">
+        <Grid x:Name="dodajKolekcje2" HorizontalAlignment="Left" Height="438" Margin="260,68,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2">
             <TextBlock HorizontalAlignment="Left" Margin="56,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="26"><Run Language="pl-pl" Text="Dodaj Kolkecje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="58,110,0,0" VerticalAlignment="Top" Width="805"/>
             <TextBlock HorizontalAlignment="Left" Margin="58,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Nazwa kolekcji:"/></TextBlock>
-            <TextBox HorizontalAlignment="Left" Height="26" Margin="209,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="654" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBox x:Name="dodajKolekcjeTextBoxNazwaKolekcji" HorizontalAlignment="Left" Height="26" Margin="209,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="654" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -61,14 +91,33 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <ListBox HorizontalAlignment="Left" Height="219" Margin="60,209,0,0" VerticalAlignment="Top" Width="325"/>
-            <TextBlock HorizontalAlignment="Left" Margin="59,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="16"><Run Language="pl-pl" Text="Lista utworów w kolekcji:"/></TextBlock>
-            <ListBox HorizontalAlignment="Left" Height="219" Margin="521,209,0,0" VerticalAlignment="Top" Width="342"/>
-            <TextBlock HorizontalAlignment="Left" Margin="520,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="16"><Run Language="pl-pl" Text="Lista utworów:"/></TextBlock>
-            <Image HorizontalAlignment="Center" Height="27" Margin="388,275,403,0" VerticalAlignment="Top" Width="131" Source="Resources/Images/koleckaprzyciski_07.png"/>
-            <Image HorizontalAlignment="Center" Height="27" Margin="388,311,403,0" VerticalAlignment="Top" Width="131" Source="Resources/Images/koleckaprzyciski_09.png"/>
+            <ListBox x:Name="dodajKolekcjeTextBoxListaNowychUtworow" HorizontalAlignment="Left" Height="219" Margin="60,209,0,0" VerticalAlignment="Top" Width="147"/>
+            <TextBlock HorizontalAlignment="Left" Margin="59,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"><Run Language="pl-pl" Text="Nowa kolekcja:"/></TextBlock>
+            <ListBox x:Name="dodajKolekcjeTextBoxListaUtworowUzytkownika" HorizontalAlignment="Left" Height="219" Margin="348,209,0,0" VerticalAlignment="Top" Width="151"/>
+            <TextBlock HorizontalAlignment="Left" Margin="348,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="16"><Run Language="pl-pl" Text="Lista utworów:"/></TextBlock>
+            <Image HorizontalAlignment="Center" Height="27" Margin="212,209,579,0" VerticalAlignment="Top" Width="131" Source="Resources/Images/koleckaprzyciski_07.png" RenderTransformOrigin="0.45,0.519" MouseUp="usunUtworZKolekcji"/>
+            <Image HorizontalAlignment="Center" Height="27" Margin="212,241,579,0" VerticalAlignment="Top" Width="131" Source="Resources/Images/koleckaprzyciski_09.png" MouseUp="dodanieUtworuDoKolekcji"/>
+            <TextBlock HorizontalAlignment="Left" Margin="529,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" FontSize="16"><Run Language="pl-pl" Text="Opis kolekcji:"/></TextBlock>
+            <TextBox x:Name="dodajKolekcjeTextBoxOpisKolekcji" HorizontalAlignment="Left" Height="93" Margin="636,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="585,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
+            <TextBox x:Name="dodajKolekcjeTextBoxCenaKolekcji" HorizontalAlignment="Left" Height="29" Margin="638,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <Image HorizontalAlignment="Center" Height="34" Margin="688,394,59,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/nowe_09.png" RenderTransformOrigin="0.45,0.519" MouseUp="DodajKolekcjeDoBazy"/>
         </Grid>
-        <Grid x:Name="mojeUtwory" HorizontalAlignment="Left" Height="438" Margin="261,89,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2">
+        <Grid x:Name="mojeUtwory" HorizontalAlignment="Left" Height="438" Margin="261,89,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2" d:IsHidden="True">
             <TextBlock HorizontalAlignment="Left" Margin="56,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" FontSize="26"><Run Language="pl-pl" Text="Moje utwory i kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="59,89,0,0" VerticalAlignment="Top" Width="805"/>
             <TextBlock HorizontalAlignment="Left" Margin="60,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Utwory"/></TextBlock>

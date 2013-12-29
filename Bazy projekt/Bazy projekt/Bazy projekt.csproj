@@ -142,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Projekt1.14.accdb" />
+    <Resource Include="Resources\Images\nowe_09.png" />
+    <Resource Include="Resources\Images\nowe_13.png" />
+    <Resource Include="Resources\Images\nowe_15.png" />
     <Resource Include="Resources\Images\koleckaprzyciski_07.png" />
     <Resource Include="Resources\Images\koleckaprzyciski_09.png" />
     <Resource Include="Resources\Images\utworyikolekcjedash_09.png" />

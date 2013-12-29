@@ -1,5 +1,6 @@
 ﻿
 using Bazy_projekt.ModelTableAdapters;
+using Bazy_projekt.Other;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -43,44 +44,26 @@ namespace Bazy_projekt
 
         private void login(object sender, MouseButtonEventArgs e)
         {
-            //String allertMessage = this.checkLoginAndPassword(loginTextBox.Text, passwordBox.Password);
-            //if (allertMessage.Equals(""))
-            //{
-            //    alertMainWidnow.Text = allertMessage;
-            //    //TODO nawiguj dalej
-            //    _mainFrame.NavigationService.Navigate(new DashboardPage());
-            //}else{
-            //    // cos poszlo nie tak
-            //    alertMainWidnow.Text = allertMessage;
-            //}
-
-
-            //Nawigacja dla Windows dzialajaca
-            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
-            Model.UżytkownicyDataTable users = adapter.GetData();
-            Bazy_projekt.Model.UżytkownicyRow uzytkownik= users.FindByLogin("delo");
-            uzytkownik.Delete();
-            adapter.Update(users);
-            //DashboardWindow w = new DashboardWindow();
-            //w.Show();
-            //this.Close();
+            if (checkLoginAndPassword(loginTextBox.Text, passwordBox.Password))
+            {
+                DashboardWindow w = new DashboardWindow();
+                w.Show();
+                this.Close();
+            }
 
         }
 
-        private string checkLoginAndPassword(String login, String haslo)
+        private bool checkLoginAndPassword(String login, String haslo)
         {
-            if (login.Length <= 4 || login.Length > 30)
-            {
-                return "Login musi składać się przynajniej z 5 znaków a maksymalnie z 30";
-            }
+            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+            Model.UżytkownicyDataTable users = adapter.GetData();
 
-            if (haslo.Length <= 4 || haslo.Length > 30)
+            if (!users.Any(row => (row.Login == login && row.Hasło == haslo)))
             {
-                return "Haslo musi składać się przynajniej z 5 znaków a maksymalnie z 30";
+                alertMainWidnow.Text = "Dane logowania nieprawidłowe";
+                return false;
             }
-            //TODO sprawdzenie czy taki uzytkownik isteniej w bazie
-            //TODO sprawdzenie czy dla danego uzytkownika wpisano poprawne haslo
-            return "";
+            return true;
         }
 
 

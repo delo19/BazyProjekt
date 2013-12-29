@@ -20,7 +20,7 @@ namespace Bazy_projekt {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Model")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class Model : global::System.Data.DataSet {
         
@@ -42,15 +42,15 @@ namespace Bazy_projekt {
         
         private ZamówieniaNaUtworyDataTable tableZamówieniaNaUtwory;
         
-        private global::System.Data.DataRelation relationKolekcjeKomentarze;
+        private global::System.Data.DataRelation relationUżytkownicyKolekcje;
         
-        private global::System.Data.DataRelation relationKolekcjePrzydziały;
+        private global::System.Data.DataRelation relationKolekcjeKomentarze;
         
         private global::System.Data.DataRelation relationUtworyKomentarze;
         
-        private global::System.Data.DataRelation relationUtworyPrzydziały;
+        private global::System.Data.DataRelation relationKolekcjePrzydziały;
         
-        private global::System.Data.DataRelation relationUżytkownicyKolekcje;
+        private global::System.Data.DataRelation relationUtworyPrzydziały;
         
         private global::System.Data.DataRelation relationUżytkownicyUtwory;
         
@@ -60,9 +60,9 @@ namespace Bazy_projekt {
         
         private global::System.Data.DataRelation relationZamówieniaNaKolekcjeZamówienia;
         
-        private global::System.Data.DataRelation relationKolekcjeZamówieniaNaKolekcje;
-        
         private global::System.Data.DataRelation relationZamówieniaNaUtworyZamówienia;
+        
+        private global::System.Data.DataRelation relationKolekcjeZamówieniaNaKolekcje;
         
         private global::System.Data.DataRelation relationUtworyZamówieniaNaUtwory;
         
@@ -410,26 +410,26 @@ namespace Bazy_projekt {
                     this.tableZamówieniaNaUtwory.InitVars();
                 }
             }
-            this.relationKolekcjeKomentarze = this.Relations["KolekcjeKomentarze"];
-            this.relationKolekcjePrzydziały = this.Relations["KolekcjePrzydziały"];
-            this.relationUtworyKomentarze = this.Relations["UtworyKomentarze"];
-            this.relationUtworyPrzydziały = this.Relations["UtworyPrzydziały"];
             this.relationUżytkownicyKolekcje = this.Relations["UżytkownicyKolekcje"];
+            this.relationKolekcjeKomentarze = this.Relations["KolekcjeKomentarze"];
+            this.relationUtworyKomentarze = this.Relations["UtworyKomentarze"];
+            this.relationKolekcjePrzydziały = this.Relations["KolekcjePrzydziały"];
+            this.relationUtworyPrzydziały = this.Relations["UtworyPrzydziały"];
             this.relationUżytkownicyUtwory = this.Relations["UżytkownicyUtwory"];
             this.relationUprawnieniaUżytkownicy = this.Relations["UprawnieniaUżytkownicy"];
             this.relationUżytkownicyZamówienia = this.Relations["UżytkownicyZamówienia"];
             this.relationZamówieniaNaKolekcjeZamówienia = this.Relations["ZamówieniaNaKolekcjeZamówienia"];
-            this.relationKolekcjeZamówieniaNaKolekcje = this.Relations["KolekcjeZamówieniaNaKolekcje"];
             this.relationZamówieniaNaUtworyZamówienia = this.Relations["ZamówieniaNaUtworyZamówienia"];
+            this.relationKolekcjeZamówieniaNaKolekcje = this.Relations["KolekcjeZamówieniaNaKolekcje"];
             this.relationUtworyZamówieniaNaUtwory = this.Relations["UtworyZamówieniaNaUtwory"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSet1";
+            this.DataSetName = "Model";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet1.xsd";
+            this.Namespace = "http://tempuri.org/Model.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableKolekcje = new KolekcjeDataTable();
@@ -450,26 +450,26 @@ namespace Bazy_projekt {
             base.Tables.Add(this.tableZamówieniaNaKolekcje);
             this.tableZamówieniaNaUtwory = new ZamówieniaNaUtworyDataTable();
             base.Tables.Add(this.tableZamówieniaNaUtwory);
-            this.relationKolekcjeKomentarze = new global::System.Data.DataRelation("KolekcjeKomentarze", new global::System.Data.DataColumn[] {
-                        this.tableKolekcje.IDKolekcjiColumn}, new global::System.Data.DataColumn[] {
-                        this.tableKomentarze.IDKolekcjiColumn}, false);
-            this.Relations.Add(this.relationKolekcjeKomentarze);
-            this.relationKolekcjePrzydziały = new global::System.Data.DataRelation("KolekcjePrzydziały", new global::System.Data.DataColumn[] {
-                        this.tableKolekcje.IDKolekcjiColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePrzydziały.IDKolekcjiColumn}, false);
-            this.Relations.Add(this.relationKolekcjePrzydziały);
-            this.relationUtworyKomentarze = new global::System.Data.DataRelation("UtworyKomentarze", new global::System.Data.DataColumn[] {
-                        this.tableUtwory.IDUtworuColumn}, new global::System.Data.DataColumn[] {
-                        this.tableKomentarze.IDUtworuColumn}, false);
-            this.Relations.Add(this.relationUtworyKomentarze);
-            this.relationUtworyPrzydziały = new global::System.Data.DataRelation("UtworyPrzydziały", new global::System.Data.DataColumn[] {
-                        this.tableUtwory.IDUtworuColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePrzydziały.IDUtworuColumn}, false);
-            this.Relations.Add(this.relationUtworyPrzydziały);
             this.relationUżytkownicyKolekcje = new global::System.Data.DataRelation("UżytkownicyKolekcje", new global::System.Data.DataColumn[] {
                         this.tableUżytkownicy.LoginColumn}, new global::System.Data.DataColumn[] {
                         this.tableKolekcje.LoginColumn}, false);
             this.Relations.Add(this.relationUżytkownicyKolekcje);
+            this.relationKolekcjeKomentarze = new global::System.Data.DataRelation("KolekcjeKomentarze", new global::System.Data.DataColumn[] {
+                        this.tableKolekcje.IDKolekcjiColumn}, new global::System.Data.DataColumn[] {
+                        this.tableKomentarze.IDKolekcjiColumn}, false);
+            this.Relations.Add(this.relationKolekcjeKomentarze);
+            this.relationUtworyKomentarze = new global::System.Data.DataRelation("UtworyKomentarze", new global::System.Data.DataColumn[] {
+                        this.tableUtwory.IDUtworuColumn}, new global::System.Data.DataColumn[] {
+                        this.tableKomentarze.IDUtworuColumn}, false);
+            this.Relations.Add(this.relationUtworyKomentarze);
+            this.relationKolekcjePrzydziały = new global::System.Data.DataRelation("KolekcjePrzydziały", new global::System.Data.DataColumn[] {
+                        this.tableKolekcje.IDKolekcjiColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePrzydziały.IDKolekcjiColumn}, false);
+            this.Relations.Add(this.relationKolekcjePrzydziały);
+            this.relationUtworyPrzydziały = new global::System.Data.DataRelation("UtworyPrzydziały", new global::System.Data.DataColumn[] {
+                        this.tableUtwory.IDUtworuColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePrzydziały.IDUtworuColumn}, false);
+            this.Relations.Add(this.relationUtworyPrzydziały);
             this.relationUżytkownicyUtwory = new global::System.Data.DataRelation("UżytkownicyUtwory", new global::System.Data.DataColumn[] {
                         this.tableUżytkownicy.LoginColumn}, new global::System.Data.DataColumn[] {
                         this.tableUtwory.LoginColumn}, false);
@@ -486,14 +486,14 @@ namespace Bazy_projekt {
                         this.tableZamówieniaNaKolekcje.IDZamówieniaColumn}, new global::System.Data.DataColumn[] {
                         this.tableZamówienia.IDZamówieniaColumn}, false);
             this.Relations.Add(this.relationZamówieniaNaKolekcjeZamówienia);
-            this.relationKolekcjeZamówieniaNaKolekcje = new global::System.Data.DataRelation("KolekcjeZamówieniaNaKolekcje", new global::System.Data.DataColumn[] {
-                        this.tableKolekcje.IDKolekcjiColumn}, new global::System.Data.DataColumn[] {
-                        this.tableZamówieniaNaKolekcje.IDKolekcjiColumn}, false);
-            this.Relations.Add(this.relationKolekcjeZamówieniaNaKolekcje);
             this.relationZamówieniaNaUtworyZamówienia = new global::System.Data.DataRelation("ZamówieniaNaUtworyZamówienia", new global::System.Data.DataColumn[] {
                         this.tableZamówieniaNaUtwory.IDZamówieniaColumn}, new global::System.Data.DataColumn[] {
                         this.tableZamówienia.IDZamówieniaColumn}, false);
             this.Relations.Add(this.relationZamówieniaNaUtworyZamówienia);
+            this.relationKolekcjeZamówieniaNaKolekcje = new global::System.Data.DataRelation("KolekcjeZamówieniaNaKolekcje", new global::System.Data.DataColumn[] {
+                        this.tableKolekcje.IDKolekcjiColumn}, new global::System.Data.DataColumn[] {
+                        this.tableZamówieniaNaKolekcje.IDKolekcjiColumn}, false);
+            this.Relations.Add(this.relationKolekcjeZamówieniaNaKolekcje);
             this.relationUtworyZamówieniaNaUtwory = new global::System.Data.DataRelation("UtworyZamówieniaNaUtwory", new global::System.Data.DataColumn[] {
                         this.tableUtwory.IDUtworuColumn}, new global::System.Data.DataColumn[] {
                         this.tableZamówieniaNaUtwory.IDUtworuColumn}, false);
@@ -5719,7 +5719,7 @@ namespace Bazy_projekt {
         }
     }
 }
-namespace Bazy_projekt.DataSet1TableAdapters {
+namespace Bazy_projekt.ModelTableAdapters {
     
     
     /// <summary>

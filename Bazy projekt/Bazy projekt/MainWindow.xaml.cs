@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Bazy_projekt.ModelTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -54,14 +56,14 @@ namespace Bazy_projekt
 
 
             //Nawigacja dla Windows dzialajaca
-
-            DashboardWindow w = new DashboardWindow();
-            w.Show();
-            this.Close();
-
-            ///Tu masz exampla do pobierania danych
-            //Model.UżytkownicyDataTable users = new Model.UżytkownicyDataTable();
-            //users.FindByLogin
+            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+            Model.UżytkownicyDataTable users = adapter.GetData();
+            Bazy_projekt.Model.UżytkownicyRow uzytkownik= users.FindByLogin("delo");
+            uzytkownik.Delete();
+            adapter.Update(users);
+            //DashboardWindow w = new DashboardWindow();
+            //w.Show();
+            //this.Close();
 
         }
 
@@ -80,5 +82,34 @@ namespace Bazy_projekt
             //TODO sprawdzenie czy dla danego uzytkownika wpisano poprawne haslo
             return "";
         }
+
+
+
+        //void metodaTutorialowa()
+        //{
+        //    ///Tu mamy tabele uzytkownikow
+        //    Model.UżytkownicyDataTable users = new Model.UżytkownicyDataTable();
+        //    //Mamy metody takie jak szukanie, deletowanie itp.
+        //    //users.FindByLogin;
+        //    //chcemy dodac usera. tworzymy nowy rekord
+        //    Model.UżytkownicyRow uzytkownik = users.NewUżytkownicyRow();
+        //    //uzupelniamy dane
+        //    uzytkownik.Login = "test";
+        //    uzytkownik.DataRejestracji = DateTime.Now;
+        //    uzytkownik.Email = "";
+        //    //dodajemy do tabeli
+        //    users.AddUżytkownicyRow(uzytkownik);
+        //    //zapis do bazy zmian(taki commit)
+        //    users.AcceptChanges();
+
+        //    //inne przykłady:
+        //    //kasowanie usera
+        //    users.FindByLogin("testowy").Delete();
+        //    //updatowanie usera
+        //    users.FindByLogin("testowy").Saldo += 200;//zwiekszamy saldo :D
+
+        //    //PAMIETAMY O ZAPISIE DO BAZY PO KAZDEJ operacji!!!!!!!
+        //    users.AcceptChanges();//!!!!!!!!!!!!!!!!!
+        //}
     }
 }

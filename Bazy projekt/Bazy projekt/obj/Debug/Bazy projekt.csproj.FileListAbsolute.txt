@@ -11,3 +11,19 @@ C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\obj\Debug\Bazy
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.csproj.GenerateResource.Cache
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.exe
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.pdb
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\bin\Debug\Bazy projekt.exe.config
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\bin\Debug\Bazy projekt.exe
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\bin\Debug\Bazy projekt.pdb
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\DashboardWindow.baml
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\MainWindow.baml
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\DashboardWindow.g.cs
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\MainWindow.g.cs
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\App.g.cs
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt_MarkupCompile.cache
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.g.resources
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy_projekt.Properties.Resources.resources
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.csproj.GenerateResource.Cache
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.exe
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.pdb
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\DashboardPage.baml
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\DashboardPage.g.cs

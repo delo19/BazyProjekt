@@ -44,7 +44,7 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="22,114,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.49"/>
-            <DatePicker x:Name="klientDataUrodzenia" HorizontalAlignment="Left" Margin="22,162,0,0" VerticalAlignment="Top" Height="28" Width="353" Text="Data urodzenia:"/>
+            <DatePicker x:Name="dataUrodzeniaKlient" SelectedDate="1/1/2000" HorizontalAlignment="Left" Margin="87,162,0,0" VerticalAlignment="Top" Height="28" Width="288" Text="Data urodzenia:"/>
             <Image HorizontalAlignment="Left" Height="42" Margin="232,213,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestrujKlienta"/>
         </Grid>
 
@@ -77,9 +77,9 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="22,114,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <DatePicker HorizontalAlignment="Left" Margin="22,162,0,0" VerticalAlignment="Top" Height="28" Width="353" Text="Data urodzenia:"/>
+            <DatePicker Name="dataUrodzeniaWykonawca" SelectedDate="1/1/2000" HorizontalAlignment="Left" Margin="87,162,0,0" VerticalAlignment="Top" Height="28" Width="288" Text="Data urodzenia:"/>
             <Image HorizontalAlignment="Left" Height="42" Margin="795,214,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestracjaWykonawca"/>
-            <TextBox x:Name="loginTextBoxWykonawca_Copy" HorizontalAlignment="Left" Height="33" Margin="650,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBox x:Name="numerKontaTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="650,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light" Text="0">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -88,7 +88,7 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="536,19,0,0" TextWrapping="Wrap" Text="Numer konta:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <TextBox x:Name="loginTextBoxWykonawca_Copy1" HorizontalAlignment="Left" Height="33" Margin="650,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBox x:Name="ulicaTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="650,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -97,7 +97,7 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="536,68,0,0" TextWrapping="Wrap" Text="Ulica:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <TextBox x:Name="loginTextBoxWykonawca_Copy2" HorizontalAlignment="Left" Height="33" Margin="650,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBox x:Name="miejscowoscTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="650,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -106,7 +106,7 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="536,116,0,0" TextWrapping="Wrap" Text="Miejscowość:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <TextBox x:Name="loginTextBoxWykonawca_Copy3" HorizontalAlignment="Left" Height="33" Margin="650,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBox x:Name="kodPocztowy1TextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="650,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -114,7 +114,7 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <TextBox x:Name="loginTextBoxWykonawca_Copy4" HorizontalAlignment="Left" Height="33" Margin="732,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBox x:Name="kodPocztowy2TextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="732,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bazy_projekt.ModelTableAdapters;
+using Bazy_projekt.Other;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,12 +48,99 @@ namespace Bazy_projekt
 
         private void rejestrujKlienta(object sender, MouseButtonEventArgs e)
         {
-            //TODO dodanie njowego klienta
+            try
+            {
+                UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+                Model.UżytkownicyDataTable users = adapter.GetData();
+                Bazy_projekt.Model.UżytkownicyRow uzytkownik = users.NewUżytkownicyRow();
+                uzytkownik.Login = loginTextBoxKlient.Text;
+                uzytkownik.Hasło = hasloTextBoxKlient.Password;
+                uzytkownik.Email = emailTextBoxKlient.Text;
+                uzytkownik.Imię = "Jan";
+                uzytkownik.Nazwisko = "Kowalski";
+                uzytkownik.DataUrodzenia = (DateTime)dataUrodzeniaKlient.SelectedDate;
+                uzytkownik.Awatar = "none";
+                uzytkownik.Saldo = 0;
+                uzytkownik.DataRejestracji = DateTime.Now;
+                //uzytkownik.IDUprawnienia = 4;
+                ValidateKlient(users,uzytkownik);
+                users.AddUżytkownicyRow(uzytkownik);
+                adapter.Update(users);
+            }
+            catch (ValidationException ex)
+            {
+                // tu dodaj wyswietlanie tego okna z bledem 
+            }
         }
 
         private void rejestracjaWykonawca(object sender, MouseButtonEventArgs e)
         {
-            //TODO dodanie nowego wykonawcy
+            try
+            {
+                UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+                Model.UżytkownicyDataTable users = adapter.GetData();
+                Bazy_projekt.Model.UżytkownicyRow uzytkownik = users.NewUżytkownicyRow();
+                uzytkownik.Login = loginTextBoxWykonawca.Text;
+                uzytkownik.Hasło = hasloTextBoxWykonawca.Password;
+                uzytkownik.Email = emailTextBoxWykonawca.Text;
+                uzytkownik.Imię = "Jan";
+                uzytkownik.Nazwisko = "Kowalski";
+                uzytkownik.DataUrodzenia = (DateTime)dataUrodzeniaWykonawca.SelectedDate;
+                uzytkownik.Awatar = "none";
+                uzytkownik.Saldo = 0;
+                uzytkownik.DotychczasowyZysk = 0;
+
+                int temp;
+                if(int.TryParse(numerKontaTextBoxWykonawca.Text, out temp))
+                    throw new ValidationException("Podano zły numer konta!!");
+                uzytkownik.NumerKonta = int.Parse(numerKontaTextBoxWykonawca.Text);
+                uzytkownik.Miejscowość = miejscowoscTextBoxWykonawca.Text;
+                uzytkownik.Ulica = ulicaTextBoxWykonawca.Text;
+                uzytkownik.KodPocztowy = kodPocztowy1TextBoxWykonawca.Text + "-" + kodPocztowy2TextBoxWykonawca.Text;
+                uzytkownik.DataRejestracji = DateTime.Now;
+                //uzytkownik.IDUprawnienia = 3;
+                ValidateKlient(users,uzytkownik);
+                ValidateWykonawca(uzytkownik);
+                users.AddUżytkownicyRow(uzytkownik);
+                adapter.Update(users);
+            }
+            catch (ValidationException ex)
+            {
+                // tu dodaj wyswietlanie tego okna z bledem 
+            }
+        }
+
+        /// <summary>
+        /// Tu mamy walidowanie tego co jest TYLKO dla wykonawcy. wspolne bedzie na dole
+        /// </summary>
+        /// <param name="user"></param>
+        private void ValidateWykonawca(Bazy_projekt.Model.UżytkownicyRow user)
+        {
+
+            if (user.Login.Length < 5)
+                throw new ValidationException("Login jest za krótki!!");
+            if (user.Login.Length < 5)
+                throw new ValidationException("Login jest za krótki!!");
+            if (user.Login.Length < 5)
+                throw new ValidationException("Login jest za krótki!!");
+
+        }
+
+        /// <summary>
+        /// Tutaj mamy walidowanie tego co jest wspolneg
+        /// </summary>
+        /// <param name="user"></param>
+        private void ValidateKlient(Model.UżytkownicyDataTable users , Bazy_projekt.Model.UżytkownicyRow user)
+        {
+            if (users.Any(row => row.Login==user.Login))
+                throw new ValidationException("Login jest zajęty!!");
+            if (user.Login.Length < 5)
+                throw new ValidationException("Login jest za krótki!!");
+            if (user.Login.Length < 5)
+                throw new ValidationException("Login jest za krótki!!");
+            if (user.Login.Length < 5)
+                throw new ValidationException("Login jest za krótki!!");
+
         }
     }
 }

@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RegisterWindow.xaml.cs">
+      <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="DashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -139,6 +146,11 @@
     <Content Include="Projekt1.14.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Images\bgDashboard.jpg" />
+    <Resource Include="Resources\Images\avatarDomyslny_03.png" />
+    <Resource Include="Resources\Images\przyciskiDashboard_07.png" />
+    <Resource Include="Resources\Images\przyciskiDashboard_10.png" />
+    <Resource Include="Resources\Images\przyciskiDashboard_12.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

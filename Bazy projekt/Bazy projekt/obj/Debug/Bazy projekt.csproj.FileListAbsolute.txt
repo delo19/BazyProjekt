@@ -25,11 +25,14 @@ C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Baz
 C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.csproj.GenerateResource.Cache
 C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.exe
 C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.pdb
-C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\DashboardPage.baml
-C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\DashboardPage.g.cs
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\obj\Debug\DashboardWindow.baml
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\obj\Debug\DashboardWindow.g.cs
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\bin\Debug\Projekt1.14.accdb
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\bin\Debug\FluentNHibernate.dll
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\bin\Debug\FluentNHibernate.xml
 C:\Users\mateu_000\Desktop\Bazy projekt\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt_Content.g.cs
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt.csprojResolveAssemblyReference.cache
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\Bazy projekt_Content.g.cs
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\bin\Debug\Projekt1.14.accdb
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\RegisterWindow.baml
+C:\Users\Tomasz Cegiełka\Desktop\baza36\Bazy projekt\Bazy projekt\obj\Debug\RegisterWindow.g.cs

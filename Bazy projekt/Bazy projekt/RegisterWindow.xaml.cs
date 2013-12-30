@@ -27,6 +27,7 @@ namespace Bazy_projekt
             wykonawcaRejestracja.Visibility = System.Windows.Visibility.Collapsed;
             wykonawcaZakladka.Opacity = 0.5;
             klientZakladka.Opacity = 0.75;
+            registerWindowKomunikatOBledzie.Text = "";
             
         }
 
@@ -36,6 +37,7 @@ namespace Bazy_projekt
             klientRejestracja.Visibility = System.Windows.Visibility.Visible;
             wykonawcaZakladka.Opacity = 0.5;
             klientZakladka.Opacity = 0.75;
+            registerWindowKomunikatOBledzie.Text = "";
         }
 
         private void pokazRejestracjeWykonawcy(object sender, MouseButtonEventArgs e)
@@ -44,10 +46,12 @@ namespace Bazy_projekt
             klientRejestracja.Visibility = System.Windows.Visibility.Collapsed;
             wykonawcaZakladka.Opacity = 0.75;
             klientZakladka.Opacity = 0.5;
+            registerWindowKomunikatOBledzie.Text = "";
         }
 
         private void rejestrujKlienta(object sender, MouseButtonEventArgs e)
         {
+            registerWindowKomunikatOBledzie.Text = "";
             try
             {
                 UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
@@ -56,8 +60,8 @@ namespace Bazy_projekt
                 uzytkownik.Login = loginTextBoxKlient.Text;
                 uzytkownik.Hasło = hasloTextBoxKlient.Password;
                 uzytkownik.Email = emailTextBoxKlient.Text;
-                uzytkownik.Imię = "Jan";
-                uzytkownik.Nazwisko = "Kowalski";
+                uzytkownik.Imię = imieTextBoxKlient.Text;
+                uzytkownik.Nazwisko = nazwiskoTextBoxKlient.Text;
                 uzytkownik.DataUrodzenia = (DateTime)dataUrodzeniaKlient.SelectedDate;
                 uzytkownik.Awatar = "none";
                 uzytkownik.Saldo = 0;
@@ -69,12 +73,13 @@ namespace Bazy_projekt
             }
             catch (ValidationException ex)
             {
-                // tu dodaj wyswietlanie tego okna z bledem 
+                registerWindowKomunikatOBledzie.Text = ex.Message;
             }
         }
 
         private void rejestracjaWykonawca(object sender, MouseButtonEventArgs e)
         {
+            registerWindowKomunikatOBledzie.Text = "";
             try
             {
                 UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
@@ -83,8 +88,8 @@ namespace Bazy_projekt
                 uzytkownik.Login = loginTextBoxWykonawca.Text;
                 uzytkownik.Hasło = hasloTextBoxWykonawca.Password;
                 uzytkownik.Email = emailTextBoxWykonawca.Text;
-                uzytkownik.Imię = "Jan";
-                uzytkownik.Nazwisko = "Kowalski";
+                uzytkownik.Imię = imieTextBoxWykonawca.Text;
+                uzytkownik.Nazwisko = nazwiskoTextBoxWykonawca.Text;
                 uzytkownik.DataUrodzenia = (DateTime)dataUrodzeniaWykonawca.SelectedDate;
                 uzytkownik.Awatar = "none";
                 uzytkownik.Saldo = 0;
@@ -106,7 +111,11 @@ namespace Bazy_projekt
             }
             catch (ValidationException ex)
             {
-                // tu dodaj wyswietlanie tego okna z bledem 
+                registerWindowKomunikatOBledzie.Text = ex.Message;
+            }
+            catch (FormatException ex2)
+            {
+               
             }
         }
 

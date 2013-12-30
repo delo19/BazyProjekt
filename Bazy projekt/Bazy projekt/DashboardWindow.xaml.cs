@@ -27,11 +27,30 @@ namespace Bazy_projekt
             InitializeComponent();
             dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
             dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
-            utwory.Visibility = System.Windows.Visibility.Visible;
+            utwory2.Visibility = System.Windows.Visibility.Visible;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
 
-            loginTextBox.Text = SessionSingleton.zalogowanyUser.Login;
-            saldoTextBox.Text = SessionSingleton.zalogowanyUser.Saldo.ToString();
+          // loginTextBox2.Text = SessionSingleton.zalogowanyUser.Login;
+         //   saldoTextBox.Text = SessionSingleton.zalogowanyUser.Saldo.ToString();
+
+            gridData.Items.Clear();
+
+            UtworyTableAdapter adapter = new UtworyTableAdapter();
+            Model.UtworyDataTable utwory = adapter.GetData();
+            Bazy_projekt.Model.UtworyRow piosenka = utwory.NewUtworyRow();
+
+            piosenka.Login = "Krol Cipek";
+            piosenka.Nazwa = "Siala baba mak, nie wiedziala jak";
+            piosenka.RokPowstania = 1992;
+            piosenka.Cena = 562;
+            piosenka.Ocena = "0";
+            piosenka.Opis = "opis";
+            piosenka.Format = ".mp3";
+            piosenka.KategoriaWiekowa = "+16";
+
+            gridData.Items.Add(piosenka);
+
+            
 
         }
 
@@ -97,7 +116,7 @@ namespace Bazy_projekt
             }
             catch (ValidationException ex)
             {
-                // tu dodaj wyswietlanie tego okna z bledem 
+                dodajUtworKomunikatOBledzie.Text = ex.Message;
             }
         }
 
@@ -125,34 +144,44 @@ namespace Bazy_projekt
         #region zmiany Visilbility
         private void utworyIKolekcje(object sender, MouseButtonEventArgs e)
         {
+            gridData.Visibility = System.Windows.Visibility.Visible;
             dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
             dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
-            utwory.Visibility = System.Windows.Visibility.Visible;
+            utwory2.Visibility = System.Windows.Visibility.Visible;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+
+            gridData.Items.Clear();
+            //TODO tutaj wypelnic gridData wszystkimi utworami
         }
 
         private void dodajUtwor(object sender, MouseButtonEventArgs e)
         {
+            gridData.Visibility = System.Windows.Visibility.Hidden;
             dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
             dodajUtwor2.Visibility = System.Windows.Visibility.Visible;
-            utwory.Visibility = System.Windows.Visibility.Hidden;
+            utwory2.Visibility = System.Windows.Visibility.Hidden;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void dodajKolekcje(object sender, MouseButtonEventArgs e)
         {
+            gridData.Visibility = System.Windows.Visibility.Hidden;
             dodajKolekcje2.Visibility = System.Windows.Visibility.Visible;
             dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
-            utwory.Visibility = System.Windows.Visibility.Hidden;
+            utwory2.Visibility = System.Windows.Visibility.Hidden;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void mojeUtworyIKolekcje(object sender, MouseButtonEventArgs e)
         {
+            gridData.Visibility = System.Windows.Visibility.Visible;
             dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
             dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
-            utwory.Visibility = System.Windows.Visibility.Hidden;
+            utwory2.Visibility = System.Windows.Visibility.Hidden;
             mojeUtwory.Visibility = System.Windows.Visibility.Visible;
+
+            gridData.Items.Clear();
+            //TODO tutaj wypelnic gridData TYLKO utworami uzytkownika
         }
 
         #endregion zmiany Visibility

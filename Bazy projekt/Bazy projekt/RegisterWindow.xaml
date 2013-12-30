@@ -12,11 +12,15 @@
             <ImageBrush ImageSource="Resources/Images/bg.png"/>
         </Grid.Background>
         <Image Grid.RowSpan="1" Source="Resources/Images/logoZTlem_03.png" Width="219" Stretch="None" Height="63"/>
-        <TextBlock x:Name="wykonawcaZakladka" HorizontalAlignment="Left" Margin="250,28,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wykonawca" VerticalAlignment="Top" FontSize="25" MouseUp="pokazRejestracjeWykonawcy"/>
-        <TextBlock x:Name="klientZakladka" HorizontalAlignment="Left" Margin="129,28,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Klient" VerticalAlignment="Top" FontSize="25" MouseUp="pokazRejestracjeKlienta"/>
-        <Rectangle Fill="#FFAEAEAE" HorizontalAlignment="Left" Height="38" Margin="220,28,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1"/>
-        <Grid x:Name="klientRejestracja" HorizontalAlignment="Left" Height="273" Margin="108,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="970">
-            <TextBox x:Name="loginTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="87,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+        <TextBlock x:Name="wykonawcaZakladka" HorizontalAlignment="Left" Margin="233,28,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wykonawca" VerticalAlignment="Top" FontSize="25" MouseUp="pokazRejestracjeWykonawcy"/>
+        <TextBlock x:Name="klientZakladka" HorizontalAlignment="Left" Margin="115,28,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Klient" VerticalAlignment="Top" FontSize="25" MouseUp="pokazRejestracjeKlienta"/>
+        <Rectangle Fill="#FFAEAEAE" HorizontalAlignment="Left" Height="38" Margin="204,28,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1"/>
+        <Grid x:Name="klientRejestracja" HorizontalAlignment="Left" Height="346" Margin="108,86,0,0" Grid.Row="1" VerticalAlignment="Top" Width="970">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="120*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="loginTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="95,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light" Grid.RowSpan="2">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -24,9 +28,9 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <TextBlock HorizontalAlignment="Left" Margin="22,19,0,0" TextWrapping="Wrap" Text="Login:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="Login:" VerticalAlignment="Top" FontSize="18" Opacity="0.5" Grid.RowSpan="2"/>
 
-            <PasswordBox x:Name="hasloTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="87,63,0,0" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <PasswordBox x:Name="hasloTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="95,42,0,0" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light" Grid.Row="1">
                 <PasswordBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -34,8 +38,8 @@
                     </LinearGradientBrush>
                 </PasswordBox.SelectionBrush>
             </PasswordBox>
-            <TextBlock HorizontalAlignment="Left" Margin="22,65,0,0" TextWrapping="Wrap" Text="Hasło:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <TextBox x:Name="emailTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="87,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBlock HorizontalAlignment="Left" Margin="10,43.667,0,0" TextWrapping="Wrap" Text="Hasło:" VerticalAlignment="Top" FontSize="18" Opacity="0.5" Grid.Row="1"/>
+            <TextBox x:Name="emailTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="95,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light" Grid.Row="1">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -43,13 +47,31 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <TextBlock HorizontalAlignment="Left" Margin="22,114,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.49"/>
-            <DatePicker x:Name="dataUrodzeniaKlient" SelectedDate="1/1/2000" HorizontalAlignment="Left" Margin="87,162,0,0" VerticalAlignment="Top" Height="28" Width="288" Text="Data urodzenia:"/>
-            <Image HorizontalAlignment="Left" Height="42" Margin="232,213,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestrujKlienta"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,92.667,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.49" Grid.Row="1"/>
+            <DatePicker x:Name="dataUrodzeniaKlient" SelectedDate="1/1/2000" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Height="28" Width="373" Text="Data urodzenia:" Grid.Row="1"/>
+            <Image HorizontalAlignment="Left" Height="42" Margin="220,190.667,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestrujKlienta" Grid.Row="1"/>
+            <TextBox x:Name="nazwiskoTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="95,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="8,52,0,0" TextWrapping="Wrap" Text="Nazwisko:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
+            <TextBox x:Name="imieTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="95,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Imię:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
         </Grid>
 
         <Grid x:Name="wykonawcaRejestracja" HorizontalAlignment="Left" Height="273" Margin="108,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="970" d:IsHidden="True">
-            <TextBox x:Name="loginTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="87,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBox x:Name="loginTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="95,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -57,9 +79,9 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <TextBlock HorizontalAlignment="Left" Margin="22,19,0,0" TextWrapping="Wrap" Text="Login:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" TextWrapping="Wrap" Text="Login:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
 
-            <PasswordBox x:Name="hasloTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="87,63,0,0" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <PasswordBox x:Name="hasloTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="95,142,0,0" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <PasswordBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -67,8 +89,8 @@
                     </LinearGradientBrush>
                 </PasswordBox.SelectionBrush>
             </PasswordBox>
-            <TextBlock HorizontalAlignment="Left" Margin="22,65,0,0" TextWrapping="Wrap" Text="Hasło:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <TextBox x:Name="emailTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="87,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+            <TextBlock HorizontalAlignment="Left" Margin="10,143,0,0" TextWrapping="Wrap" Text="Hasło:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
+            <TextBox x:Name="emailTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="95,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF31616" Offset="0"/>
@@ -76,8 +98,8 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <TextBlock HorizontalAlignment="Left" Margin="22,114,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
-            <DatePicker Name="dataUrodzeniaWykonawca" SelectedDate="1/1/2000" HorizontalAlignment="Left" Margin="87,162,0,0" VerticalAlignment="Top" Height="28" Width="288" Text="Data urodzenia:"/>
+            <TextBlock HorizontalAlignment="Left" Margin="9,195,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
+            <DatePicker Name="dataUrodzeniaWykonawca" SelectedDate="1/1/2000" HorizontalAlignment="Left" Margin="11,235,0,0" VerticalAlignment="Top" Height="28" Width="372" Text="Data urodzenia:"/>
             <Image HorizontalAlignment="Left" Height="42" Margin="795,214,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestracjaWykonawca"/>
             <TextBox x:Name="numerKontaTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="650,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light" Text="0">
                 <TextBox.SelectionBrush>
@@ -122,8 +144,27 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <TextBlock HorizontalAlignment="Left" Margin="536,162,0,0" TextWrapping="Wrap" Text="Miejscowość:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="536,162,0,0" TextWrapping="Wrap" Text="Kod-pocztowy:" VerticalAlignment="Top" FontSize="16" Opacity="0.5"/>
             <Rectangle Fill="#FFAEAEAE" HorizontalAlignment="Left" Height="2" Margin="716,173,0,0" VerticalAlignment="Top" Width="5"/>
+            <TextBox x:Name="nazwiskoTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="95,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="11,49,0,0" TextWrapping="Wrap" Text="Nazwisko:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
+            <TextBox x:Name="imieTextBoxWykonawca" HorizontalAlignment="Left" Height="33" Margin="95,-3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="11,0,0,0" TextWrapping="Wrap" Text="Imię:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
         </Grid>
+        <TextBlock x:Name="registerWindowKomunikatOBledzie" HorizontalAlignment="Left" Margin="115,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
     </Grid>
 </Window>

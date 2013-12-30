@@ -14,14 +14,14 @@
         <Image Grid.RowSpan="1" Source="Resources/Images/logoZTlem_03.png" Width="219" Stretch="None" Height="63"/>
         <Grid HorizontalAlignment="Left" Height="438" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270">
             <Image HorizontalAlignment="Center" Height="107" Margin="0,50,0,0" VerticalAlignment="Top" Width="108" Source="Resources/Images/avatarDomyslny_03.png"/>
-            <TextBlock x:Name="loginTextBox" Margin="0,22,0,0" TextWrapping="Wrap" Text="Michał56" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"/>
-            <TextBlock x:Name="saldoTextBox" Margin="0,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"><Run FontSize="12" Language="pl-pl" Text="Saldo: 15.23 zł"/></TextBlock>
+            <TextBlock x:Name="loginTextBox2" Margin="0,22,0,0" TextWrapping="Wrap" Text="Michał56" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"/>
+            <TextBlock x:Name="saldoTextBox2" Margin="0,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center"><Run FontSize="12" Language="pl-pl" Text="Saldo: 15.23 zł"/></TextBlock>
             <Image HorizontalAlignment="Center" Height="34" Margin="48,254,48,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/przyciskiDashboard_07.png" MouseUp="mojeUtworyIKolekcje"/>
             <Image HorizontalAlignment="Center" Height="34" Margin="48,304,48,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/przyciskiDashboard_10.png" MouseUp="dodajUtwor"/>
             <Image HorizontalAlignment="Center" Height="34" Margin="48,354,48,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/przyciskiDashboard_12.png" MouseUp="dodajKolekcje"/>
             <Image HorizontalAlignment="Center" Height="34" Margin="0,206,0,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/utworyikolekcjedash_09.png" MouseUp="utworyIKolekcje"/>
         </Grid>
-        <Grid x:Name="utwory" HorizontalAlignment="Left" Height="438" Margin="270,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="922" d:IsHidden="True">
+        <Grid x:Name="utwory2" HorizontalAlignment="Left" Height="438" Margin="270,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="922">
             <TextBlock HorizontalAlignment="Left" Margin="48,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" FontSize="26"><Run Language="pl-pl" Text="Utwory i kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="50,79,0,0" VerticalAlignment="Top" Width="805"/>
             <TextBlock HorizontalAlignment="Left" Margin="51,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
@@ -67,7 +67,7 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <Image HorizontalAlignment="Center" Height="34" Margin="700,370,0,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/nowe_13.png" MouseUp="dodajUtworDoBazy" OpacityMask="Black"/>
+            <Image HorizontalAlignment="Center" Height="34" Margin="688,372,59,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/nowe_13.png" MouseUp="dodajUtworDoBazy" OpacityMask="Black"/>
             <TextBlock HorizontalAlignment="Left" Margin="570,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
             <TextBox x:Name="dodajUtworTextBoxCena" HorizontalAlignment="Left" Height="26" Margin="623,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
@@ -78,8 +78,9 @@
                 </TextBox.SelectionBrush>
             </TextBox>
             <Rectangle Fill="#FFD4D4D4" HorizontalAlignment="Left" Height="301" Margin="498,127,0,0" VerticalAlignment="Top" Width="1"/>
+            <TextBlock x:Name="dodajUtworKomunikatOBledzie" HorizontalAlignment="Left" Margin="589,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Foreground="Red" TextAlignment="Right"/>
         </Grid>
-        <Grid x:Name="dodajKolekcje2" HorizontalAlignment="Left" Height="438" Margin="260,68,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2">
+        <Grid x:Name="dodajKolekcje2" HorizontalAlignment="Left" Height="438" Margin="260,68,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2" d:IsHidden="True">
             <TextBlock HorizontalAlignment="Left" Margin="56,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="26"><Run Language="pl-pl" Text="Dodaj Kolkecje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="58,110,0,0" VerticalAlignment="Top" Width="805"/>
             <TextBlock HorizontalAlignment="Left" Margin="58,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Nazwa kolekcji:"/></TextBlock>
@@ -125,6 +126,23 @@
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="28" Margin="125,94,0,0" VerticalAlignment="Top" Width="1"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="745,101,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120"/>
         </Grid>
+        <DataGrid x:Name="gridData" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding IDUtworu}" Header="ID" Width="30"/>
+                <DataGridTextColumn Binding="{Binding Nazwa}" Header="Nazwa Utworu" Width="250"/>
+                <DataGridTextColumn Binding="{Binding Cena}" Header="Cena" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Login}" Header="Nazwa wykonawcy" Width="110"/>
+                <DataGridTemplateColumn Header="Test" Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="{Binding Nazwa}" VerticalAlignment="Top"/>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowHeight>40</DataGrid.RowHeight>
+        </DataGrid>
     </Grid>
 
 </Window>

@@ -2,6 +2,7 @@
 using Bazy_projekt.Other;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,8 +31,8 @@ namespace Bazy_projekt
             utwory2.Visibility = System.Windows.Visibility.Visible;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
 
-          // loginTextBox2.Text = SessionSingleton.zalogowanyUser.Login;
-         //   saldoTextBox.Text = SessionSingleton.zalogowanyUser.Saldo.ToString();
+            loginTextBox2.Text = SessionSingleton.zalogowanyUser.Login;
+            //saldoTextBox.Text = SessionSingleton.zalogowanyUser.Saldo.ToString();
 
             gridData.Items.Clear();
 
@@ -50,7 +51,7 @@ namespace Bazy_projekt
 
             gridData.Items.Add(piosenka);
 
-            
+            MessageBox.Show("Mamy w bazie utworów: "+ pobierzUtwory(null,"delo19",null).Count);
 
         }
 
@@ -61,6 +62,47 @@ namespace Bazy_projekt
 
 
         #region Utwory i kolekcje
+
+        public Model.UtworyDataTable pobierzUtwory(string nazwa, string wykonawca, int? rokPowstania)
+        {
+            UtworyTableAdapter adapter = new UtworyTableAdapter();
+            Model.UtworyDataTable utwory = adapter.GetData();
+            DataTable wynik=utwory.CopyToDataTable();
+
+            if (!string.IsNullOrEmpty(nazwa))
+                wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
+            if (!string.IsNullOrEmpty(wykonawca))
+                wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
+            if (rokPowstania!=null)
+                wynik = wynik.Select("RokPowstania='" + rokPowstania+"'").CopyToDataTable();
+
+            Model.UtworyDataTable result = new Model.UtworyDataTable();
+            result.Merge(wynik);
+
+            return result;
+
+        }
+
+        public Model.KolekcjeDataTable pobierzKolekcje(string nazwa, string wykonawca)
+        {
+            KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
+            Model.KolekcjeDataTable kolekcje = adapter.GetData();
+            DataTable wynik = kolekcje.CopyToDataTable();
+
+            if (!string.IsNullOrEmpty(nazwa))
+                wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
+            if (!string.IsNullOrEmpty(wykonawca))
+                wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
+
+
+            Model.KolekcjeDataTable result = new Model.KolekcjeDataTable();
+            result.Merge(wynik);
+
+            return result;
+
+        }
+
+
 
         #endregion Utwory i kolekcje
 
@@ -104,7 +146,7 @@ namespace Bazy_projekt
                 piosenka.Cena = int.Parse(dodajUtworTextBoxCena.Text);
                 piosenka.Ocena = "0";
                 piosenka.Opis = dodajUtworTextBoxOpisUtworu.Text;
-                piosenka.Format = "."+pathDoUtworu.Split('.')[pathDoUtworu.Split('.').Length - 1];
+                piosenka.Format = "." + pathDoUtworu.Split('.')[pathDoUtworu.Split('.').Length - 1];
                 piosenka.KategoriaWiekowa = "+16";
 
                 //ValidateKlient(users, uzytkownik);
@@ -112,7 +154,7 @@ namespace Bazy_projekt
                 adapter.Update(utwory);
                 //zapis pliku do folderu
                 File.Copy(pathDoUtworu, @"Music/" + adapter.GetData().Last().IDUtworu + piosenka.Format);
-                
+
             }
             catch (ValidationException ex)
             {

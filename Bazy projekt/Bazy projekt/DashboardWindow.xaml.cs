@@ -51,7 +51,7 @@ namespace Bazy_projekt
 
             gridData.Items.Add(piosenka);
 
-            MessageBox.Show("Mamy w bazie utworów: "+ pobierzUtwory(null,"delo19",null).Count);
+            MessageBox.Show("Mamy w bazie utworów: "+ pobierzUtwory(null,"delxxxxo19",null).Count);
 
         }
 
@@ -69,11 +69,13 @@ namespace Bazy_projekt
             Model.UtworyDataTable utwory = adapter.GetData();
             DataTable wynik=utwory.CopyToDataTable();
 
-            if (!string.IsNullOrEmpty(nazwa))
+            if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count()>0)
+            {
                 wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
-            if (!string.IsNullOrEmpty(wykonawca))
+            }
+            if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
                 wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
-            if (rokPowstania!=null)
+            if (rokPowstania != null && wynik.Select("RokPowstania='" + rokPowstania + "'").Count() > 0)
                 wynik = wynik.Select("RokPowstania='" + rokPowstania+"'").CopyToDataTable();
 
             Model.UtworyDataTable result = new Model.UtworyDataTable();
@@ -89,9 +91,9 @@ namespace Bazy_projekt
             Model.KolekcjeDataTable kolekcje = adapter.GetData();
             DataTable wynik = kolekcje.CopyToDataTable();
 
-            if (!string.IsNullOrEmpty(nazwa))
+            if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count() > 0)
                 wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
-            if (!string.IsNullOrEmpty(wykonawca))
+            if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
                 wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
 
 

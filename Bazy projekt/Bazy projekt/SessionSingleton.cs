@@ -9,6 +9,7 @@ namespace Bazy_projekt
     public static class SessionSingleton
     {
         public static Model.UżytkownicyRow zalogowanyUser;
+        public static Model.UtworyRow aktualnyUtwor;
 
     }
 }

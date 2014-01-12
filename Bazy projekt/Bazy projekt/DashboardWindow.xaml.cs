@@ -40,19 +40,36 @@ namespace Bazy_projekt
             Model.UtworyDataTable utwory = adapter.GetData();
             Bazy_projekt.Model.UtworyRow piosenka = utwory.NewUtworyRow();
 
-            piosenka.Login = "Krol Cipek";
-            piosenka.Nazwa = "Siala baba mak, nie wiedziala jak";
-            piosenka.RokPowstania = 1992;
-            piosenka.Cena = 562;
-            piosenka.Ocena = "0";
-            piosenka.Opis = "opis";
-            piosenka.Format = ".mp3";
-            piosenka.KategoriaWiekowa = "+16";
 
-            gridData.Items.Add(piosenka);
+            gridData.SelectedCellsChanged += gridData_SelectedCellsChanged;
+          //  gridData.Items.Add(piosenka);
 
-            MessageBox.Show("Mamy w bazie utworów: "+ pobierzUtwory(null,"delxxxxo19",null).Count);
+            Model.UtworyDataTable tab = pobierzUtwory(null, "delxxxxo19", null);
+            for (int i = 0; i < tab.Count; i++)
+            {
 
+                gridData.Items.Add(tab.ElementAt(i));
+                
+            }
+
+
+              //  MessageBox.Show("Mamy w bazie utworów: " + pobierzUtwory(null, "delxxxxo19", null).Count);
+
+        }
+
+        void gridData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            Model.UtworyRow x = (Model.UtworyRow)gridData.Items.GetItemAt(gridData.SelectedIndex);
+            SessionSingleton.aktualnyUtwor = x;
+            SongWindow w = new SongWindow();
+            w.Show();
+            this.Close();
+           // MessageBox.Show("SDF");
+        }
+
+        void gridData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -68,16 +85,24 @@ namespace Bazy_projekt
             UtworyTableAdapter adapter = new UtworyTableAdapter();
             Model.UtworyDataTable utwory = adapter.GetData();
             DataTable wynik=utwory.CopyToDataTable();
+            bool empty = true;
 
             if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count()>0)
             {
                 wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
+                empty = false;
             }
             if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
+            {
                 wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
+                empty = false;
+            }
             if (rokPowstania != null && wynik.Select("RokPowstania='" + rokPowstania + "'").Count() > 0)
-                wynik = wynik.Select("RokPowstania='" + rokPowstania+"'").CopyToDataTable();
-
+            {
+                wynik = wynik.Select("RokPowstania='" + rokPowstania + "'").CopyToDataTable();
+                empty = false;
+            }
+           
             Model.UtworyDataTable result = new Model.UtworyDataTable();
             result.Merge(wynik);
 
@@ -195,7 +220,15 @@ namespace Bazy_projekt
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
 
             gridData.Items.Clear();
-            //TODO tutaj wypelnic gridData wszystkimi utworami
+
+            //TODO tutaj wypelnic gridData wszystkimi utworami  Model.UtworyDataTable tab = pobierzUtwory(null, "delxxxxo19", null);
+            Model.UtworyDataTable tab = pobierzUtwory(null, null, null);
+            for (int i = 0; i < tab.Count; i++)
+            {
+
+                gridData.Items.Add(tab.ElementAt(i));
+
+            }
         }
 
         private void dodajUtwor(object sender, MouseButtonEventArgs e)
@@ -225,9 +258,18 @@ namespace Bazy_projekt
             mojeUtwory.Visibility = System.Windows.Visibility.Visible;
 
             gridData.Items.Clear();
-            //TODO tutaj wypelnic gridData TYLKO utworami uzytkownika
+
+
+            Model.UtworyDataTable tab = pobierzUtwory(null, SessionSingleton.zalogowanyUser.Login, null);
+            for (int i = 0; i < tab.Count; i++)
+            {
+
+                gridData.Items.Add(tab.ElementAt(i));
+
+            }
         }
 
         #endregion zmiany Visibility
+
     }
 }

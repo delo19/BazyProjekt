@@ -128,18 +128,47 @@
         </Grid>
         <DataGrid x:Name="gridData" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IDUtworu}" Header="ID" Width="30"/>
-                <DataGridTextColumn Binding="{Binding Nazwa}" Header="Nazwa Utworu" Width="250"/>
-                <DataGridTextColumn Binding="{Binding Cena}" Header="Cena" Width="100"/>
-                <DataGridTextColumn Binding="{Binding Login}" Header="Nazwa wykonawcy" Width="110"/>
-                <DataGridTemplateColumn Header="Test" Width="60">
+                <DataGridTemplateColumn Header="ID" Width="40">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBox HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="{Binding Nazwa}" VerticalAlignment="Top"/>
-
+                            <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="{Binding IDUtworu}"/></TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Nazwa utworu" Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="16" Opacity="1.0"><Run Language="pl-pl" Text="{Binding Nazwa}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Cena" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="80" FontSize="16" Opacity="0.7" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Cena}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Cena" Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Login}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                
+                <DataGridTemplateColumn Header="Cena" Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Ocena}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
             </DataGrid.Columns>
             <DataGrid.RowHeight>40</DataGrid.RowHeight>
         </DataGrid>

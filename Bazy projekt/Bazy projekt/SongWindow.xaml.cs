@@ -23,13 +23,17 @@ namespace Bazy_projekt
         {
             InitializeComponent();
 
+            Model.UtworyRow aktualnyUtwor = SessionSingleton.aktualnyUtwor;
             //TODO sprawdzic czy uzytkownik ma kupiona dana piosenke jezeli tak to od razu wyswietlic - > pobierzButton.Visibility = System.Windows.Visibility.Visible;
             
             //TODO uzupelnic to ponizej
-            songViewOpis.Text = "Jebitnie dlugi opis i chuj dl ewr werew we we ewr ewr wer weugi na maksa asd asd sa sad sd sad sd sad sad sd sad sd sad sad sa sad sad sad sad asd sad sad sad ";
-            songViewAutor.Text = "Autor:" + "NAZWA AUTORA";
-            songViewCena.Text = "Cena:" + "CENA";
-            ustawOcene(2);
+            songViewOpis.Text = aktualnyUtwor.Opis;
+            songViewAutor.Text = "Autor: " + aktualnyUtwor.Login;
+            songViewCena.Text = "Cena: " + aktualnyUtwor.Cena;
+            songViewNazwaUtworu.Text = aktualnyUtwor.Nazwa;
+
+            int x = Int16.Parse(aktualnyUtwor.Ocena);
+            ustawOcene(x);
         }
 
         private void pobierzPiosenke(object sender, MouseButtonEventArgs e)

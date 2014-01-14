@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,7 +29,7 @@ namespace Bazy_projekt
             wykonawcaZakladka.Opacity = 0.5;
             klientZakladka.Opacity = 0.75;
             registerWindowKomunikatOBledzie.Text = "";
-            
+
         }
 
         private void pokazRejestracjeKlienta(object sender, MouseButtonEventArgs e)
@@ -67,9 +68,10 @@ namespace Bazy_projekt
                 uzytkownik.Saldo = 0;
                 uzytkownik.DataRejestracji = DateTime.Now;
                 //uzytkownik.IDUprawnienia = 4;
-                ValidateKlient(users,uzytkownik);
+                ValidateKlient(users, uzytkownik);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
+                MessageBox.Show("Dodano użytkownika! Możesz się zalogować.");
                 MainWindow w = new MainWindow();
                 w.Show();
                 this.Close();
@@ -101,16 +103,20 @@ namespace Bazy_projekt
                 long temp;
                 if (!long.TryParse(numerKontaTextBoxWykonawca.Text.Replace(" ", ""), out temp))
                     throw new ValidationException("Podano zły numer konta!!");
-                uzytkownik.NumerKonta = numerKontaTextBoxWykonawca.Text.Replace(" ","");
+                uzytkownik.NumerKonta = numerKontaTextBoxWykonawca.Text.Replace(" ", "");
                 uzytkownik.Miejscowość = miejscowoscTextBoxWykonawca.Text;
                 uzytkownik.Ulica = ulicaTextBoxWykonawca.Text;
                 uzytkownik.KodPocztowy = kodPocztowy1TextBoxWykonawca.Text + "-" + kodPocztowy2TextBoxWykonawca.Text;
                 uzytkownik.DataRejestracji = DateTime.Now;
                 //uzytkownik.IDUprawnienia = 3;
-                ValidateKlient(users,uzytkownik);
-                ValidateWykonawca(users,uzytkownik);
+                ValidateKlient(users, uzytkownik);
+                ValidateWykonawca(users, uzytkownik);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
+                MessageBox.Show("Dodano użytkownika! Możesz się zalogować.");
+                MainWindow w = new MainWindow();
+                w.Show();
+                this.Close();
             }
             catch (ValidationException ex)
             {
@@ -118,7 +124,7 @@ namespace Bazy_projekt
             }
             catch (FormatException ex2)
             {
-               
+
             }
         }
 
@@ -154,20 +160,22 @@ namespace Bazy_projekt
         /// Nazwisko
         /// </summary>
         /// <param name="user"></param>
-        private void ValidateKlient(Model.UżytkownicyDataTable users , Bazy_projekt.Model.UżytkownicyRow user)
+        private void ValidateKlient(Model.UżytkownicyDataTable users, Bazy_projekt.Model.UżytkownicyRow user)
         {
             string message = "";
 
-            if (users.Any(row => row.Login==user.Login))
-                message+="Login jest zajęty!" + " , ";
+            if (users.Any(row => row.Login == user.Login))
+                message += "Login jest zajęty!" + " , ";
             if (user.Login.Length < 5)
                 message += "Login jest za krótki!" + " , ";
             if (user.Imię.Length < 3)
                 message += "Imię jest za krótkie!" + " , ";
             if (user.Hasło.Length < 5)
                 message += "Hasło jest za krótkie!" + " , ";
-            if (user.Nazwisko.Length <3)
+            if (user.Nazwisko.Length < 3)
                 message += "Nazwisko jest za krótkie!" + " , ";
+            if (!user.Email.Contains("@") && !Regex.IsMatch(user.Email,"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$;"))
+                message += "Email jest nieprawidłowy!" + " , ";
 
             if (!message.Equals("")) throw new ValidationException(message);
         }

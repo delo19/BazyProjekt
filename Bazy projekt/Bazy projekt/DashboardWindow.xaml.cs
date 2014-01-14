@@ -42,14 +42,14 @@ namespace Bazy_projekt
 
 
             gridData.SelectedCellsChanged += gridData_SelectedCellsChanged;
-          //  gridData.Items.Add(piosenka);
+            //  gridData.Items.Add(piosenka);
 
-            Model.UtworyDataTable tab = pobierzUtwory(null, "delxxxxo19", null);
+            Model.UtworyDataTable tab = pobierzUtwory(null, null, null);
             for (int i = 0; i < tab.Count; i++)
             {
 
                 gridData.Items.Add(tab.ElementAt(i));
-                
+
             }
 
             Model.KolekcjeDataTable tabKolekcje = pobierzKolekcje(null, null);
@@ -61,7 +61,7 @@ namespace Bazy_projekt
             gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
 
 
-              //  MessageBox.Show("Mamy w bazie utworów: " + pobierzUtwory(null, "delxxxxo19", null).Count);
+            //  MessageBox.Show("Mamy w bazie utworów: " + pobierzUtwory(null, "delxxxxo19", null).Count);
 
         }
 
@@ -72,12 +72,12 @@ namespace Bazy_projekt
             SongWindow w = new SongWindow();
             w.Show();
             this.Close();
-           // MessageBox.Show("SDF");
+            // MessageBox.Show("SDF");
         }
 
         void gridData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
+
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -92,27 +92,36 @@ namespace Bazy_projekt
         {
             UtworyTableAdapter adapter = new UtworyTableAdapter();
             Model.UtworyDataTable utwory = adapter.GetData();
-            DataTable wynik=utwory.CopyToDataTable();
+            DataTable wynik = utwory.CopyToDataTable();
             bool empty = true;
 
-            if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count()>0)
-            {
-                wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
-                empty = false;
-            }
-            if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
-            {
-                wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
-                empty = false;
-            }
-            if (rokPowstania != null && wynik.Select("RokPowstania='" + rokPowstania + "'").Count() > 0)
-            {
-                wynik = wynik.Select("RokPowstania='" + rokPowstania + "'").CopyToDataTable();
-                empty = false;
-            }
-           
+            string message =
+                (!string.IsNullOrEmpty(nazwa) ? "Nazwa='" + nazwa + "'" : "") +
+                (!string.IsNullOrEmpty(wykonawca) ? "Login='" + wykonawca + "'" : "") +
+                (!string.IsNullOrEmpty(nazwa) ? "RokPowstania='" + rokPowstania + "'" : "");
+
+            //if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count()>0)
+            //{
+            //    wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
+            //    empty = false;
+            //}
+            //if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
+            //{
+            //    wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
+            //    empty = false;
+            //}
+            //if (rokPowstania != null && wynik.Select("RokPowstania='" + rokPowstania + "'").Count() > 0)
+            //{
+            //    wynik = wynik.Select("RokPowstania='" + rokPowstania + "'").CopyToDataTable();
+            //    empty = false;
+            //}
             Model.UtworyDataTable result = new Model.UtworyDataTable();
-            result.Merge(wynik);
+            var ob = wynik.Select(message);
+            if (ob.Count() > 0)
+            {
+                wynik = ob.CopyToDataTable();
+                result.Merge(wynik);
+            }
 
             return result;
 
@@ -281,7 +290,7 @@ namespace Bazy_projekt
 
         private void logout(object sender, MouseButtonEventArgs e)
         {
-          
+
 
         }
 

@@ -1,0 +1,4 @@
+- szfrowanie danych
+- odtwarzanie muzyki
+- pobieranie muzyki
+- rejestracja klient, wykonawca

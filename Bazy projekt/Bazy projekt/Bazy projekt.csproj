@@ -56,8 +56,17 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< .mine
     <Compile Include="HasherManager.cs" />
+
+
+=======
+    <Compile Include="CollectionView.xaml.cs">
+      <DependentUpon>CollectionView.xaml</DependentUpon>
+    </Compile>
+>>>>>>> .theirs
     <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,11 +80,19 @@
     <Compile Include="SongWindow.xaml.cs">
       <DependentUpon>SongWindow.xaml</DependentUpon>
     </Compile>
+<<<<<<< .mine
     <Compile Include="_Projekt1_14DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_Projekt1_14DataSet.xsd</DependentUpon>
     </Compile>
+=======
+    <Page Include="CollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
+>>>>>>> .theirs
     <Page Include="DashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

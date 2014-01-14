@@ -322,5 +322,14 @@ namespace Bazy_projekt
             mojeutworyText.Opacity = 1.0;
         }
 
+        private void wybierzUtwor(object sender, SelectionChangedEventArgs e)
+        {
+            SessionSingleton.aktualnaKolekcja = (Model.KolekcjeRow)gridDataKolekcje.Items.GetItemAt(gridDataKolekcje.SelectedIndex);
+            CollectionView collection = new CollectionView();
+            collection.Show();
+            this.Close();
+
+        }
+
     }
 }

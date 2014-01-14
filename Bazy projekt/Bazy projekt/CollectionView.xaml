@@ -1,0 +1,45 @@
+﻿<Window x:Class="Bazy_projekt.CollectionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CollectionView" Height="700" Width="1200" UseLayoutRounding="True" Icon="Resources/Images/icon.ico">
+    <Grid Margin="0,0,-8,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="569*"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="Resources/Images/bg.png"/>
+            </Grid.Background>
+            <Image Grid.RowSpan="1" Source="Resources/Images/logoZTlem_03.png" Width="219" Stretch="None" Height="63"/>
+            <TextBlock x:Name="songViewNazwaKolekcji" HorizontalAlignment="Left" Margin="31,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1130" FontSize="50" Grid.Row="1" TextAlignment="Center" Opacity="0.75"><Run Language="pl-pl" Text="Nazwa Utworu"/></TextBlock>
+            <Rectangle Fill="#FFB6B6B6" HorizontalAlignment="Left" Height="1" Margin="31,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1130"/>
+            <Image x:Name="playSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/playButton_03.png"/>
+            <TextBlock x:Name="collectionViewOpis" HorizontalAlignment="Left" Margin="775,186,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="137" Width="386"/>
+            <Image x:Name="star1" HorizontalAlignment="Left" Height="27" Margin="923,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
+            <Image x:Name="star2" HorizontalAlignment="Left" Height="27" Margin="957,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
+            <Image x:Name="star4" HorizontalAlignment="Left" Height="27" Margin="1023,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
+            <Image x:Name="star3" HorizontalAlignment="Left" Height="27" Margin="991,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
+            <Image x:Name="star5" HorizontalAlignment="Left" Height="27" Margin="1056,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
+            <TextBlock x:Name="songViewAutor" HorizontalAlignment="Left" Margin="1057,155,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="104" TextAlignment="Right" FontSize="16"><Run Language="pl-pl" Text="Autor: "/></TextBlock>
+            <Rectangle Fill="Gainsboro" HorizontalAlignment="Left" Height="1" Margin="775,180,0,0" Grid.Row="1" VerticalAlignment="Top" Width="386"/>
+            <TextBlock x:Name="collectionViewCena" HorizontalAlignment="Left" Margin="775,153,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="123" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
+            <Image x:Name="pobierzButton" HorizontalAlignment="Left" Height="42" Margin="1018,387,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_18.png"/>
+            <Image HorizontalAlignment="Left" Height="42" Margin="1018,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_16.png"/>
+            <Image x:Name="pauseSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/pauseButton_03.png" Visibility="Hidden"/>
+            <Image HorizontalAlignment="Left" Height="52" Margin="54,30,0,0" VerticalAlignment="Top" Width="50" Source="Resources/Images/back105.png"/>
+            <Rectangle Fill="Gainsboro" HorizontalAlignment="Left" Height="1" Margin="629,306,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <DataGrid x:Name="utworyKolekcji" HorizontalAlignment="Left" Margin="418,144,0,0" Grid.Row="1" VerticalAlignment="Top" Height="285" Width="292"/>
+
+        </Grid>
+    </Grid>
+</Window>

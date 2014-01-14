@@ -173,7 +173,7 @@
             <DataGrid.RowHeight>40</DataGrid.RowHeight>
         </DataGrid>
 
-        <DataGrid x:Name="gridDataKolekcje" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802">
+        <DataGrid x:Name="gridDataKolekcje" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802" SelectionChanged="wybierzUtwor">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="ID" Width="40">
                     <DataGridTemplateColumn.CellTemplate>

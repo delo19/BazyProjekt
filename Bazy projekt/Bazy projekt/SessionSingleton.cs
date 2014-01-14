@@ -10,6 +10,7 @@ namespace Bazy_projekt
     {
         public static Model.UżytkownicyRow zalogowanyUser;
         public static Model.UtworyRow aktualnyUtwor;
+        public static Model.KolekcjeRow aktualnaKolekcja;
 
     }
 }

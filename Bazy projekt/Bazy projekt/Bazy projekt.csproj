@@ -57,6 +57,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Other\ValidationException.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
@@ -94,11 +99,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -120,9 +120,9 @@
       <DependentUpon>Model.xsd</DependentUpon>
     </None>
     <None Include="Model.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Model.xss">
       <DependentUpon>Model.xsd</DependentUpon>
@@ -159,7 +159,6 @@
     <Resource Include="Resources\Images\pauseButton_03.png" />
     <Resource Include="Resources\Images\playButton_03.png" />
     <Resource Include="Resources\Images\icon.ico" />
-    <Content Include="Projekt1.14.accdb" />
     <Resource Include="Resources\Images\nowe_09.png" />
     <Resource Include="Resources\Images\nowe_13.png" />
     <Resource Include="Resources\Images\nowe_15.png" />
@@ -171,6 +170,11 @@
     <Resource Include="Resources\Images\przyciskiDashboard_07.png" />
     <Resource Include="Resources\Images\przyciskiDashboard_10.png" />
     <Resource Include="Resources\Images\przyciskiDashboard_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Projekt1.14.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

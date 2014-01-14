@@ -2555,7 +2555,7 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UżytkownicyRow AddUżytkownicyRow(string Login, UprawnieniaRow parentUprawnieniaRowByUprawnieniaUżytkownicy, string Hasło, string Email, string Imię, string Nazwisko, System.DateTime DataUrodzenia, System.DateTime DataRejestracji, string Awatar, decimal Saldo, decimal DotychczasowyZysk, int NumerKonta, string Ulica, string Miejscowość, string KodPocztowy) {
+            public UżytkownicyRow AddUżytkownicyRow(string Login, UprawnieniaRow parentUprawnieniaRowByUprawnieniaUżytkownicy, string Hasło, string Email, string Imię, string Nazwisko, System.DateTime DataUrodzenia, System.DateTime DataRejestracji, string Awatar, decimal Saldo, decimal DotychczasowyZysk, string NumerKonta, string Ulica, string Miejscowość, string KodPocztowy) {
                 UżytkownicyRow rowUżytkownicyRow = ((UżytkownicyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Login,
@@ -2647,7 +2647,7 @@ namespace Bazy_projekt {
                 base.Columns.Add(this.columnSaldo);
                 this.columnDotychczasowyZysk = new global::System.Data.DataColumn("DotychczasowyZysk", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDotychczasowyZysk);
-                this.columnNumerKonta = new global::System.Data.DataColumn("NumerKonta", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnNumerKonta = new global::System.Data.DataColumn("NumerKonta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumerKonta);
                 this.columnUlica = new global::System.Data.DataColumn("Ulica", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUlica);
@@ -2665,6 +2665,7 @@ namespace Bazy_projekt {
                 this.columnImię.MaxLength = 20;
                 this.columnNazwisko.MaxLength = 20;
                 this.columnAwatar.MaxLength = 50;
+                this.columnNumerKonta.MaxLength = 255;
                 this.columnUlica.MaxLength = 50;
                 this.columnMiejscowość.MaxLength = 50;
                 this.columnKodPocztowy.MaxLength = 50;
@@ -4446,8 +4447,7 @@ namespace Bazy_projekt {
                         return ((string)(this[this.tableUtwory.OcenaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        return "0";
-                        //throw new global::System.Data.StrongTypingException("The value for column \'Ocena\' in table \'Utwory\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ocena\' in table \'Utwory\' is DBNull.", e);
                     }
                 }
                 set {
@@ -4815,10 +4815,10 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int NumerKonta {
+            public string NumerKonta {
                 get {
                     try {
-                        return ((int)(this[this.tableUżytkownicy.NumerKontaColumn]));
+                        return ((string)(this[this.tableUżytkownicy.NumerKontaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'NumerKonta\' in table \'Użytkownicy\' is DBNull.", e);
@@ -8149,7 +8149,7 @@ namespace Bazy_projekt.ModelTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DotychczasowyZysk", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DotychczasowyZysk", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DotychczasowyZysk", global::System.Data.OleDb.OleDbType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(0)), "DotychczasowyZysk", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NumerKonta", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NumerKonta", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NumerKonta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Ulica", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ulica", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Ulica", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ulica", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Miejscowość", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Miejscowość", global::System.Data.DataRowVersion.Original, true, null));
@@ -8171,7 +8171,7 @@ namespace Bazy_projekt.ModelTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Awatar", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Awatar", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Saldo", global::System.Data.OleDb.OleDbType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(0)), "Saldo", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DotychczasowyZysk", global::System.Data.OleDb.OleDbType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(0)), "DotychczasowyZysk", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NumerKonta", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NumerKonta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Ulica", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ulica", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Miejscowość", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Miejscowość", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("KodPocztowy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KodPocztowy", global::System.Data.DataRowVersion.Current, false, null));
@@ -8190,7 +8190,7 @@ namespace Bazy_projekt.ModelTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Awatar", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Awatar", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Saldo", global::System.Data.OleDb.OleDbType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(0)), "Saldo", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DotychczasowyZysk", global::System.Data.OleDb.OleDbType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(0)), "DotychczasowyZysk", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NumerKonta", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NumerKonta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Ulica", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ulica", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Miejscowość", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Miejscowość", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("KodPocztowy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KodPocztowy", global::System.Data.DataRowVersion.Current, false, null));
@@ -8216,7 +8216,7 @@ namespace Bazy_projekt.ModelTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DotychczasowyZysk", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DotychczasowyZysk", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DotychczasowyZysk", global::System.Data.OleDb.OleDbType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(0)), "DotychczasowyZysk", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NumerKonta", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NumerKonta", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NumerKonta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumerKonta", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Ulica", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ulica", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Ulica", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ulica", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Miejscowość", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Miejscowość", global::System.Data.DataRowVersion.Original, true, null));
@@ -8301,7 +8301,7 @@ namespace Bazy_projekt.ModelTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Login, global::System.Nullable<int> Original_IDUprawnienia, string Original_Hasło, string Original_Email, string Original_Imię, string Original_Nazwisko, System.DateTime Original_DataUrodzenia, System.DateTime Original_DataRejestracji, string Original_Awatar, global::System.Nullable<decimal> Original_Saldo, global::System.Nullable<decimal> Original_DotychczasowyZysk, global::System.Nullable<int> Original_NumerKonta, string Original_Ulica, string Original_Miejscowość, string Original_KodPocztowy) {
+        public virtual int Delete(string Original_Login, global::System.Nullable<int> Original_IDUprawnienia, string Original_Hasło, string Original_Email, string Original_Imię, string Original_Nazwisko, System.DateTime Original_DataUrodzenia, System.DateTime Original_DataRejestracji, string Original_Awatar, global::System.Nullable<decimal> Original_Saldo, global::System.Nullable<decimal> Original_DotychczasowyZysk, string Original_NumerKonta, string Original_Ulica, string Original_Miejscowość, string Original_KodPocztowy) {
             if ((Original_Login == null)) {
                 throw new global::System.ArgumentNullException("Original_Login");
             }
@@ -8372,13 +8372,13 @@ namespace Bazy_projekt.ModelTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((Original_NumerKonta.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_NumerKonta.Value));
-            }
-            else {
+            if ((Original_NumerKonta == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_NumerKonta));
             }
             if ((Original_Ulica == null)) {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
@@ -8424,7 +8424,7 @@ namespace Bazy_projekt.ModelTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Login, global::System.Nullable<int> IDUprawnienia, string Hasło, string Email, string Imię, string Nazwisko, System.DateTime DataUrodzenia, System.DateTime DataRejestracji, string Awatar, global::System.Nullable<decimal> Saldo, global::System.Nullable<decimal> DotychczasowyZysk, global::System.Nullable<int> NumerKonta, string Ulica, string Miejscowość, string KodPocztowy) {
+        public virtual int Insert(string Login, global::System.Nullable<int> IDUprawnienia, string Hasło, string Email, string Imię, string Nazwisko, System.DateTime DataUrodzenia, System.DateTime DataRejestracji, string Awatar, global::System.Nullable<decimal> Saldo, global::System.Nullable<decimal> DotychczasowyZysk, string NumerKonta, string Ulica, string Miejscowość, string KodPocztowy) {
             if ((Login == null)) {
                 throw new global::System.ArgumentNullException("Login");
             }
@@ -8481,11 +8481,11 @@ namespace Bazy_projekt.ModelTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((NumerKonta.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(NumerKonta.Value));
+            if ((NumerKonta == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(NumerKonta));
             }
             if ((Ulica == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
@@ -8537,7 +8537,7 @@ namespace Bazy_projekt.ModelTableAdapters {
                     string Awatar, 
                     global::System.Nullable<decimal> Saldo, 
                     global::System.Nullable<decimal> DotychczasowyZysk, 
-                    global::System.Nullable<int> NumerKonta, 
+                    string NumerKonta, 
                     string Ulica, 
                     string Miejscowość, 
                     string KodPocztowy, 
@@ -8552,7 +8552,7 @@ namespace Bazy_projekt.ModelTableAdapters {
                     string Original_Awatar, 
                     global::System.Nullable<decimal> Original_Saldo, 
                     global::System.Nullable<decimal> Original_DotychczasowyZysk, 
-                    global::System.Nullable<int> Original_NumerKonta, 
+                    string Original_NumerKonta, 
                     string Original_Ulica, 
                     string Original_Miejscowość, 
                     string Original_KodPocztowy) {
@@ -8612,11 +8612,11 @@ namespace Bazy_projekt.ModelTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((NumerKonta.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(NumerKonta.Value));
+            if ((NumerKonta == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(NumerKonta));
             }
             if ((Ulica == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
@@ -8706,13 +8706,13 @@ namespace Bazy_projekt.ModelTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((Original_NumerKonta.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_NumerKonta.Value));
-            }
-            else {
+            if ((Original_NumerKonta == null)) {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_NumerKonta));
             }
             if ((Original_Ulica == null)) {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
@@ -8769,7 +8769,7 @@ namespace Bazy_projekt.ModelTableAdapters {
                     string Awatar, 
                     global::System.Nullable<decimal> Saldo, 
                     global::System.Nullable<decimal> DotychczasowyZysk, 
-                    global::System.Nullable<int> NumerKonta, 
+                    string NumerKonta, 
                     string Ulica, 
                     string Miejscowość, 
                     string KodPocztowy, 
@@ -8784,7 +8784,7 @@ namespace Bazy_projekt.ModelTableAdapters {
                     string Original_Awatar, 
                     global::System.Nullable<decimal> Original_Saldo, 
                     global::System.Nullable<decimal> Original_DotychczasowyZysk, 
-                    global::System.Nullable<int> Original_NumerKonta, 
+                    string Original_NumerKonta, 
                     string Original_Ulica, 
                     string Original_Miejscowość, 
                     string Original_KodPocztowy) {

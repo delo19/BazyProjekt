@@ -70,6 +70,9 @@ namespace Bazy_projekt
                 ValidateKlient(users,uzytkownik);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
+                MainWindow w = new MainWindow();
+                w.Show();
+                this.Close();
             }
             catch (ValidationException ex)
             {
@@ -95,17 +98,17 @@ namespace Bazy_projekt
                 uzytkownik.Saldo = 0;
                 uzytkownik.DotychczasowyZysk = 0;
 
-                int temp;
-                if(int.TryParse(numerKontaTextBoxWykonawca.Text, out temp))
+                long temp;
+                if (!long.TryParse(numerKontaTextBoxWykonawca.Text.Replace(" ", ""), out temp))
                     throw new ValidationException("Podano zły numer konta!!");
-                uzytkownik.NumerKonta = int.Parse(numerKontaTextBoxWykonawca.Text);
+                uzytkownik.NumerKonta = numerKontaTextBoxWykonawca.Text.Replace(" ","");
                 uzytkownik.Miejscowość = miejscowoscTextBoxWykonawca.Text;
                 uzytkownik.Ulica = ulicaTextBoxWykonawca.Text;
                 uzytkownik.KodPocztowy = kodPocztowy1TextBoxWykonawca.Text + "-" + kodPocztowy2TextBoxWykonawca.Text;
                 uzytkownik.DataRejestracji = DateTime.Now;
                 //uzytkownik.IDUprawnienia = 3;
                 ValidateKlient(users,uzytkownik);
-                ValidateWykonawca(uzytkownik);
+                ValidateWykonawca(users,uzytkownik);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
             }
@@ -121,35 +124,52 @@ namespace Bazy_projekt
 
         /// <summary>
         /// Tu mamy walidowanie tego co jest TYLKO dla wykonawcy. wspolne bedzie na dole
+        /// Dotychczasowy zysk
+        /// Numer konta
+        /// 
         /// </summary>
         /// <param name="user"></param>
-        private void ValidateWykonawca(Bazy_projekt.Model.UżytkownicyRow user)
+        private void ValidateWykonawca(Model.UżytkownicyDataTable users, Bazy_projekt.Model.UżytkownicyRow user)
         {
+            string message = "";
 
-            if (user.Login.Length < 5)
-                throw new ValidationException("Login jest za krótki!!");
-            if (user.Login.Length < 5)
-                throw new ValidationException("Login jest za krótki!!");
-            if (user.Login.Length < 5)
-                throw new ValidationException("Login jest za krótki!!");
+            if (user.Ulica.Equals(""))
+                message += "Podaj ulicę" + " , ";
+            if (user.Miejscowość.Equals(""))
+                message += "Podaj miejscowość" + " , ";
+            if (user.KodPocztowy.Equals("-"))
+                message += "Podaj kod pocztowy" + " , ";
+            if (user.Nazwisko.Length < 3)
+                message += "Nazwisko jest za krótkie!" + " , ";
 
+            if (!message.Equals("")) throw new ValidationException(message);
         }
 
         /// <summary>
-        /// Tutaj mamy walidowanie tego co jest wspolneg
+        /// Tutaj mamy walidowanie tego co jest wspolnego
+        /// Login
+        /// Haslo
+        /// Email
+        /// Imie
+        /// Nazwisko
         /// </summary>
         /// <param name="user"></param>
         private void ValidateKlient(Model.UżytkownicyDataTable users , Bazy_projekt.Model.UżytkownicyRow user)
         {
-            if (users.Any(row => row.Login==user.Login))
-                throw new ValidationException("Login jest zajęty!!");
-            if (user.Login.Length < 5)
-                throw new ValidationException("Login jest za krótki!!");
-            if (user.Login.Length < 5)
-                throw new ValidationException("Login jest za krótki!!");
-            if (user.Login.Length < 5)
-                throw new ValidationException("Login jest za krótki!!");
+            string message = "";
 
+            if (users.Any(row => row.Login==user.Login))
+                message+="Login jest zajęty!" + " , ";
+            if (user.Login.Length < 5)
+                message += "Login jest za krótki!" + " , ";
+            if (user.Imię.Length < 3)
+                message += "Imię jest za krótkie!" + " , ";
+            if (user.Hasło.Length < 5)
+                message += "Hasło jest za krótkie!" + " , ";
+            if (user.Nazwisko.Length <3)
+                message += "Nazwisko jest za krótkie!" + " , ";
+
+            if (!message.Equals("")) throw new ValidationException(message);
         }
     }
 }

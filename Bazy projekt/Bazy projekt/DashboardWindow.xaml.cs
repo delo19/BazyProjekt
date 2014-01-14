@@ -52,6 +52,14 @@ namespace Bazy_projekt
                 
             }
 
+            Model.KolekcjeDataTable tabKolekcje = pobierzKolekcje(null, null);
+            for (int j = 0; j < tabKolekcje.Count; j++)
+            {
+                gridDataKolekcje.Items.Add(tabKolekcje.ElementAt(j));
+            }
+
+            gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
+
 
               //  MessageBox.Show("Mamy w bazie utworów: " + pobierzUtwory(null, "delxxxxo19", null).Count);
 
@@ -283,6 +291,26 @@ namespace Bazy_projekt
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+        }
+
+        private void kolekcjeMojePokaz(object sender, MouseButtonEventArgs e)
+        {
+            gridData.Visibility = System.Windows.Visibility.Hidden;
+            gridDataKolekcje.Visibility = System.Windows.Visibility.Visible;
+            utworyMoje.Opacity = 0.7;
+            kolekcjeMoje.Opacity = 1.0;
+            mojekolekcjeText.Opacity = 1.0;
+            mojeutworyText.Opacity = 0.7;
+        }
+
+        private void utworyZakladkaPokaz(object sender, MouseButtonEventArgs e)
+        {
+            gridData.Visibility = System.Windows.Visibility.Visible;
+            gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
+            kolekcjeMoje.Opacity = 0.7;
+            utworyMoje.Opacity = 1;
+            mojekolekcjeText.Opacity = 0.7;
+            mojeutworyText.Opacity = 1.0;
         }
 
     }

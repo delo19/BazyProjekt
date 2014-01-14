@@ -4447,7 +4447,7 @@ namespace Bazy_projekt {
                         return ((string)(this[this.tableUtwory.OcenaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ocena\' in table \'Utwory\' is DBNull.", e);
+                        return "0";
                     }
                 }
                 set {

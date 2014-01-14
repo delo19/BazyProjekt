@@ -21,11 +21,11 @@
             <Image HorizontalAlignment="Center" Height="34" Margin="48,354,48,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/przyciskiDashboard_12.png" MouseUp="dodajKolekcje"/>
             <Image HorizontalAlignment="Center" Height="34" Margin="0,206,0,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/utworyikolekcjedash_09.png" MouseUp="utworyIKolekcje"/>
         </Grid>
-        <Grid x:Name="utwory2" HorizontalAlignment="Left" Height="438" Margin="270,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="922">
+        <Grid x:Name="utwory2" HorizontalAlignment="Left" Height="438" Margin="270,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="922" d:IsHidden="True">
             <TextBlock HorizontalAlignment="Left" Margin="48,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" FontSize="26"><Run Language="pl-pl" Text="Utwory i kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="50,79,0,0" VerticalAlignment="Top" Width="805"/>
-            <TextBlock HorizontalAlignment="Left" Margin="51,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="134,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Kolekcje"/></TextBlock>
+            <TextBlock x:Name="utworyMoje" HorizontalAlignment="Left" Margin="51,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7" MouseUp="utworyZakladkaPokaz"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
+            <TextBlock x:Name="kolekcjeMoje" HorizontalAlignment="Left" Margin="134,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="16" Opacity="0.7" MouseUp="kolekcjeMojePokaz"><Run Language="pl-pl" Text="Kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="28" Margin="116,84,0,0" VerticalAlignment="Top" Width="1"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="736,91,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120"/>
         </Grid>
@@ -118,11 +118,11 @@
             </TextBox>
             <Image HorizontalAlignment="Center" Height="34" Margin="688,394,59,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/nowe_09.png" RenderTransformOrigin="0.45,0.519" MouseUp="DodajKolekcjeDoBazy"/>
         </Grid>
-        <Grid x:Name="mojeUtwory" HorizontalAlignment="Left" Height="438" Margin="261,89,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2" d:IsHidden="True">
+        <Grid x:Name="mojeUtwory" HorizontalAlignment="Left" Height="438" Margin="261,89,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2">
             <TextBlock HorizontalAlignment="Left" Margin="56,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" FontSize="26"><Run Language="pl-pl" Text="Moje utwory i kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="59,89,0,0" VerticalAlignment="Top" Width="805"/>
-            <TextBlock HorizontalAlignment="Left" Margin="60,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="143,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="Kolekcje"/></TextBlock>
+            <TextBlock x:Name="mojeutworyText" HorizontalAlignment="Left" Margin="60,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7" MouseUp="utworyZakladkaPokaz"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
+            <TextBlock x:Name="mojekolekcjeText" HorizontalAlignment="Left" Margin="143,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="16" Opacity="0.7" MouseUp="kolekcjeMojePokaz"><Run Language="pl-pl" Text="Kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="28" Margin="125,94,0,0" VerticalAlignment="Top" Width="1"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="745,101,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120"/>
         </Grid>
@@ -151,7 +151,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Cena" Width="110">
+                <DataGridTemplateColumn Header="Wykonawca" Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Login}"/></TextBlock>
@@ -160,13 +160,69 @@
                 </DataGridTemplateColumn>
 
 
-                <DataGridTemplateColumn Header="Cena" Width="60">
+                <DataGridTemplateColumn Header="Ocena" Width="60">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Ocena}"/></TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+
+            </DataGrid.Columns>
+            <DataGrid.RowHeight>40</DataGrid.RowHeight>
+        </DataGrid>
+
+        <DataGrid x:Name="gridDataKolekcje" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="ID" Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="{Binding IDUtworu}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Nazwa kolekcji" Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="16" Opacity="1.0"><Run Language="pl-pl" Text="{Binding Nazwa}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Cena" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="80" FontSize="16" Opacity="0.7" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Cena}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Wykonawca" Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Login}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTemplateColumn Header="Ocena" Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Ocena}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Liczba utworów w kolekcji" Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Ocena}"/></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
 
 
             </DataGrid.Columns>

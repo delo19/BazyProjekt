@@ -49,7 +49,7 @@
             </TextBox>
             <TextBlock HorizontalAlignment="Left" Margin="10,92.667,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" FontSize="18" Opacity="0.49" Grid.Row="1"/>
             <DatePicker x:Name="dataUrodzeniaKlient" SelectedDate="1/1/2000" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Height="28" Width="373" Text="Data urodzenia:" Grid.Row="1"/>
-            <Image HorizontalAlignment="Left" Height="42" Margin="220,190.667,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestrujKlienta" Grid.Row="1"/>
+            <Image HorizontalAlignment="Left" Height="42" Margin="240,188,0,0" VerticalAlignment="Top" Width="143" Source="Resources/Images/buttons_07.jpg" MouseUp="rejestrujKlienta" Grid.Row="1"/>
             <TextBox x:Name="nazwiskoTextBoxKlient" HorizontalAlignment="Left" Height="33" Margin="95,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

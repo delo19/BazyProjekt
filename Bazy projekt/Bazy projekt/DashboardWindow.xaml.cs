@@ -26,41 +26,50 @@ namespace Bazy_projekt
         public DashboardWindow()
         {
             InitializeComponent();
-            dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
-            dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
-            utwory2.Visibility = System.Windows.Visibility.Visible;
-            mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
-
-            loginTextBox2.Text = SessionSingleton.zalogowanyUser.Login;
-            //saldoTextBox.Text = SessionSingleton.zalogowanyUser.Saldo.ToString();
-
-            gridData.Items.Clear();
-
-            UtworyTableAdapter adapter = new UtworyTableAdapter();
-            Model.UtworyDataTable utwory = adapter.GetData();
-            Bazy_projekt.Model.UtworyRow piosenka = utwory.NewUtworyRow();
-
-
-            gridData.SelectedCellsChanged += gridData_SelectedCellsChanged;
-            //  gridData.Items.Add(piosenka);
-
-            Model.UtworyDataTable tab = pobierzUtwory(null, null, null);
-            for (int i = 0; i < tab.Count; i++)
+            //TODO admin
+            if (!true)
             {
 
-                gridData.Items.Add(tab.ElementAt(i));
-
             }
-
-            Model.KolekcjeDataTable tabKolekcje = pobierzKolekcje(null, null);
-            for (int j = 0; j < tabKolekcje.Count; j++)
+            else
             {
-                gridDataKolekcje.Items.Add(tabKolekcje.ElementAt(j));
+
+
+                dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
+                dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
+                utwory2.Visibility = System.Windows.Visibility.Visible;
+                mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+
+                loginTextBox2.Text = SessionSingleton.zalogowanyUser.Login;
+                //saldoTextBox.Text = SessionSingleton.zalogowanyUser.Saldo.ToString();
+
+                gridData.Items.Clear();
+
+                UtworyTableAdapter adapter = new UtworyTableAdapter();
+                Model.UtworyDataTable utwory = adapter.GetData();
+                Bazy_projekt.Model.UtworyRow piosenka = utwory.NewUtworyRow();
+
+
+                gridData.SelectedCellsChanged += gridData_SelectedCellsChanged;
+                //  gridData.Items.Add(piosenka);
+
+                Model.UtworyDataTable tab = pobierzUtwory(null, null, null);
+                for (int i = 0; i < tab.Count; i++)
+                {
+
+                    gridData.Items.Add(tab.ElementAt(i));
+
+                }
+
+                Model.KolekcjeDataTable tabKolekcje = pobierzKolekcje(null, null);
+                for (int j = 0; j < tabKolekcje.Count; j++)
+                {
+                    gridDataKolekcje.Items.Add(tabKolekcje.ElementAt(j));
+                }
+
+                gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
+
             }
-
-            gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
-
-
             //  MessageBox.Show("Mamy w bazie utworów: " + pobierzUtwory(null, "delxxxxo19", null).Count);
 
         }
@@ -260,6 +269,7 @@ namespace Bazy_projekt
             dodajUtwor2.Visibility = System.Windows.Visibility.Visible;
             utwory2.Visibility = System.Windows.Visibility.Hidden;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+            gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void dodajKolekcje(object sender, MouseButtonEventArgs e)
@@ -269,6 +279,8 @@ namespace Bazy_projekt
             dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
             utwory2.Visibility = System.Windows.Visibility.Hidden;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+            gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
+
         }
 
         private void mojeUtworyIKolekcje(object sender, MouseButtonEventArgs e)

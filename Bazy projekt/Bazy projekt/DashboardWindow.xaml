@@ -118,7 +118,7 @@
             </TextBox>
             <Image HorizontalAlignment="Center" Height="34" Margin="688,394,59,0" VerticalAlignment="Top" Width="175" Source="Resources/Images/nowe_09.png" RenderTransformOrigin="0.45,0.519" MouseUp="DodajKolekcjeDoBazy"/>
         </Grid>
-        <Grid x:Name="mojeUtwory" HorizontalAlignment="Left" Height="438" Margin="261,89,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2">
+        <Grid x:Name="mojeUtwory" HorizontalAlignment="Left" Height="438" Margin="261,89,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2" d:IsHidden="True">
             <TextBlock HorizontalAlignment="Left" Margin="56,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" FontSize="26"><Run Language="pl-pl" Text="Moje utwory i kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="59,89,0,0" VerticalAlignment="Top" Width="805"/>
             <TextBlock x:Name="mojeutworyText" HorizontalAlignment="Left" Margin="60,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7" MouseUp="utworyZakladkaPokaz"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
@@ -126,7 +126,7 @@
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="28" Margin="125,94,0,0" VerticalAlignment="Top" Width="1"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="745,101,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120"/>
         </Grid>
-        <DataGrid x:Name="gridData" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802">
+        <DataGrid x:Name="gridData" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802" d:IsHidden="True">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="ID" Width="40">
                     <DataGridTemplateColumn.CellTemplate>
@@ -173,7 +173,7 @@
             <DataGrid.RowHeight>40</DataGrid.RowHeight>
         </DataGrid>
 
-        <DataGrid x:Name="gridDataKolekcje" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802" SelectionChanged="wybierzUtwor">
+        <DataGrid x:Name="gridDataKolekcje" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802" SelectionChanged="wybierzUtwor" d:IsHidden="True">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="ID" Width="40">
                     <DataGridTemplateColumn.CellTemplate>
@@ -229,6 +229,63 @@
             <DataGrid.RowHeight>40</DataGrid.RowHeight>
         </DataGrid>
         <Button Content="Wyloguj&#xD;&#xA;" HorizontalAlignment="Left" Margin="1089,10,0,0" VerticalAlignment="Top" Width="94" Height="23" MouseDown="logout" MouseUp="logout" Click="logout"/>
+        <Grid x:Name="panelAdmina" Height="405" Margin="289,22,19,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden">
+            <Grid x:Name="kolekcje" HorizontalAlignment="Left" Height="317" Margin="10,88,0,0" VerticalAlignment="Top" Width="874">
+                <DataGrid x:Name="gridDataUtworyAdministrator" HorizontalAlignment="Left" Margin="322,147,0,0" Grid.Row="1" VerticalAlignment="Top" Height="259" Width="802" d:IsHidden="True" Visibility="Visible">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="ID" Width="40">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="{Binding IDUtworu}"/></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Nazwa utworu" Width="250">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="16" Opacity="1.0"><Run Language="pl-pl" Text="{Binding Nazwa}"/></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Cena" Width="80">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="80" FontSize="16" Opacity="0.7" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Cena}"/></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Wykonawca" Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Login}"/></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="Ocena" Width="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" FontSize="16" Opacity="0.9" TextAlignment="Center"><Run Language="pl-pl" Text="{Binding Ocena}"/></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                    </DataGrid.Columns>
+                    <DataGrid.RowHeight>40</DataGrid.RowHeight>
+                </DataGrid>
+            </Grid>
+            <Grid x:Name="uzytkownicy" HorizontalAlignment="Left" Height="317" Margin="10,88,0,0" VerticalAlignment="Top" Width="874"/>
+            <Grid x:Name="utwory" HorizontalAlignment="Left" Height="303" Margin="13,102,-3,0" VerticalAlignment="Top" Width="874"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" Text="Panel administratora" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="13,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="138,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="77" Height="26" Text="Kolekcje"/>
+
+            <TextBlock HorizontalAlignment="Left" Margin="283,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Language="pl-pl" Text="Użytkownicy"/></TextBlock>
+        </Grid>
     </Grid>
 
 </Window>

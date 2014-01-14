@@ -40,6 +40,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +62,15 @@
     <Compile Include="CollectionView.xaml.cs">
       <DependentUpon>CollectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditCollection.xaml.cs">
+      <DependentUpon>EditCollection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSong.xaml.cs">
+      <DependentUpon>EditSong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSongg.xaml.cs">
+      <DependentUpon>EditSongg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HasherManager.cs" />
     <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -79,6 +90,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DashboardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSongg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,6 +207,7 @@
     <Content Include="Projekt1.14.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Images\edytujWtoek_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

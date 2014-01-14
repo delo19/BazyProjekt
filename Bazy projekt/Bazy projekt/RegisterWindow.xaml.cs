@@ -151,5 +151,12 @@ namespace Bazy_projekt
                 throw new ValidationException("Login jest za krótki!!");
 
         }
+
+        private void wsteka(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
     }
 }

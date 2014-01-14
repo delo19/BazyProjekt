@@ -153,6 +153,7 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\back105.png" />
     <Resource Include="Resources\Images\kubpobierz_16.png" />
     <Resource Include="Resources\Images\kubpobierz_18.png" />
     <Resource Include="Resources\star.png" />

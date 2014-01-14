@@ -87,5 +87,12 @@ namespace Bazy_projekt
             playSongButton.Visibility = System.Windows.Visibility.Visible;
             //TODO zatryzmanie muzyki
         }
+
+        private void back(object sender, MouseButtonEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
+            this.Close();
+        }
     }
 }

@@ -166,5 +166,6 @@
             <TextBlock HorizontalAlignment="Left" Margin="11,0,0,0" TextWrapping="Wrap" Text="Imię:" VerticalAlignment="Top" FontSize="18" Opacity="0.5"/>
         </Grid>
         <TextBlock x:Name="registerWindowKomunikatOBledzie" HorizontalAlignment="Left" Margin="115,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="115,23,0,0" VerticalAlignment="Top" Width="50" Source="Resources/Images/back105.png" MouseUp="wsteka"/>
     </Grid>
 </Window>

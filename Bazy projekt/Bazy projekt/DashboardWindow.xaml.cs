@@ -271,5 +271,19 @@ namespace Bazy_projekt
 
         #endregion zmiany Visibility
 
+        private void logout(object sender, MouseButtonEventArgs e)
+        {
+          
+
+        }
+
+        private void logout(object sender, RoutedEventArgs e)
+        {
+            SessionSingleton.zalogowanyUser = null;
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
+
     }
 }

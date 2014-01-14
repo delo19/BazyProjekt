@@ -171,5 +171,12 @@ namespace Bazy_projekt
 
             if (!message.Equals("")) throw new ValidationException(message);
         }
+
+        private void wsteka(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
     }
 }

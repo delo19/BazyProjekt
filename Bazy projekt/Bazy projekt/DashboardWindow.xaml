@@ -142,7 +142,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
+
                 <DataGridTemplateColumn Header="Cena" Width="80">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -158,8 +158,8 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                
+
+
                 <DataGridTemplateColumn Header="Cena" Width="60">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -172,6 +172,7 @@
             </DataGrid.Columns>
             <DataGrid.RowHeight>40</DataGrid.RowHeight>
         </DataGrid>
+        <Button Content="Wyloguj&#xD;&#xA;" HorizontalAlignment="Left" Margin="1089,10,0,0" VerticalAlignment="Top" Width="94" Height="23" MouseDown="logout" MouseUp="logout" Click="logout"/>
     </Grid>
 
 </Window>

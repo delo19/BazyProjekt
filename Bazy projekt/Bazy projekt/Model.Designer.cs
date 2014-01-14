@@ -42,6 +42,8 @@ namespace Bazy_projekt {
         
         private ZamówieniaNaUtworyDataTable tableZamówieniaNaUtwory;
         
+        private UtworyDlaKolekcjiDataTable tableUtworyDlaKolekcji;
+        
         private global::System.Data.DataRelation relationUżytkownicyKolekcje;
         
         private global::System.Data.DataRelation relationKolekcjeKomentarze;
@@ -120,6 +122,9 @@ namespace Bazy_projekt {
                 }
                 if ((ds.Tables["ZamówieniaNaUtwory"] != null)) {
                     base.Tables.Add(new ZamówieniaNaUtworyDataTable(ds.Tables["ZamówieniaNaUtwory"]));
+                }
+                if ((ds.Tables["UtworyDlaKolekcji"] != null)) {
+                    base.Tables.Add(new UtworyDlaKolekcjiDataTable(ds.Tables["UtworyDlaKolekcji"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -231,6 +236,16 @@ namespace Bazy_projekt {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public UtworyDlaKolekcjiDataTable UtworyDlaKolekcji {
+            get {
+                return this.tableUtworyDlaKolekcji;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -323,6 +338,9 @@ namespace Bazy_projekt {
                 if ((ds.Tables["ZamówieniaNaUtwory"] != null)) {
                     base.Tables.Add(new ZamówieniaNaUtworyDataTable(ds.Tables["ZamówieniaNaUtwory"]));
                 }
+                if ((ds.Tables["UtworyDlaKolekcji"] != null)) {
+                    base.Tables.Add(new UtworyDlaKolekcjiDataTable(ds.Tables["UtworyDlaKolekcji"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -410,6 +428,12 @@ namespace Bazy_projekt {
                     this.tableZamówieniaNaUtwory.InitVars();
                 }
             }
+            this.tableUtworyDlaKolekcji = ((UtworyDlaKolekcjiDataTable)(base.Tables["UtworyDlaKolekcji"]));
+            if ((initTable == true)) {
+                if ((this.tableUtworyDlaKolekcji != null)) {
+                    this.tableUtworyDlaKolekcji.InitVars();
+                }
+            }
             this.relationUżytkownicyKolekcje = this.Relations["UżytkownicyKolekcje"];
             this.relationKolekcjeKomentarze = this.Relations["KolekcjeKomentarze"];
             this.relationUtworyKomentarze = this.Relations["UtworyKomentarze"];
@@ -450,6 +474,8 @@ namespace Bazy_projekt {
             base.Tables.Add(this.tableZamówieniaNaKolekcje);
             this.tableZamówieniaNaUtwory = new ZamówieniaNaUtworyDataTable();
             base.Tables.Add(this.tableZamówieniaNaUtwory);
+            this.tableUtworyDlaKolekcji = new UtworyDlaKolekcjiDataTable();
+            base.Tables.Add(this.tableUtworyDlaKolekcji);
             this.relationUżytkownicyKolekcje = new global::System.Data.DataRelation("UżytkownicyKolekcje", new global::System.Data.DataColumn[] {
                         this.tableUżytkownicy.LoginColumn}, new global::System.Data.DataColumn[] {
                         this.tableKolekcje.LoginColumn}, false);
@@ -556,6 +582,12 @@ namespace Bazy_projekt {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeUtworyDlaKolekcji() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -635,6 +667,9 @@ namespace Bazy_projekt {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ZamówieniaNaUtworyRowChangeEventHandler(object sender, ZamówieniaNaUtworyRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void UtworyDlaKolekcjiRowChangeEventHandler(object sender, UtworyDlaKolekcjiRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3673,6 +3708,402 @@ namespace Bazy_projekt {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class UtworyDlaKolekcjiDataTable : global::System.Data.TypedTableBase<UtworyDlaKolekcjiRow> {
+            
+            private global::System.Data.DataColumn columnIDKolekcji;
+            
+            private global::System.Data.DataColumn columnPrzydziały_IDUtworu;
+            
+            private global::System.Data.DataColumn columnUtwory_IDUtworu;
+            
+            private global::System.Data.DataColumn columnLogin;
+            
+            private global::System.Data.DataColumn columnNazwa;
+            
+            private global::System.Data.DataColumn columnRokPowstania;
+            
+            private global::System.Data.DataColumn columnCena;
+            
+            private global::System.Data.DataColumn columnFormat;
+            
+            private global::System.Data.DataColumn columnOcena;
+            
+            private global::System.Data.DataColumn columnKategoriaWiekowa;
+            
+            private global::System.Data.DataColumn columnOpis;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UtworyDlaKolekcjiDataTable() {
+                this.TableName = "UtworyDlaKolekcji";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal UtworyDlaKolekcjiDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected UtworyDlaKolekcjiDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDKolekcjiColumn {
+                get {
+                    return this.columnIDKolekcji;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Przydziały_IDUtworuColumn {
+                get {
+                    return this.columnPrzydziały_IDUtworu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Utwory_IDUtworuColumn {
+                get {
+                    return this.columnUtwory_IDUtworu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LoginColumn {
+                get {
+                    return this.columnLogin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NazwaColumn {
+                get {
+                    return this.columnNazwa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RokPowstaniaColumn {
+                get {
+                    return this.columnRokPowstania;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CenaColumn {
+                get {
+                    return this.columnCena;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FormatColumn {
+                get {
+                    return this.columnFormat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OcenaColumn {
+                get {
+                    return this.columnOcena;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KategoriaWiekowaColumn {
+                get {
+                    return this.columnKategoriaWiekowa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OpisColumn {
+                get {
+                    return this.columnOpis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UtworyDlaKolekcjiRow this[int index] {
+                get {
+                    return ((UtworyDlaKolekcjiRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event UtworyDlaKolekcjiRowChangeEventHandler UtworyDlaKolekcjiRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event UtworyDlaKolekcjiRowChangeEventHandler UtworyDlaKolekcjiRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event UtworyDlaKolekcjiRowChangeEventHandler UtworyDlaKolekcjiRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event UtworyDlaKolekcjiRowChangeEventHandler UtworyDlaKolekcjiRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddUtworyDlaKolekcjiRow(UtworyDlaKolekcjiRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UtworyDlaKolekcjiRow AddUtworyDlaKolekcjiRow(int IDKolekcji, int Przydziały_IDUtworu, string Login, string Nazwa, short RokPowstania, int Cena, string Format, string Ocena, string KategoriaWiekowa, string Opis) {
+                UtworyDlaKolekcjiRow rowUtworyDlaKolekcjiRow = ((UtworyDlaKolekcjiRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        IDKolekcji,
+                        Przydziały_IDUtworu,
+                        null,
+                        Login,
+                        Nazwa,
+                        RokPowstania,
+                        Cena,
+                        Format,
+                        Ocena,
+                        KategoriaWiekowa,
+                        Opis};
+                rowUtworyDlaKolekcjiRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUtworyDlaKolekcjiRow);
+                return rowUtworyDlaKolekcjiRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                UtworyDlaKolekcjiDataTable cln = ((UtworyDlaKolekcjiDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new UtworyDlaKolekcjiDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnIDKolekcji = base.Columns["IDKolekcji"];
+                this.columnPrzydziały_IDUtworu = base.Columns["Przydziały_IDUtworu"];
+                this.columnUtwory_IDUtworu = base.Columns["Utwory_IDUtworu"];
+                this.columnLogin = base.Columns["Login"];
+                this.columnNazwa = base.Columns["Nazwa"];
+                this.columnRokPowstania = base.Columns["RokPowstania"];
+                this.columnCena = base.Columns["Cena"];
+                this.columnFormat = base.Columns["Format"];
+                this.columnOcena = base.Columns["Ocena"];
+                this.columnKategoriaWiekowa = base.Columns["KategoriaWiekowa"];
+                this.columnOpis = base.Columns["Opis"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnIDKolekcji = new global::System.Data.DataColumn("IDKolekcji", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDKolekcji);
+                this.columnPrzydziały_IDUtworu = new global::System.Data.DataColumn("Przydziały_IDUtworu", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrzydziały_IDUtworu);
+                this.columnUtwory_IDUtworu = new global::System.Data.DataColumn("Utwory_IDUtworu", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUtwory_IDUtworu);
+                this.columnLogin = new global::System.Data.DataColumn("Login", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLogin);
+                this.columnNazwa = new global::System.Data.DataColumn("Nazwa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNazwa);
+                this.columnRokPowstania = new global::System.Data.DataColumn("RokPowstania", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRokPowstania);
+                this.columnCena = new global::System.Data.DataColumn("Cena", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCena);
+                this.columnFormat = new global::System.Data.DataColumn("Format", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormat);
+                this.columnOcena = new global::System.Data.DataColumn("Ocena", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOcena);
+                this.columnKategoriaWiekowa = new global::System.Data.DataColumn("KategoriaWiekowa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKategoriaWiekowa);
+                this.columnOpis = new global::System.Data.DataColumn("Opis", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOpis);
+                this.columnUtwory_IDUtworu.AutoIncrement = true;
+                this.columnUtwory_IDUtworu.AutoIncrementSeed = -1;
+                this.columnUtwory_IDUtworu.AutoIncrementStep = -1;
+                this.columnLogin.MaxLength = 30;
+                this.columnNazwa.MaxLength = 30;
+                this.columnFormat.MaxLength = 255;
+                this.columnOcena.MaxLength = 255;
+                this.columnKategoriaWiekowa.MaxLength = 255;
+                this.columnOpis.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UtworyDlaKolekcjiRow NewUtworyDlaKolekcjiRow() {
+                return ((UtworyDlaKolekcjiRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new UtworyDlaKolekcjiRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(UtworyDlaKolekcjiRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.UtworyDlaKolekcjiRowChanged != null)) {
+                    this.UtworyDlaKolekcjiRowChanged(this, new UtworyDlaKolekcjiRowChangeEvent(((UtworyDlaKolekcjiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.UtworyDlaKolekcjiRowChanging != null)) {
+                    this.UtworyDlaKolekcjiRowChanging(this, new UtworyDlaKolekcjiRowChangeEvent(((UtworyDlaKolekcjiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.UtworyDlaKolekcjiRowDeleted != null)) {
+                    this.UtworyDlaKolekcjiRowDeleted(this, new UtworyDlaKolekcjiRowChangeEvent(((UtworyDlaKolekcjiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.UtworyDlaKolekcjiRowDeleting != null)) {
+                    this.UtworyDlaKolekcjiRowDeleting(this, new UtworyDlaKolekcjiRowChangeEvent(((UtworyDlaKolekcjiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveUtworyDlaKolekcjiRow(UtworyDlaKolekcjiRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Model ds = new Model();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "UtworyDlaKolekcjiDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class KolekcjeRow : global::System.Data.DataRow {
@@ -4447,7 +4878,7 @@ namespace Bazy_projekt {
                         return ((string)(this[this.tableUtwory.OcenaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        return "0";
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ocena\' in table \'Utwory\' is DBNull.", e);
                     }
                 }
                 set {
@@ -5414,6 +5845,330 @@ namespace Bazy_projekt {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class UtworyDlaKolekcjiRow : global::System.Data.DataRow {
+            
+            private UtworyDlaKolekcjiDataTable tableUtworyDlaKolekcji;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal UtworyDlaKolekcjiRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableUtworyDlaKolekcji = ((UtworyDlaKolekcjiDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IDKolekcji {
+                get {
+                    try {
+                        return ((int)(this[this.tableUtworyDlaKolekcji.IDKolekcjiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDKolekcji\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.IDKolekcjiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Przydziały_IDUtworu {
+                get {
+                    try {
+                        return ((int)(this[this.tableUtworyDlaKolekcji.Przydziały_IDUtworuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Przydziały_IDUtworu\' in table \'UtworyDlaKolekcji\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.Przydziały_IDUtworuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Utwory_IDUtworu {
+                get {
+                    try {
+                        return ((int)(this[this.tableUtworyDlaKolekcji.Utwory_IDUtworuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Utwory_IDUtworu\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.Utwory_IDUtworuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Login {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtworyDlaKolekcji.LoginColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Login\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.LoginColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nazwa {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtworyDlaKolekcji.NazwaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nazwa\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.NazwaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short RokPowstania {
+                get {
+                    try {
+                        return ((short)(this[this.tableUtworyDlaKolekcji.RokPowstaniaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RokPowstania\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.RokPowstaniaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Cena {
+                get {
+                    try {
+                        return ((int)(this[this.tableUtworyDlaKolekcji.CenaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cena\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.CenaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Format {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtworyDlaKolekcji.FormatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Format\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.FormatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Ocena {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtworyDlaKolekcji.OcenaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ocena\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.OcenaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string KategoriaWiekowa {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtworyDlaKolekcji.KategoriaWiekowaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KategoriaWiekowa\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.KategoriaWiekowaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Opis {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtworyDlaKolekcji.OpisColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Opis\' in table \'UtworyDlaKolekcji\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtworyDlaKolekcji.OpisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDKolekcjiNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.IDKolekcjiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDKolekcjiNull() {
+                this[this.tableUtworyDlaKolekcji.IDKolekcjiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrzydziały_IDUtworuNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.Przydziały_IDUtworuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrzydziały_IDUtworuNull() {
+                this[this.tableUtworyDlaKolekcji.Przydziały_IDUtworuColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUtwory_IDUtworuNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.Utwory_IDUtworuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUtwory_IDUtworuNull() {
+                this[this.tableUtworyDlaKolekcji.Utwory_IDUtworuColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLoginNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.LoginColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLoginNull() {
+                this[this.tableUtworyDlaKolekcji.LoginColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNazwaNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.NazwaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNazwaNull() {
+                this[this.tableUtworyDlaKolekcji.NazwaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRokPowstaniaNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.RokPowstaniaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRokPowstaniaNull() {
+                this[this.tableUtworyDlaKolekcji.RokPowstaniaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCenaNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.CenaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCenaNull() {
+                this[this.tableUtworyDlaKolekcji.CenaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFormatNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.FormatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFormatNull() {
+                this[this.tableUtworyDlaKolekcji.FormatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOcenaNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.OcenaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOcenaNull() {
+                this[this.tableUtworyDlaKolekcji.OcenaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKategoriaWiekowaNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.KategoriaWiekowaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKategoriaWiekowaNull() {
+                this[this.tableUtworyDlaKolekcji.KategoriaWiekowaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOpisNull() {
+                return this.IsNull(this.tableUtworyDlaKolekcji.OpisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOpisNull() {
+                this[this.tableUtworyDlaKolekcji.OpisColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -5705,6 +6460,40 @@ namespace Bazy_projekt {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ZamówieniaNaUtworyRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class UtworyDlaKolekcjiRowChangeEvent : global::System.EventArgs {
+            
+            private UtworyDlaKolekcjiRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UtworyDlaKolekcjiRowChangeEvent(UtworyDlaKolekcjiRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UtworyDlaKolekcjiRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -9717,6 +10506,184 @@ namespace Bazy_projekt.ModelTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class UtworyDlaKolekcjiTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public UtworyDlaKolekcjiTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "UtworyDlaKolekcji";
+            tableMapping.ColumnMappings.Add("IDKolekcji", "IDKolekcji");
+            tableMapping.ColumnMappings.Add("Przydziały_IDUtworu", "Przydziały_IDUtworu");
+            tableMapping.ColumnMappings.Add("Utwory_IDUtworu", "Utwory_IDUtworu");
+            tableMapping.ColumnMappings.Add("Login", "Login");
+            tableMapping.ColumnMappings.Add("Nazwa", "Nazwa");
+            tableMapping.ColumnMappings.Add("RokPowstania", "RokPowstania");
+            tableMapping.ColumnMappings.Add("Cena", "Cena");
+            tableMapping.ColumnMappings.Add("Format", "Format");
+            tableMapping.ColumnMappings.Add("Ocena", "Ocena");
+            tableMapping.ColumnMappings.Add("KategoriaWiekowa", "KategoriaWiekowa");
+            tableMapping.ColumnMappings.Add("Opis", "Opis");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::Bazy_projekt.Properties.Settings.Default.Projekt1_14ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT IDKolekcji, Przydziały_IDUtworu, Utwory_IDUtworu, Login, Nazwa, RokPowstan" +
+                "ia, Cena, Format, Ocena, KategoriaWiekowa, Opis FROM UtworyDlaKolekcji";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Model.UtworyDlaKolekcjiDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Model.UtworyDlaKolekcjiDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Model.UtworyDlaKolekcjiDataTable dataTable = new Model.UtworyDlaKolekcjiDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

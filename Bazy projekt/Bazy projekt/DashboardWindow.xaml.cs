@@ -23,6 +23,8 @@ namespace Bazy_projekt
     /// </summary>
     public partial class DashboardWindow : Window
     {
+        Model.UtworyDataTable utworyDlaKolekcji = new Model.UtworyDataTable();
+
         public DashboardWindow()
         {
             InitializeComponent();
@@ -56,12 +58,10 @@ namespace Bazy_projekt
             for (int j = 0; j < tabKolekcje.Count; j++)
             {
                 gridDataKolekcje.Items.Add(tabKolekcje.ElementAt(j));
+
             }
 
             gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
-
-
-            //  MessageBox.Show("Mamy w bazie utworów: " + pobierzUtwory(null, "delxxxxo19", null).Count);
 
         }
 
@@ -72,7 +72,6 @@ namespace Bazy_projekt
             SongWindow w = new SongWindow();
             w.Show();
             this.Close();
-            // MessageBox.Show("SDF");
         }
 
         void gridData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -193,7 +192,6 @@ namespace Bazy_projekt
                 piosenka.Format = "." + pathDoUtworu.Split('.')[pathDoUtworu.Split('.').Length - 1];
                 piosenka.KategoriaWiekowa = "+16";
 
-                //ValidateKlient(users, uzytkownik);
                 utwory.AddUtworyRow(piosenka);
                 adapter.Update(utwory);
                 //zapis pliku do folderu
@@ -216,18 +214,61 @@ namespace Bazy_projekt
         #region Dodaj Kolekcję
         private void dodanieUtworuDoKolekcji(object sender, MouseButtonEventArgs e)
         {
-            //TODO dodanie zaznaczonego utworu do kolekcji
+            var utwor = dodajKolekcjeTextBoxListaUtworowUzytkownika.SelectedItem as Bazy_projekt.Model.UtworyRow;
+            if (!utworyDlaKolekcji.Any(x => x.IDUtworu == utwor.IDUtworu))
+            {
+                utworyDlaKolekcji.Rows.Add(utwor.ItemArray);
+                dodajKolekcjeTextBoxListaNowychUtworow.Items.Add(utwor);
+            }
         }
 
         private void usunUtworZKolekcji(object sender, MouseButtonEventArgs e)
         {
-            //TODO usuniecie zaznaczonego na liscie utworu z kolekcji
+            var utwor = dodajKolekcjeTextBoxListaNowychUtworow.SelectedItem as Bazy_projekt.Model.UtworyRow;
+            if (utwor != null)
+            {
+                utworyDlaKolekcji.Single(row => row.IDUtworu == utwor.IDUtworu).Delete();
+                dodajKolekcjeTextBoxListaNowychUtworow.Items.Remove(dodajKolekcjeTextBoxListaNowychUtworow.SelectedItem);
+            }
         }
 
         private void DodajKolekcjeDoBazy(object sender, MouseButtonEventArgs e)
         {
-            //TODO dodanie kolekcji do bazy na podstawie: 
-            //  dodajKolekcjeTextBoxCenaKolekcji, dodajKolekcjeTextBoxListaNowychUtworow, dodajKolekcjeTextBoxListaUtworowUzytkownika, dodajKolekcjeTextBoxNazwaKolekcji, dodajKolekcjeTextBoxOpisKolekcji
+            try
+            {
+                //TODO dodanie kolekcji do bazy na podstawie: 
+                //  dodajKolekcjeTextBoxCenaKolekcji, dodajKolekcjeTextBoxListaNowychUtworow, dodajKolekcjeTextBoxListaUtworowUzytkownika, dodajKolekcjeTextBoxNazwaKolekcji, dodajKolekcjeTextBoxOpisKolekcji
+                KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
+                Model.KolekcjeDataTable kolekcje = adapter.GetData();
+                Bazy_projekt.Model.KolekcjeRow kolekcja = kolekcje.NewKolekcjeRow();
+                kolekcja.CenaKolekcji = dodajKolekcjeTextBoxCenaKolekcji.Text;
+                kolekcja.Ocena = "0";
+                kolekcja.Opis = dodajKolekcjeTextBoxOpisKolekcji.Text;
+                kolekcja.Nazwa = dodajKolekcjeTextBoxNazwaKolekcji.Text;
+                kolekcja.Login = SessionSingleton.zalogowanyUser.Login;
+                kolekcja.LiczbaUtworów = utworyDlaKolekcji.Rows.Count.ToString();
+
+                kolekcje.AddKolekcjeRow(kolekcja);
+                adapter.Update(kolekcje);
+                kolekcje = adapter.GetData();
+                // teraz majac kolekcje mozna zapisac przydziały
+
+                PrzydziałyTableAdapter adapterPrzydzialy = new PrzydziałyTableAdapter();
+                Model.PrzydziałyDataTable przydzialy = adapterPrzydzialy.GetData();
+                for (int i = 0; i < utworyDlaKolekcji.Count; i++)
+                {
+                    Model.PrzydziałyRow przydzial = przydzialy.NewPrzydziałyRow();
+                    przydzial.IDKolekcji = kolekcje.OrderBy(x => x.IDKolekcji).Last().IDKolekcji;
+                    przydzial.IDUtworu = utworyDlaKolekcji[i].IDUtworu;
+                    przydzialy.AddPrzydziałyRow(przydzial);
+                }
+                adapterPrzydzialy.Update(przydzialy);
+
+
+            }
+            catch (ValidationException exc) { }
+
+
         }
 
         #endregion Dodaj Kolekcję
@@ -269,6 +310,12 @@ namespace Bazy_projekt
             dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
             utwory2.Visibility = System.Windows.Visibility.Hidden;
             mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+
+            Model.UtworyDataTable tab = pobierzUtwory(null, SessionSingleton.zalogowanyUser.Login, null);
+            for (int i = 0; i < tab.Count; i++)
+            {
+                dodajKolekcjeTextBoxListaUtworowUzytkownika.Items.Add(tab.ElementAt(i));
+            }
         }
 
         private void mojeUtworyIKolekcje(object sender, MouseButtonEventArgs e)

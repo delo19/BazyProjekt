@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bazy_projekt.ModelTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,12 @@ namespace Bazy_projekt
 
             songViewNazwaKolekcji.Text = SessionSingleton.aktualnaKolekcja.Nazwa;
             songViewAutor.Text = SessionSingleton.aktualnaKolekcja.Login;
+
+            // tu masz pobieranie listy utworow
+            UtworyDlaKolekcjiTableAdapter adapterPrzydzialy = new UtworyDlaKolekcjiTableAdapter();
+            Model.UtworyDlaKolekcjiDataTable utwory = adapterPrzydzialy.GetData();
+            var przydzialyOk = utwory.Select("IDKolekcji='" + SessionSingleton.aktualnaKolekcja.IDKolekcji + "'");
+            
         }
     }
 }

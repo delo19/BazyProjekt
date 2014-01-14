@@ -675,6 +675,32 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UtworyDlaKolekcjiTableAdapter" GeneratorDataComponentClassName="UtworyDlaKolekcjiTableAdapter" Name="UtworyDlaKolekcji" UserDataComponentName="UtworyDlaKolekcjiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Projekt1_14ConnectionString (Settings)" DbObjectName="UtworyDlaKolekcji" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IDKolekcji, Przydziały_IDUtworu, Utwory_IDUtworu, Login, Nazwa, RokPowstania, Cena, Format, Ocena, KategoriaWiekowa, Opis FROM UtworyDlaKolekcji</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IDKolekcji" DataSetColumn="IDKolekcji" />
+              <Mapping SourceColumn="Przydziały_IDUtworu" DataSetColumn="Przydziały_IDUtworu" />
+              <Mapping SourceColumn="Utwory_IDUtworu" DataSetColumn="Utwory_IDUtworu" />
+              <Mapping SourceColumn="Login" DataSetColumn="Login" />
+              <Mapping SourceColumn="Nazwa" DataSetColumn="Nazwa" />
+              <Mapping SourceColumn="RokPowstania" DataSetColumn="RokPowstania" />
+              <Mapping SourceColumn="Cena" DataSetColumn="Cena" />
+              <Mapping SourceColumn="Format" DataSetColumn="Format" />
+              <Mapping SourceColumn="Ocena" DataSetColumn="Ocena" />
+              <Mapping SourceColumn="KategoriaWiekowa" DataSetColumn="KategoriaWiekowa" />
+              <Mapping SourceColumn="Opis" DataSetColumn="Opis" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -683,7 +709,7 @@
   <xs:element name="Model" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Model" msprop:Generator_UserDSName="Model">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Kolekcje" msprop:Generator_TableClassName="KolekcjeDataTable" msprop:Generator_TableVarName="tableKolekcje" msprop:Generator_TablePropName="Kolekcje" msprop:Generator_RowDeletingName="KolekcjeRowDeleting" msprop:Generator_RowChangingName="KolekcjeRowChanging" msprop:Generator_RowEvHandlerName="KolekcjeRowChangeEventHandler" msprop:Generator_RowDeletedName="KolekcjeRowDeleted" msprop:Generator_UserTableName="Kolekcje" msprop:Generator_RowChangedName="KolekcjeRowChanged" msprop:Generator_RowEvArgName="KolekcjeRowChangeEvent" msprop:Generator_RowClassName="KolekcjeRow">
+        <xs:element name="Kolekcje" msprop:Generator_TableClassName="KolekcjeDataTable" msprop:Generator_TableVarName="tableKolekcje" msprop:Generator_RowChangedName="KolekcjeRowChanged" msprop:Generator_TablePropName="Kolekcje" msprop:Generator_RowDeletingName="KolekcjeRowDeleting" msprop:Generator_RowChangingName="KolekcjeRowChanging" msprop:Generator_RowEvHandlerName="KolekcjeRowChangeEventHandler" msprop:Generator_RowDeletedName="KolekcjeRowDeleted" msprop:Generator_RowClassName="KolekcjeRow" msprop:Generator_UserTableName="Kolekcje" msprop:Generator_RowEvArgName="KolekcjeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDKolekcji" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDKolekcji" msprop:Generator_ColumnPropNameInRow="IDKolekcji" msprop:Generator_ColumnPropNameInTable="IDKolekcjiColumn" msprop:Generator_UserColumnName="IDKolekcji" type="xs:int" />
@@ -746,7 +772,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Komentarze" msprop:Generator_TableClassName="KomentarzeDataTable" msprop:Generator_TableVarName="tableKomentarze" msprop:Generator_TablePropName="Komentarze" msprop:Generator_RowDeletingName="KomentarzeRowDeleting" msprop:Generator_RowChangingName="KomentarzeRowChanging" msprop:Generator_RowEvHandlerName="KomentarzeRowChangeEventHandler" msprop:Generator_RowDeletedName="KomentarzeRowDeleted" msprop:Generator_UserTableName="Komentarze" msprop:Generator_RowChangedName="KomentarzeRowChanged" msprop:Generator_RowEvArgName="KomentarzeRowChangeEvent" msprop:Generator_RowClassName="KomentarzeRow">
+        <xs:element name="Komentarze" msprop:Generator_TableClassName="KomentarzeDataTable" msprop:Generator_TableVarName="tableKomentarze" msprop:Generator_RowChangedName="KomentarzeRowChanged" msprop:Generator_TablePropName="Komentarze" msprop:Generator_RowDeletingName="KomentarzeRowDeleting" msprop:Generator_RowChangingName="KomentarzeRowChanging" msprop:Generator_RowEvHandlerName="KomentarzeRowChangeEventHandler" msprop:Generator_RowDeletedName="KomentarzeRowDeleted" msprop:Generator_RowClassName="KomentarzeRow" msprop:Generator_UserTableName="Komentarze" msprop:Generator_RowEvArgName="KomentarzeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDKomentarza" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDKomentarza" msprop:Generator_ColumnPropNameInRow="IDKomentarza" msprop:Generator_ColumnPropNameInTable="IDKomentarzaColumn" msprop:Generator_UserColumnName="IDKomentarza" type="xs:int" />
@@ -790,7 +816,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Przydziały" msprop:Generator_TableClassName="PrzydziałyDataTable" msprop:Generator_TableVarName="tablePrzydziały" msprop:Generator_TablePropName="Przydziały" msprop:Generator_RowDeletingName="PrzydziałyRowDeleting" msprop:Generator_RowChangingName="PrzydziałyRowChanging" msprop:Generator_RowEvHandlerName="PrzydziałyRowChangeEventHandler" msprop:Generator_RowDeletedName="PrzydziałyRowDeleted" msprop:Generator_UserTableName="Przydziały" msprop:Generator_RowChangedName="PrzydziałyRowChanged" msprop:Generator_RowEvArgName="PrzydziałyRowChangeEvent" msprop:Generator_RowClassName="PrzydziałyRow">
+        <xs:element name="Przydziały" msprop:Generator_TableClassName="PrzydziałyDataTable" msprop:Generator_TableVarName="tablePrzydziały" msprop:Generator_RowChangedName="PrzydziałyRowChanged" msprop:Generator_TablePropName="Przydziały" msprop:Generator_RowDeletingName="PrzydziałyRowDeleting" msprop:Generator_RowChangingName="PrzydziałyRowChanging" msprop:Generator_RowEvHandlerName="PrzydziałyRowChangeEventHandler" msprop:Generator_RowDeletedName="PrzydziałyRowDeleted" msprop:Generator_RowClassName="PrzydziałyRow" msprop:Generator_UserTableName="Przydziały" msprop:Generator_RowEvArgName="PrzydziałyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDKolekcji" msprop:Generator_ColumnVarNameInTable="columnIDKolekcji" msprop:Generator_ColumnPropNameInRow="IDKolekcji" msprop:Generator_ColumnPropNameInTable="IDKolekcjiColumn" msprop:Generator_UserColumnName="IDKolekcji" type="xs:int" />
@@ -798,7 +824,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Uprawnienia" msprop:Generator_TableClassName="UprawnieniaDataTable" msprop:Generator_TableVarName="tableUprawnienia" msprop:Generator_TablePropName="Uprawnienia" msprop:Generator_RowDeletingName="UprawnieniaRowDeleting" msprop:Generator_RowChangingName="UprawnieniaRowChanging" msprop:Generator_RowEvHandlerName="UprawnieniaRowChangeEventHandler" msprop:Generator_RowDeletedName="UprawnieniaRowDeleted" msprop:Generator_UserTableName="Uprawnienia" msprop:Generator_RowChangedName="UprawnieniaRowChanged" msprop:Generator_RowEvArgName="UprawnieniaRowChangeEvent" msprop:Generator_RowClassName="UprawnieniaRow">
+        <xs:element name="Uprawnienia" msprop:Generator_TableClassName="UprawnieniaDataTable" msprop:Generator_TableVarName="tableUprawnienia" msprop:Generator_RowChangedName="UprawnieniaRowChanged" msprop:Generator_TablePropName="Uprawnienia" msprop:Generator_RowDeletingName="UprawnieniaRowDeleting" msprop:Generator_RowChangingName="UprawnieniaRowChanging" msprop:Generator_RowEvHandlerName="UprawnieniaRowChangeEventHandler" msprop:Generator_RowDeletedName="UprawnieniaRowDeleted" msprop:Generator_RowClassName="UprawnieniaRow" msprop:Generator_UserTableName="Uprawnienia" msprop:Generator_RowEvArgName="UprawnieniaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDUprawnienia" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDUprawnienia" msprop:Generator_ColumnPropNameInRow="IDUprawnienia" msprop:Generator_ColumnPropNameInTable="IDUprawnieniaColumn" msprop:Generator_UserColumnName="IDUprawnienia" type="xs:int" />
@@ -812,7 +838,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Utwory" msprop:Generator_TableClassName="UtworyDataTable" msprop:Generator_TableVarName="tableUtwory" msprop:Generator_TablePropName="Utwory" msprop:Generator_RowDeletingName="UtworyRowDeleting" msprop:Generator_RowChangingName="UtworyRowChanging" msprop:Generator_RowEvHandlerName="UtworyRowChangeEventHandler" msprop:Generator_RowDeletedName="UtworyRowDeleted" msprop:Generator_UserTableName="Utwory" msprop:Generator_RowChangedName="UtworyRowChanged" msprop:Generator_RowEvArgName="UtworyRowChangeEvent" msprop:Generator_RowClassName="UtworyRow">
+        <xs:element name="Utwory" msprop:Generator_TableClassName="UtworyDataTable" msprop:Generator_TableVarName="tableUtwory" msprop:Generator_RowChangedName="UtworyRowChanged" msprop:Generator_TablePropName="Utwory" msprop:Generator_RowDeletingName="UtworyRowDeleting" msprop:Generator_RowChangingName="UtworyRowChanging" msprop:Generator_RowEvHandlerName="UtworyRowChangeEventHandler" msprop:Generator_RowDeletedName="UtworyRowDeleted" msprop:Generator_RowClassName="UtworyRow" msprop:Generator_UserTableName="Utwory" msprop:Generator_RowEvArgName="UtworyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDUtworu" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDUtworu" msprop:Generator_ColumnPropNameInRow="IDUtworu" msprop:Generator_ColumnPropNameInTable="IDUtworuColumn" msprop:Generator_UserColumnName="IDUtworu" type="xs:int" />
@@ -863,7 +889,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Użytkownicy" msprop:Generator_TableClassName="UżytkownicyDataTable" msprop:Generator_TableVarName="tableUżytkownicy" msprop:Generator_TablePropName="Użytkownicy" msprop:Generator_RowDeletingName="UżytkownicyRowDeleting" msprop:Generator_RowChangingName="UżytkownicyRowChanging" msprop:Generator_RowEvHandlerName="UżytkownicyRowChangeEventHandler" msprop:Generator_RowDeletedName="UżytkownicyRowDeleted" msprop:Generator_UserTableName="Użytkownicy" msprop:Generator_RowChangedName="UżytkownicyRowChanged" msprop:Generator_RowEvArgName="UżytkownicyRowChangeEvent" msprop:Generator_RowClassName="UżytkownicyRow">
+        <xs:element name="Użytkownicy" msprop:Generator_TableClassName="UżytkownicyDataTable" msprop:Generator_TableVarName="tableUżytkownicy" msprop:Generator_RowChangedName="UżytkownicyRowChanged" msprop:Generator_TablePropName="Użytkownicy" msprop:Generator_RowDeletingName="UżytkownicyRowDeleting" msprop:Generator_RowChangingName="UżytkownicyRowChanging" msprop:Generator_RowEvHandlerName="UżytkownicyRowChangeEventHandler" msprop:Generator_RowDeletedName="UżytkownicyRowDeleted" msprop:Generator_RowClassName="UżytkownicyRow" msprop:Generator_UserTableName="Użytkownicy" msprop:Generator_RowEvArgName="UżytkownicyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Login" msprop:Generator_ColumnVarNameInTable="columnLogin" msprop:Generator_ColumnPropNameInRow="Login" msprop:Generator_ColumnPropNameInTable="LoginColumn" msprop:Generator_UserColumnName="Login">
@@ -944,7 +970,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Zamówienia" msprop:Generator_TableClassName="ZamówieniaDataTable" msprop:Generator_TableVarName="tableZamówienia" msprop:Generator_TablePropName="Zamówienia" msprop:Generator_RowDeletingName="ZamówieniaRowDeleting" msprop:Generator_RowChangingName="ZamówieniaRowChanging" msprop:Generator_RowEvHandlerName="ZamówieniaRowChangeEventHandler" msprop:Generator_RowDeletedName="ZamówieniaRowDeleted" msprop:Generator_UserTableName="Zamówienia" msprop:Generator_RowChangedName="ZamówieniaRowChanged" msprop:Generator_RowEvArgName="ZamówieniaRowChangeEvent" msprop:Generator_RowClassName="ZamówieniaRow">
+        <xs:element name="Zamówienia" msprop:Generator_TableClassName="ZamówieniaDataTable" msprop:Generator_TableVarName="tableZamówienia" msprop:Generator_RowChangedName="ZamówieniaRowChanged" msprop:Generator_TablePropName="Zamówienia" msprop:Generator_RowDeletingName="ZamówieniaRowDeleting" msprop:Generator_RowChangingName="ZamówieniaRowChanging" msprop:Generator_RowEvHandlerName="ZamówieniaRowChangeEventHandler" msprop:Generator_RowDeletedName="ZamówieniaRowDeleted" msprop:Generator_RowClassName="ZamówieniaRow" msprop:Generator_UserTableName="Zamówienia" msprop:Generator_RowEvArgName="ZamówieniaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDZamówienia" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDZamówienia" msprop:Generator_ColumnPropNameInRow="IDZamówienia" msprop:Generator_ColumnPropNameInTable="IDZamówieniaColumn" msprop:Generator_UserColumnName="IDZamówienia" type="xs:int" />
@@ -961,7 +987,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ZamówieniaNaKolekcje" msprop:Generator_TableClassName="ZamówieniaNaKolekcjeDataTable" msprop:Generator_TableVarName="tableZamówieniaNaKolekcje" msprop:Generator_TablePropName="ZamówieniaNaKolekcje" msprop:Generator_RowDeletingName="ZamówieniaNaKolekcjeRowDeleting" msprop:Generator_RowChangingName="ZamówieniaNaKolekcjeRowChanging" msprop:Generator_RowEvHandlerName="ZamówieniaNaKolekcjeRowChangeEventHandler" msprop:Generator_RowDeletedName="ZamówieniaNaKolekcjeRowDeleted" msprop:Generator_UserTableName="ZamówieniaNaKolekcje" msprop:Generator_RowChangedName="ZamówieniaNaKolekcjeRowChanged" msprop:Generator_RowEvArgName="ZamówieniaNaKolekcjeRowChangeEvent" msprop:Generator_RowClassName="ZamówieniaNaKolekcjeRow">
+        <xs:element name="ZamówieniaNaKolekcje" msprop:Generator_TableClassName="ZamówieniaNaKolekcjeDataTable" msprop:Generator_TableVarName="tableZamówieniaNaKolekcje" msprop:Generator_RowChangedName="ZamówieniaNaKolekcjeRowChanged" msprop:Generator_TablePropName="ZamówieniaNaKolekcje" msprop:Generator_RowDeletingName="ZamówieniaNaKolekcjeRowDeleting" msprop:Generator_RowChangingName="ZamówieniaNaKolekcjeRowChanging" msprop:Generator_RowEvHandlerName="ZamówieniaNaKolekcjeRowChangeEventHandler" msprop:Generator_RowDeletedName="ZamówieniaNaKolekcjeRowDeleted" msprop:Generator_RowClassName="ZamówieniaNaKolekcjeRow" msprop:Generator_UserTableName="ZamówieniaNaKolekcje" msprop:Generator_RowEvArgName="ZamówieniaNaKolekcjeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDZamówienia" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDZamówienia" msprop:Generator_ColumnPropNameInRow="IDZamówienia" msprop:Generator_ColumnPropNameInTable="IDZamówieniaColumn" msprop:Generator_UserColumnName="IDZamówienia" type="xs:int" />
@@ -969,11 +995,64 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ZamówieniaNaUtwory" msprop:Generator_TableClassName="ZamówieniaNaUtworyDataTable" msprop:Generator_TableVarName="tableZamówieniaNaUtwory" msprop:Generator_TablePropName="ZamówieniaNaUtwory" msprop:Generator_RowDeletingName="ZamówieniaNaUtworyRowDeleting" msprop:Generator_RowChangingName="ZamówieniaNaUtworyRowChanging" msprop:Generator_RowEvHandlerName="ZamówieniaNaUtworyRowChangeEventHandler" msprop:Generator_RowDeletedName="ZamówieniaNaUtworyRowDeleted" msprop:Generator_UserTableName="ZamówieniaNaUtwory" msprop:Generator_RowChangedName="ZamówieniaNaUtworyRowChanged" msprop:Generator_RowEvArgName="ZamówieniaNaUtworyRowChangeEvent" msprop:Generator_RowClassName="ZamówieniaNaUtworyRow">
+        <xs:element name="ZamówieniaNaUtwory" msprop:Generator_TableClassName="ZamówieniaNaUtworyDataTable" msprop:Generator_TableVarName="tableZamówieniaNaUtwory" msprop:Generator_RowChangedName="ZamówieniaNaUtworyRowChanged" msprop:Generator_TablePropName="ZamówieniaNaUtwory" msprop:Generator_RowDeletingName="ZamówieniaNaUtworyRowDeleting" msprop:Generator_RowChangingName="ZamówieniaNaUtworyRowChanging" msprop:Generator_RowEvHandlerName="ZamówieniaNaUtworyRowChangeEventHandler" msprop:Generator_RowDeletedName="ZamówieniaNaUtworyRowDeleted" msprop:Generator_RowClassName="ZamówieniaNaUtworyRow" msprop:Generator_UserTableName="ZamówieniaNaUtwory" msprop:Generator_RowEvArgName="ZamówieniaNaUtworyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDZamówienia" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDZamówienia" msprop:Generator_ColumnPropNameInRow="IDZamówienia" msprop:Generator_ColumnPropNameInTable="IDZamówieniaColumn" msprop:Generator_UserColumnName="IDZamówienia" type="xs:int" />
               <xs:element name="IDUtworu" msprop:Generator_ColumnVarNameInTable="columnIDUtworu" msprop:Generator_ColumnPropNameInRow="IDUtworu" msprop:Generator_ColumnPropNameInTable="IDUtworuColumn" msprop:Generator_UserColumnName="IDUtworu" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UtworyDlaKolekcji" msprop:Generator_TableClassName="UtworyDlaKolekcjiDataTable" msprop:Generator_TableVarName="tableUtworyDlaKolekcji" msprop:Generator_TablePropName="UtworyDlaKolekcji" msprop:Generator_RowDeletingName="UtworyDlaKolekcjiRowDeleting" msprop:Generator_RowChangingName="UtworyDlaKolekcjiRowChanging" msprop:Generator_RowEvHandlerName="UtworyDlaKolekcjiRowChangeEventHandler" msprop:Generator_RowDeletedName="UtworyDlaKolekcjiRowDeleted" msprop:Generator_UserTableName="UtworyDlaKolekcji" msprop:Generator_RowChangedName="UtworyDlaKolekcjiRowChanged" msprop:Generator_RowEvArgName="UtworyDlaKolekcjiRowChangeEvent" msprop:Generator_RowClassName="UtworyDlaKolekcjiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDKolekcji" msprop:Generator_ColumnVarNameInTable="columnIDKolekcji" msprop:Generator_ColumnPropNameInRow="IDKolekcji" msprop:Generator_ColumnPropNameInTable="IDKolekcjiColumn" msprop:Generator_UserColumnName="IDKolekcji" type="xs:int" minOccurs="0" />
+              <xs:element name="Przydziały_IDUtworu" msprop:Generator_ColumnVarNameInTable="columnPrzydziały_IDUtworu" msprop:Generator_ColumnPropNameInRow="Przydziały_IDUtworu" msprop:Generator_ColumnPropNameInTable="Przydziały_IDUtworuColumn" msprop:Generator_UserColumnName="Przydziały_IDUtworu" type="xs:int" minOccurs="0" />
+              <xs:element name="Utwory_IDUtworu" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUtwory_IDUtworu" msprop:Generator_ColumnPropNameInRow="Utwory_IDUtworu" msprop:Generator_ColumnPropNameInTable="Utwory_IDUtworuColumn" msprop:Generator_UserColumnName="Utwory_IDUtworu" type="xs:int" minOccurs="0" />
+              <xs:element name="Login" msprop:Generator_ColumnVarNameInTable="columnLogin" msprop:Generator_ColumnPropNameInRow="Login" msprop:Generator_ColumnPropNameInTable="LoginColumn" msprop:Generator_UserColumnName="Login" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nazwa" msprop:Generator_ColumnVarNameInTable="columnNazwa" msprop:Generator_ColumnPropNameInRow="Nazwa" msprop:Generator_ColumnPropNameInTable="NazwaColumn" msprop:Generator_UserColumnName="Nazwa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RokPowstania" msprop:Generator_ColumnVarNameInTable="columnRokPowstania" msprop:Generator_ColumnPropNameInRow="RokPowstania" msprop:Generator_ColumnPropNameInTable="RokPowstaniaColumn" msprop:Generator_UserColumnName="RokPowstania" type="xs:short" minOccurs="0" />
+              <xs:element name="Cena" msprop:Generator_ColumnVarNameInTable="columnCena" msprop:Generator_ColumnPropNameInRow="Cena" msprop:Generator_ColumnPropNameInTable="CenaColumn" msprop:Generator_UserColumnName="Cena" type="xs:int" minOccurs="0" />
+              <xs:element name="Format" msprop:Generator_ColumnVarNameInTable="columnFormat" msprop:Generator_ColumnPropNameInRow="Format" msprop:Generator_ColumnPropNameInTable="FormatColumn" msprop:Generator_UserColumnName="Format" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ocena" msprop:Generator_ColumnVarNameInTable="columnOcena" msprop:Generator_ColumnPropNameInRow="Ocena" msprop:Generator_ColumnPropNameInTable="OcenaColumn" msprop:Generator_UserColumnName="Ocena" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KategoriaWiekowa" msprop:Generator_ColumnVarNameInTable="columnKategoriaWiekowa" msprop:Generator_ColumnPropNameInRow="KategoriaWiekowa" msprop:Generator_ColumnPropNameInTable="KategoriaWiekowaColumn" msprop:Generator_UserColumnName="KategoriaWiekowa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Opis" msprop:Generator_ColumnVarNameInTable="columnOpis" msprop:Generator_ColumnPropNameInRow="Opis" msprop:Generator_ColumnPropNameInTable="OpisColumn" msprop:Generator_UserColumnName="Opis" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1019,18 +1098,18 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="UżytkownicyKolekcje" msdata:parent="Użytkownicy" msdata:child="Kolekcje" msdata:parentkey="Login" msdata:childkey="Login" msprop:Generator_UserChildTable="Kolekcje" msprop:Generator_ChildPropName="GetKolekcjeRows" msprop:Generator_UserRelationName="UżytkownicyKolekcje" msprop:Generator_RelationVarName="relationUżytkownicyKolekcje" msprop:Generator_UserParentTable="Użytkownicy" msprop:Generator_ParentPropName="UżytkownicyRow" />
-      <msdata:Relationship name="KolekcjeKomentarze" msdata:parent="Kolekcje" msdata:child="Komentarze" msdata:parentkey="IDKolekcji" msdata:childkey="IDKolekcji" msprop:Generator_UserChildTable="Komentarze" msprop:Generator_ChildPropName="GetKomentarzeRows" msprop:Generator_UserRelationName="KolekcjeKomentarze" msprop:Generator_ParentPropName="KolekcjeRow" msprop:Generator_RelationVarName="relationKolekcjeKomentarze" msprop:Generator_UserParentTable="Kolekcje" />
-      <msdata:Relationship name="UtworyKomentarze" msdata:parent="Utwory" msdata:child="Komentarze" msdata:parentkey="IDUtworu" msdata:childkey="IDUtworu" msprop:Generator_UserChildTable="Komentarze" msprop:Generator_ChildPropName="GetKomentarzeRows" msprop:Generator_UserRelationName="UtworyKomentarze" msprop:Generator_RelationVarName="relationUtworyKomentarze" msprop:Generator_UserParentTable="Utwory" msprop:Generator_ParentPropName="UtworyRow" />
-      <msdata:Relationship name="KolekcjePrzydziały" msdata:parent="Kolekcje" msdata:child="Przydziały" msdata:parentkey="IDKolekcji" msdata:childkey="IDKolekcji" msprop:Generator_UserChildTable="Przydziały" msprop:Generator_ChildPropName="GetPrzydziałyRows" msprop:Generator_UserRelationName="KolekcjePrzydziały" msprop:Generator_ParentPropName="KolekcjeRow" msprop:Generator_RelationVarName="relationKolekcjePrzydziały" msprop:Generator_UserParentTable="Kolekcje" />
-      <msdata:Relationship name="UtworyPrzydziały" msdata:parent="Utwory" msdata:child="Przydziały" msdata:parentkey="IDUtworu" msdata:childkey="IDUtworu" msprop:Generator_UserChildTable="Przydziały" msprop:Generator_ChildPropName="GetPrzydziałyRows" msprop:Generator_UserRelationName="UtworyPrzydziały" msprop:Generator_RelationVarName="relationUtworyPrzydziały" msprop:Generator_UserParentTable="Utwory" msprop:Generator_ParentPropName="UtworyRow" />
-      <msdata:Relationship name="UżytkownicyUtwory" msdata:parent="Użytkownicy" msdata:child="Utwory" msdata:parentkey="Login" msdata:childkey="Login" msprop:Generator_UserChildTable="Utwory" msprop:Generator_ChildPropName="GetUtworyRows" msprop:Generator_UserRelationName="UżytkownicyUtwory" msprop:Generator_RelationVarName="relationUżytkownicyUtwory" msprop:Generator_UserParentTable="Użytkownicy" msprop:Generator_ParentPropName="UżytkownicyRow" />
-      <msdata:Relationship name="UprawnieniaUżytkownicy" msdata:parent="Uprawnienia" msdata:child="Użytkownicy" msdata:parentkey="IDUprawnienia" msdata:childkey="IDUprawnienia" msprop:Generator_UserChildTable="Użytkownicy" msprop:Generator_ChildPropName="GetUżytkownicyRows" msprop:Generator_UserRelationName="UprawnieniaUżytkownicy" msprop:Generator_ParentPropName="UprawnieniaRow" msprop:Generator_RelationVarName="relationUprawnieniaUżytkownicy" msprop:Generator_UserParentTable="Uprawnienia" />
-      <msdata:Relationship name="UżytkownicyZamówienia" msdata:parent="Użytkownicy" msdata:child="Zamówienia" msdata:parentkey="Login" msdata:childkey="Login" msprop:Generator_UserChildTable="Zamówienia" msprop:Generator_ChildPropName="GetZamówieniaRows" msprop:Generator_UserRelationName="UżytkownicyZamówienia" msprop:Generator_ParentPropName="UżytkownicyRow" msprop:Generator_RelationVarName="relationUżytkownicyZamówienia" msprop:Generator_UserParentTable="Użytkownicy" />
-      <msdata:Relationship name="ZamówieniaNaKolekcjeZamówienia" msdata:parent="ZamówieniaNaKolekcje" msdata:child="Zamówienia" msdata:parentkey="IDZamówienia" msdata:childkey="IDZamówienia" msprop:Generator_UserChildTable="Zamówienia" msprop:Generator_ChildPropName="GetZamówieniaRows" msprop:Generator_UserRelationName="ZamówieniaNaKolekcjeZamówienia" msprop:Generator_RelationVarName="relationZamówieniaNaKolekcjeZamówienia" msprop:Generator_UserParentTable="ZamówieniaNaKolekcje" msprop:Generator_ParentPropName="ZamówieniaNaKolekcjeRow" />
-      <msdata:Relationship name="ZamówieniaNaUtworyZamówienia" msdata:parent="ZamówieniaNaUtwory" msdata:child="Zamówienia" msdata:parentkey="IDZamówienia" msdata:childkey="IDZamówienia" msprop:Generator_UserChildTable="Zamówienia" msprop:Generator_ChildPropName="GetZamówieniaRows" msprop:Generator_UserRelationName="ZamówieniaNaUtworyZamówienia" msprop:Generator_RelationVarName="relationZamówieniaNaUtworyZamówienia" msprop:Generator_UserParentTable="ZamówieniaNaUtwory" msprop:Generator_ParentPropName="ZamówieniaNaUtworyRow" />
-      <msdata:Relationship name="KolekcjeZamówieniaNaKolekcje" msdata:parent="Kolekcje" msdata:child="ZamówieniaNaKolekcje" msdata:parentkey="IDKolekcji" msdata:childkey="IDKolekcji" msprop:Generator_UserChildTable="ZamówieniaNaKolekcje" msprop:Generator_ChildPropName="GetZamówieniaNaKolekcjeRows" msprop:Generator_UserRelationName="KolekcjeZamówieniaNaKolekcje" msprop:Generator_ParentPropName="KolekcjeRow" msprop:Generator_RelationVarName="relationKolekcjeZamówieniaNaKolekcje" msprop:Generator_UserParentTable="Kolekcje" />
-      <msdata:Relationship name="UtworyZamówieniaNaUtwory" msdata:parent="Utwory" msdata:child="ZamówieniaNaUtwory" msdata:parentkey="IDUtworu" msdata:childkey="IDUtworu" msprop:Generator_UserChildTable="ZamówieniaNaUtwory" msprop:Generator_ChildPropName="GetZamówieniaNaUtworyRows" msprop:Generator_UserRelationName="UtworyZamówieniaNaUtwory" msprop:Generator_ParentPropName="UtworyRow" msprop:Generator_RelationVarName="relationUtworyZamówieniaNaUtwory" msprop:Generator_UserParentTable="Utwory" />
+      <msdata:Relationship name="UżytkownicyKolekcje" msdata:parent="Użytkownicy" msdata:child="Kolekcje" msdata:parentkey="Login" msdata:childkey="Login" msprop:Generator_UserChildTable="Kolekcje" msprop:Generator_ChildPropName="GetKolekcjeRows" msprop:Generator_UserRelationName="UżytkownicyKolekcje" msprop:Generator_ParentPropName="UżytkownicyRow" msprop:Generator_RelationVarName="relationUżytkownicyKolekcje" msprop:Generator_UserParentTable="Użytkownicy" />
+      <msdata:Relationship name="KolekcjeKomentarze" msdata:parent="Kolekcje" msdata:child="Komentarze" msdata:parentkey="IDKolekcji" msdata:childkey="IDKolekcji" msprop:Generator_UserChildTable="Komentarze" msprop:Generator_ChildPropName="GetKomentarzeRows" msprop:Generator_UserRelationName="KolekcjeKomentarze" msprop:Generator_RelationVarName="relationKolekcjeKomentarze" msprop:Generator_UserParentTable="Kolekcje" msprop:Generator_ParentPropName="KolekcjeRow" />
+      <msdata:Relationship name="UtworyKomentarze" msdata:parent="Utwory" msdata:child="Komentarze" msdata:parentkey="IDUtworu" msdata:childkey="IDUtworu" msprop:Generator_UserChildTable="Komentarze" msprop:Generator_ChildPropName="GetKomentarzeRows" msprop:Generator_UserRelationName="UtworyKomentarze" msprop:Generator_ParentPropName="UtworyRow" msprop:Generator_RelationVarName="relationUtworyKomentarze" msprop:Generator_UserParentTable="Utwory" />
+      <msdata:Relationship name="KolekcjePrzydziały" msdata:parent="Kolekcje" msdata:child="Przydziały" msdata:parentkey="IDKolekcji" msdata:childkey="IDKolekcji" msprop:Generator_UserChildTable="Przydziały" msprop:Generator_ChildPropName="GetPrzydziałyRows" msprop:Generator_UserRelationName="KolekcjePrzydziały" msprop:Generator_RelationVarName="relationKolekcjePrzydziały" msprop:Generator_UserParentTable="Kolekcje" msprop:Generator_ParentPropName="KolekcjeRow" />
+      <msdata:Relationship name="UtworyPrzydziały" msdata:parent="Utwory" msdata:child="Przydziały" msdata:parentkey="IDUtworu" msdata:childkey="IDUtworu" msprop:Generator_UserChildTable="Przydziały" msprop:Generator_ChildPropName="GetPrzydziałyRows" msprop:Generator_UserRelationName="UtworyPrzydziały" msprop:Generator_ParentPropName="UtworyRow" msprop:Generator_RelationVarName="relationUtworyPrzydziały" msprop:Generator_UserParentTable="Utwory" />
+      <msdata:Relationship name="UżytkownicyUtwory" msdata:parent="Użytkownicy" msdata:child="Utwory" msdata:parentkey="Login" msdata:childkey="Login" msprop:Generator_UserChildTable="Utwory" msprop:Generator_ChildPropName="GetUtworyRows" msprop:Generator_UserRelationName="UżytkownicyUtwory" msprop:Generator_ParentPropName="UżytkownicyRow" msprop:Generator_RelationVarName="relationUżytkownicyUtwory" msprop:Generator_UserParentTable="Użytkownicy" />
+      <msdata:Relationship name="UprawnieniaUżytkownicy" msdata:parent="Uprawnienia" msdata:child="Użytkownicy" msdata:parentkey="IDUprawnienia" msdata:childkey="IDUprawnienia" msprop:Generator_UserChildTable="Użytkownicy" msprop:Generator_ChildPropName="GetUżytkownicyRows" msprop:Generator_UserRelationName="UprawnieniaUżytkownicy" msprop:Generator_RelationVarName="relationUprawnieniaUżytkownicy" msprop:Generator_UserParentTable="Uprawnienia" msprop:Generator_ParentPropName="UprawnieniaRow" />
+      <msdata:Relationship name="UżytkownicyZamówienia" msdata:parent="Użytkownicy" msdata:child="Zamówienia" msdata:parentkey="Login" msdata:childkey="Login" msprop:Generator_UserChildTable="Zamówienia" msprop:Generator_ChildPropName="GetZamówieniaRows" msprop:Generator_UserRelationName="UżytkownicyZamówienia" msprop:Generator_RelationVarName="relationUżytkownicyZamówienia" msprop:Generator_UserParentTable="Użytkownicy" msprop:Generator_ParentPropName="UżytkownicyRow" />
+      <msdata:Relationship name="ZamówieniaNaKolekcjeZamówienia" msdata:parent="ZamówieniaNaKolekcje" msdata:child="Zamówienia" msdata:parentkey="IDZamówienia" msdata:childkey="IDZamówienia" msprop:Generator_UserChildTable="Zamówienia" msprop:Generator_ChildPropName="GetZamówieniaRows" msprop:Generator_UserRelationName="ZamówieniaNaKolekcjeZamówienia" msprop:Generator_ParentPropName="ZamówieniaNaKolekcjeRow" msprop:Generator_RelationVarName="relationZamówieniaNaKolekcjeZamówienia" msprop:Generator_UserParentTable="ZamówieniaNaKolekcje" />
+      <msdata:Relationship name="ZamówieniaNaUtworyZamówienia" msdata:parent="ZamówieniaNaUtwory" msdata:child="Zamówienia" msdata:parentkey="IDZamówienia" msdata:childkey="IDZamówienia" msprop:Generator_UserChildTable="Zamówienia" msprop:Generator_ChildPropName="GetZamówieniaRows" msprop:Generator_UserRelationName="ZamówieniaNaUtworyZamówienia" msprop:Generator_ParentPropName="ZamówieniaNaUtworyRow" msprop:Generator_RelationVarName="relationZamówieniaNaUtworyZamówienia" msprop:Generator_UserParentTable="ZamówieniaNaUtwory" />
+      <msdata:Relationship name="KolekcjeZamówieniaNaKolekcje" msdata:parent="Kolekcje" msdata:child="ZamówieniaNaKolekcje" msdata:parentkey="IDKolekcji" msdata:childkey="IDKolekcji" msprop:Generator_UserChildTable="ZamówieniaNaKolekcje" msprop:Generator_ChildPropName="GetZamówieniaNaKolekcjeRows" msprop:Generator_UserRelationName="KolekcjeZamówieniaNaKolekcje" msprop:Generator_RelationVarName="relationKolekcjeZamówieniaNaKolekcje" msprop:Generator_UserParentTable="Kolekcje" msprop:Generator_ParentPropName="KolekcjeRow" />
+      <msdata:Relationship name="UtworyZamówieniaNaUtwory" msdata:parent="Utwory" msdata:child="ZamówieniaNaUtwory" msdata:parentkey="IDUtworu" msdata:childkey="IDUtworu" msprop:Generator_UserChildTable="ZamówieniaNaUtwory" msprop:Generator_ChildPropName="GetZamówieniaNaUtworyRows" msprop:Generator_UserRelationName="UtworyZamówieniaNaUtwory" msprop:Generator_RelationVarName="relationUtworyZamówieniaNaUtwory" msprop:Generator_UserParentTable="Utwory" msprop:Generator_ParentPropName="UtworyRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

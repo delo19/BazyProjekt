@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,13 +20,15 @@ namespace Bazy_projekt
     /// </summary>
     public partial class SongWindow : Window
     {
+        MediaPlayer player;
+
         public SongWindow()
         {
             InitializeComponent();
 
             Model.UtworyRow aktualnyUtwor = SessionSingleton.aktualnyUtwor;
             //TODO sprawdzic czy uzytkownik ma kupiona dana piosenke jezeli tak to od razu wyswietlic - > pobierzButton.Visibility = System.Windows.Visibility.Visible;
-            
+
             //TODO uzupelnic to ponizej
             songViewOpis.Text = aktualnyUtwor.Opis;
             songViewAutor.Text = "Autor: " + aktualnyUtwor.Login;
@@ -34,12 +37,17 @@ namespace Bazy_projekt
 
             int x = Int16.Parse(aktualnyUtwor.Ocena);
             ustawOcene(x);
+
+            Uri uri = new Uri(@"Music/" +
+    SessionSingleton.aktualnyUtwor.IDUtworu + SessionSingleton.aktualnyUtwor.Format, UriKind.Relative);
+            player = new MediaPlayer();
+            player.Open(uri);
         }
 
         private void pobierzPiosenke(object sender, MouseButtonEventArgs e)
         {
             //TODO pobrąc piosenke na dysk
-            
+
         }
 
         private void kupPiosenke(object sender, MouseButtonEventArgs e)
@@ -78,14 +86,18 @@ namespace Bazy_projekt
         {
             pauseSongButton.Visibility = System.Windows.Visibility.Visible;
             playSongButton.Visibility = System.Windows.Visibility.Collapsed;
-            //TODO odtworzenie muzyki
+
+            player.Play();
+
         }
+
+
 
         private void pauseSong(object sender, MouseButtonEventArgs e)
         {
             pauseSongButton.Visibility = System.Windows.Visibility.Collapsed;
             playSongButton.Visibility = System.Windows.Visibility.Visible;
-            //TODO zatryzmanie muzyki
+            player.Pause();
         }
 
         private void back(object sender, MouseButtonEventArgs e)

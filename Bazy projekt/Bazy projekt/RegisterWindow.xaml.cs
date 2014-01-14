@@ -71,6 +71,7 @@ namespace Bazy_projekt
                 ValidateKlient(users, uzytkownik);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
+                MessageBox.Show("Dodano użytkownika! Możesz się zalogować.");
                 MainWindow w = new MainWindow();
                 w.Show();
                 this.Close();
@@ -112,6 +113,10 @@ namespace Bazy_projekt
                 ValidateWykonawca(users, uzytkownik);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
+                MessageBox.Show("Dodano użytkownika! Możesz się zalogować.");
+                MainWindow w = new MainWindow();
+                w.Show();
+                this.Close();
             }
             catch (ValidationException ex)
             {

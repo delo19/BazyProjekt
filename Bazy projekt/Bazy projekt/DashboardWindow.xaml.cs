@@ -206,6 +206,11 @@ namespace Bazy_projekt
             }
         }
 
+        private void WalidujUtwor(Bazy_projekt.Model.UtworyRow piosenka)
+        {
+
+        }
+
         #endregion Dodaj Utwór
 
         #region Dodaj Kolekcję

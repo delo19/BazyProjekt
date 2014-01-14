@@ -50,7 +50,7 @@ namespace Bazy_projekt
             UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
             Model.UżytkownicyDataTable users = adapter.GetData();
 
-            if (!users.Any(row => (row.Login == login && row.Hasło == haslo)))
+            if (!users.Any(row => (row.Login == login && row.Hasło == haslo))) // HasherManager.SetHash(haslo))))
             {
                 alertMainWidnow.Text = "Dane logowania nieprawidłowe";
                 return false;

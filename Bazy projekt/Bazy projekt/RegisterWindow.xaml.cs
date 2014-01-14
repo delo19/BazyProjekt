@@ -111,6 +111,7 @@ namespace Bazy_projekt
                 //uzytkownik.IDUprawnienia = 3;
                 ValidateKlient(users, uzytkownik);
                 ValidateWykonawca(users, uzytkownik);
+                //uzytkownik.Hasło = HasherManager.SetHash(uzytkownik.Hasło);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
                 MessageBox.Show("Dodano użytkownika! Możesz się zalogować.");
@@ -122,10 +123,7 @@ namespace Bazy_projekt
             {
                 registerWindowKomunikatOBledzie.Text = ex.Message;
             }
-            catch (FormatException ex2)
-            {
 
-            }
         }
 
         /// <summary>

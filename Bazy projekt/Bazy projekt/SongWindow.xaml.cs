@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -42,11 +43,26 @@ namespace Bazy_projekt
     SessionSingleton.aktualnyUtwor.IDUtworu + SessionSingleton.aktualnyUtwor.Format, UriKind.Relative);
             player = new MediaPlayer();
             player.Open(uri);
+
+            pauseSong(null, null);
         }
 
         private void pobierzPiosenke(object sender, MouseButtonEventArgs e)
         {
-            //TODO pobrąc piosenke na dysk
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.FileName = SessionSingleton.aktualnyUtwor.Nazwa; // Default file name
+            dlg.DefaultExt = SessionSingleton.aktualnyUtwor.Format; // Default file extension
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                string filename = dlg.FileName;
+                File.Copy(@"Music/" + SessionSingleton.aktualnyUtwor.IDUtworu + SessionSingleton.aktualnyUtwor.Format, filename);
+            }
 
         }
 
@@ -91,8 +107,6 @@ namespace Bazy_projekt
 
         }
 
-
-
         private void pauseSong(object sender, MouseButtonEventArgs e)
         {
             pauseSongButton.Visibility = System.Windows.Visibility.Collapsed;
@@ -102,6 +116,7 @@ namespace Bazy_projekt
 
         private void back(object sender, MouseButtonEventArgs e)
         {
+            player.Stop();
             DashboardWindow dw = new DashboardWindow();
             dw.Show();
             this.Close();

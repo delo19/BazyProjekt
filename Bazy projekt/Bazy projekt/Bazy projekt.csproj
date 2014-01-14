@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HasherManager.cs" />
     <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,6 +70,11 @@
     <Compile Include="SessionSingleton.cs" />
     <Compile Include="SongWindow.xaml.cs">
       <DependentUpon>SongWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_Projekt1_14DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Projekt1_14DataSet.xsd</DependentUpon>
     </Compile>
     <Page Include="DashboardWindow.xaml">
       <SubType>Designer</SubType>
@@ -132,6 +138,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="_Projekt1_14DataSet.xsc">
+      <DependentUpon>_Projekt1_14DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Projekt1_14DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Projekt1_14DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Projekt1_14DataSet.xss">
+      <DependentUpon>_Projekt1_14DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

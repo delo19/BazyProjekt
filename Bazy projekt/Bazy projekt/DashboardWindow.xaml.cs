@@ -29,7 +29,7 @@ namespace Bazy_projekt
         {
             InitializeComponent();
             //TODO admin
-            if (true)
+            if (SessionSingleton.zalogowanyUser.IDUprawnienia == 1 || SessionSingleton.zalogowanyUser.IDUprawnienia == 2)
             {
                 dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
                 dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
@@ -70,6 +70,7 @@ namespace Bazy_projekt
                 dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
                 utwory2.Visibility = System.Windows.Visibility.Visible;
                 mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+                panelAdmina.Visibility = Visibility.Collapsed;
 
                 loginTextBox2.Text = SessionSingleton.zalogowanyUser.Login;
                 //saldoTextBox.Text = SessionSingleton.zalogowanyUser.Saldo.ToString();
@@ -103,7 +104,7 @@ namespace Bazy_projekt
             }
         }
 
-        private void pickImage()
+        private void pickImage(object sender, MouseButtonEventArgs e)
         {
             UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
             Model.UżytkownicyDataTable uzytkownicy = adapter.GetData();
@@ -121,8 +122,8 @@ namespace Bazy_projekt
                 user.Awatar = dlg.FileName;
                 pathDoUtworu = dlg.FileName;
 
-                adapter.Update(uzytkownicy);
-                //avatarImage.Source = ;
+                //adapter.Update(uzytkownicy);
+                avatarImage.Source = new BitmapImage(new Uri(dlg.FileName)); ;
                 File.Copy(pathDoUtworu, @"Awatars/" + user.Login, true);
                 MessageBox.Show("Zapisano!");
             }
@@ -516,6 +517,7 @@ namespace Bazy_projekt
             //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
             
         }
+
 
     }
 }

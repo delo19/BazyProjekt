@@ -275,7 +275,7 @@
                         <System:Double>40</System:Double>
                     </DataGrid.RowHeight>
                 </DataGrid>
-                <Image x:Name="adminusunKolekcje" HorizontalAlignment="Left" Height="36" Margin="674,291,0,-10" VerticalAlignment="Top" Width="120" Source="Resources/Images/zapisz_16.png" MouseUp="usunKolekcjeZaznaczone"/>
+                <Image x:Name="adminusunKolekcje" HorizontalAlignment="Left" Height="36" Margin="674,303,0,0" VerticalAlignment="Top" Width="120" Source="Resources/Images/zapisz_16.png" MouseUp="usunKolekcjeZaznaczone"/>
             </Grid>
             <Grid x:Name="uzytkownicy" HorizontalAlignment="Left" Height="341" Margin="0,88,0,-24" VerticalAlignment="Top" Width="874" d:IsHidden="True">
                 <DataGrid x:Name="gridDataUzytkownicyAdministrator" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Height="259" Width="802" Visibility="Visible">
@@ -298,10 +298,18 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Nazwisko" Width="250">
+                        <DataGridTemplateColumn Header="Nazwisko" Width="150">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="16" Opacity="1.0"><Run Language="pl-pl" Text="{Binding Nazwisko}"/></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Adres E-mail" Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="16" Opacity="1.0"><Run Language="pl-pl" Text="{Binding Email}"/></TextBlock>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -315,7 +323,7 @@
             <Grid x:Name="utworyAdmin" HorizontalAlignment="Left" Height="327" Margin="13,102,-3,-24" VerticalAlignment="Top" Width="874" d:IsHidden="True">
                 <DataGrid x:Name="gridDataKolekcjeAdministrator" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Height="259" Width="802" d:IsHidden="True" Visibility="Visible">
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="ID" Width="40">
+                        <DataGridTemplateColumn Header="IDKolekcji" Width="40">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="{Binding IDKolekcji}"/></TextBlock>

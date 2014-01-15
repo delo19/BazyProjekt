@@ -27,7 +27,7 @@
             <TextBlock x:Name="utworyMoje" HorizontalAlignment="Left" Margin="51,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="16" Opacity="0.7" MouseUp="utworyZakladkaPokaz"><Run Language="pl-pl" Text="Utwory"/></TextBlock>
             <TextBlock x:Name="kolekcjeMoje" HorizontalAlignment="Left" Margin="134,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontSize="16" Opacity="0.7" MouseUp="kolekcjeMojePokaz"><Run Language="pl-pl" Text="Kolekcje"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="28" Margin="116,84,0,0" VerticalAlignment="Top" Width="1"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="736,91,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="736,91,0,0" TextWrapping="Wrap" Text="Szukaj.." VerticalAlignment="Top" KeyDown="szukajTbWszystkie_KeyDown" Width="120" Name="szukajTbWszystkie"/>
         </Grid>
         <Grid x:Name="dodajUtwor2" HorizontalAlignment="Left" Height="438" Margin="260,68,0,0" VerticalAlignment="Top" Width="922" Grid.RowSpan="2" d:IsHidden="True">
             <TextBlock HorizontalAlignment="Left" Margin="56,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="26"><Run Language="pl-pl" Text="Dodaj Utwór"/></TextBlock>

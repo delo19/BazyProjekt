@@ -175,7 +175,7 @@ namespace Bazy_projekt
             string message =
                 (!string.IsNullOrEmpty(nazwa) ? "Nazwa='" + nazwa + "'" : "") +
                 (!string.IsNullOrEmpty(wykonawca) ? "Login='" + wykonawca + "'" : "") +
-                (!string.IsNullOrEmpty(nazwa) ? "RokPowstania='" + rokPowstania + "'" : "");
+                (!string.IsNullOrEmpty(rokPowstania.ToString()) ? "RokPowstania='" + rokPowstania + "'" : "");
 
             //if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count()>0)
             //{
@@ -614,6 +614,35 @@ namespace Bazy_projekt
             piosenka.Delete();
 
             adapter.Update(utwory);
+        }
+
+        private void szukajTbWszystkie_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //dla utworow
+                if (gridDataKolekcje.Visibility == Visibility.Hidden)
+                {
+                    gridData.Items.Clear();
+                    Model.UtworyDataTable tab = pobierzUtwory(szukajTbWszystkie.Text, null, null);
+                    for (int i = 0; i < tab.Count; i++)
+                    {
+
+                        gridData.Items.Add(tab.ElementAt(i));
+
+                    }
+                }
+                else//dla kolekcji
+                {
+                    gridDataKolekcje.Items.Clear();
+                    Model.KolekcjeDataTable tabKolekcje = pobierzKolekcje(szukajTbWszystkie.Text, null);
+                    for (int j = 0; j < tabKolekcje.Count; j++)
+                    {
+                        gridDataKolekcje.Items.Add(tabKolekcje.ElementAt(j));
+
+                    }
+                }
+            }
         }
 
     }

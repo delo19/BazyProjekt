@@ -509,15 +509,50 @@ namespace Bazy_projekt
         private void usunKolekcjeZaznaczone(object sender, MouseButtonEventArgs e)
         {
             //TODO usuniecie zaznaczonych  z  gridDataUtworyAdministrator
-           
+            KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
+            Model.KolekcjeDataTable utwory = adapter.GetData();
+            Bazy_projekt.Model.KolekcjeRow row = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
+            Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(row.IDKolekcji);
+            piosenka.Delete();
+
+            adapter.Update(utwory);
         }
 
         private void usunUtworyZaznaczone(object sender, MouseButtonEventArgs e)
         {
             //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
+
+            UtworyTableAdapter adapter = new UtworyTableAdapter();
+            Model.UtworyDataTable utwory = adapter.GetData();
+            Bazy_projekt.Model.UtworyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UtworyRow;
+            Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(row.IDUtworu);
+            piosenka.Delete();
+
+            adapter.Update(utwory);
             
         }
 
+        private void usunUzytkownicyZaznaczone(object sender, MouseButtonEventArgs e)
+        {
+            //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
+
+            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+            Model.UżytkownicyDataTable utwory = adapter.GetData();
+            Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
+            Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
+            piosenka.Delete();
+
+            adapter.Update(utwory);
+
+        }
+
+        private Model.UżytkownicyDataTable GetUsers()
+        {
+            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+            Model.UżytkownicyDataTable uzytkownicy = adapter.GetData();
+            return uzytkownicy;
+
+        }
 
     }
 }

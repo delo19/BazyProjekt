@@ -28,6 +28,7 @@ namespace Bazy_projekt
         public DashboardWindow()
         {
             InitializeComponent();
+            loginTextBox2.Text = SessionSingleton.zalogowanyUser.Login;
             //TODO admin
             if (SessionSingleton.zalogowanyUser.IDUprawnienia == 1 || SessionSingleton.zalogowanyUser.IDUprawnienia == 2)
             {
@@ -59,7 +60,18 @@ namespace Bazy_projekt
 
                 }
 
+                Model.UżytkownicyDataTable tabUsers = GetUsers();
+                for (int j = 0; j < tabUsers.Count; j++)
+                {
+                    gridDataUzytkownicyAdministrator.Items.Add(tabUsers.ElementAt(j));
+                    
+
+                }
+
+                
                 gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
+
+
               //  gridDataUtworyAdministrator.IsReadOnly = false;
 
                 adminPokazUtworyListe(null, null);
@@ -485,6 +497,10 @@ namespace Bazy_projekt
             utworyAdmin.Visibility = System.Windows.Visibility.Visible;
             adminusunKolekcje.Visibility = System.Windows.Visibility.Hidden;
             adminusunUtworyButton.Visibility = System.Windows.Visibility.Visible;
+            gridDataUzytkownicyAdministrator.Visibility = System.Windows.Visibility.Hidden;
+            adminusunUzytkownikowZaznaczone.Visibility = System.Windows.Visibility.Hidden;
+
+
 
            // kolekcje.Visibility = System.Windows.Visibility.Hidden;
 
@@ -499,6 +515,8 @@ namespace Bazy_projekt
            gridDataKolekcjeAdministrator.Visibility = System.Windows.Visibility.Visible;
            adminusunKolekcje.Visibility = System.Windows.Visibility.Visible;
            adminusunUtworyButton.Visibility = System.Windows.Visibility.Hidden;
+           gridDataUzytkownicyAdministrator.Visibility = System.Windows.Visibility.Hidden;
+           adminusunUzytkownikowZaznaczone.Visibility = System.Windows.Visibility.Hidden;
 
           //  utworyAdmin.Visibility = System.Windows.Visibility.Hidden;
            // kolekcje.Visibility = System.Windows.Visibility.Visible;
@@ -508,27 +526,41 @@ namespace Bazy_projekt
 
         private void usunKolekcjeZaznaczone(object sender, MouseButtonEventArgs e)
         {
-            //TODO usuniecie zaznaczonych  z  gridDataUtworyAdministrator
-            KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
-            Model.KolekcjeDataTable utwory = adapter.GetData();
-            Bazy_projekt.Model.KolekcjeRow row = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
-            Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(row.IDKolekcji);
-            piosenka.Delete();
+            try
+            {
+                //TODO usuniecie zaznaczonych  z  gridDataUtworyAdministrator
+                KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
+                Model.KolekcjeDataTable utwory = adapter.GetData();
+                Bazy_projekt.Model.KolekcjeRow row = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
+                Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(row.IDKolekcji);
+                piosenka.Delete();
 
-            adapter.Update(utwory);
+                adapter.Update(utwory);
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("Nie mozna usunac kolekcji poniewaz jest do niej przypisana oferta");
+            }
         }
 
         private void usunUtworyZaznaczone(object sender, MouseButtonEventArgs e)
         {
             //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
+            try
+            {
+                UtworyTableAdapter adapter = new UtworyTableAdapter();
+                Model.UtworyDataTable utwory = adapter.GetData();
+                Bazy_projekt.Model.UtworyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UtworyRow;
+                Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(row.IDUtworu);
+                piosenka.Delete();
 
-            UtworyTableAdapter adapter = new UtworyTableAdapter();
-            Model.UtworyDataTable utwory = adapter.GetData();
-            Bazy_projekt.Model.UtworyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UtworyRow;
-            Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(row.IDUtworu);
-            piosenka.Delete();
+                adapter.Update(utwory);
 
-            adapter.Update(utwory);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
+            }
             
         }
 
@@ -536,13 +568,7 @@ namespace Bazy_projekt
         {
             //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
 
-            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
-            Model.UżytkownicyDataTable utwory = adapter.GetData();
-            Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
-            Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
-            piosenka.Delete();
-
-            adapter.Update(utwory);
+         
 
         }
 
@@ -552,6 +578,33 @@ namespace Bazy_projekt
             Model.UżytkownicyDataTable uzytkownicy = adapter.GetData();
             return uzytkownicy;
 
+        }
+
+     
+
+        private void adminPokazUzytkownikowMetod(object sender, MouseButtonEventArgs e)
+        {
+            adminPokazUtwory.Opacity = 0.7;
+            adminPokazKolekcje.Opacity = 0.7;
+            adminPokazUzytkownikow.Opacity = 1.0;
+            gridDataUzytkownicyAdministrator.Visibility = System.Windows.Visibility.Visible;
+
+            gridDataUtworyAdministrator.Visibility = System.Windows.Visibility.Hidden;
+            gridDataKolekcjeAdministrator.Visibility = System.Windows.Visibility.Hidden;
+            adminusunKolekcje.Visibility = System.Windows.Visibility.Hidden;
+            adminusunUtworyButton.Visibility = System.Windows.Visibility.Hidden;
+            adminusunUzytkownikowZaznaczone.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void usunUzytkownikowZaznaczonych(object sender, MouseButtonEventArgs e)
+        {
+            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+            Model.UżytkownicyDataTable utwory = adapter.GetData();
+            Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
+            Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
+            piosenka.Delete();
+
+            adapter.Update(utwory);
         }
 
     }

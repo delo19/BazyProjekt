@@ -45,6 +45,7 @@ namespace Bazy_projekt
             player = new MediaPlayer();
             player.Open(uri);
 
+            pobierzButton.Visibility = Visibility.Hidden;
             pauseSong(null, null);
         }
 
@@ -69,31 +70,32 @@ namespace Bazy_projekt
 
         private void kupPiosenke(object sender, MouseButtonEventArgs e)
         {
-            ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
-            ZamówieniaNaUtworyTableAdapter adapterZamowieniaNaUtwory = new ZamówieniaNaUtworyTableAdapter();
+            //ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
+            //ZamówieniaNaUtworyTableAdapter adapterZamowieniaNaUtwory = new ZamówieniaNaUtworyTableAdapter();
 
-            Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
-            Model.ZamówieniaNaUtworyDataTable zamowieniaNaUtwory = adapterZamowieniaNaUtwory.GetData();
+            //Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
+            //Model.ZamówieniaNaUtworyDataTable zamowieniaNaUtwory = adapterZamowieniaNaUtwory.GetData();
 
-            Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
-            Bazy_projekt.Model.ZamówieniaNaUtworyRow zamowieniaNaUtworyRow = zamowieniaNaUtwory.NewZamówieniaNaUtworyRow();
+            //Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
+            //Bazy_projekt.Model.ZamówieniaNaUtworyRow zamowieniaNaUtworyRow = zamowieniaNaUtwory.NewZamówieniaNaUtworyRow();
 
-            zamowieniaRow.CzyUtwór = true;
-            zamowieniaRow.DataZakupu = DateTime.Now;
-            zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
-            zamowieniaRow.Status = true;
+            //zamowieniaRow.CzyUtwór = true;
+            //zamowieniaRow.DataZakupu = DateTime.Now;
+            //zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
+            //zamowieniaRow.Status = true;
 
-            zamowienia.AddZamówieniaRow(zamowieniaRow);
-            adapterZamowienia.Update(zamowienia);
+            //zamowienia.AddZamówieniaRow(zamowieniaRow);
+            //adapterZamowienia.Update(zamowienia);
 
-            zamowieniaNaUtworyRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
-            zamowieniaNaUtworyRow.IDZamówienia = zamowienia.OrderBy(x => x.IDZamówienia).Last().IDZamówienia;
+            //zamowieniaNaUtworyRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
+            //zamowieniaNaUtworyRow.IDZamówienia = zamowienia.OrderBy(x => x.IDZamówienia).Last().IDZamówienia;
 
-            zamowieniaNaUtwory.AddZamówieniaNaUtworyRow(zamowieniaNaUtworyRow);
-            adapterZamowieniaNaUtwory.Update(zamowieniaNaUtwory);
+            //zamowieniaNaUtwory.AddZamówieniaNaUtworyRow(zamowieniaNaUtworyRow);
+            //adapterZamowieniaNaUtwory.Update(zamowieniaNaUtwory);
 
             
             MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
+            pobierzButton.Visibility = Visibility.Visible;
             //TODO Dodac piosenke do autora ( zeby mial ja w swoich utworach)
             //TODO Dodac do wykonawcy do jego salda tą kwote
 
@@ -120,7 +122,6 @@ namespace Bazy_projekt
 
             return true;
 
-            //JAKBY TO RATAJ ZOBACZYL...
         }
 
         private void playSong(object sender, MouseButtonEventArgs e)

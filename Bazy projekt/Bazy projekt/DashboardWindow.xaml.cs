@@ -78,6 +78,7 @@ namespace Bazy_projekt
             }
             else
             {
+                setUserUprawnienia();
                 dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
                 dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
                 utwory2.Visibility = System.Windows.Visibility.Visible;
@@ -361,6 +362,22 @@ namespace Bazy_projekt
         #endregion Dodaj Kolekcję
 
         #region zmiany Visilbility
+
+
+        void setUserUprawnienia()
+        {
+            switch (SessionSingleton.zalogowanyUser.IDUprawnienia)
+            {
+                case 3://klient
+                    toHide3.Visibility = Visibility.Hidden;
+                    toHide4.Visibility = Visibility.Hidden;
+                    break;
+                case 4://wykonawca
+                    break;
+                default:
+                    break;
+            }
+        }
         private void utworyIKolekcje(object sender, MouseButtonEventArgs e)
         {
             gridData.Visibility = System.Windows.Visibility.Visible;

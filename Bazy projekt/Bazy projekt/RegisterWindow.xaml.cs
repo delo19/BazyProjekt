@@ -123,6 +123,10 @@ namespace Bazy_projekt
             {
                 registerWindowKomunikatOBledzie.Text = ex.Message;
             }
+            catch (Exception ex)
+            {
+                registerWindowKomunikatOBledzie.Text = "Sprawdz dane";
+            }
 
         }
 

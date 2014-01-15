@@ -46,7 +46,7 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <DatePicker x:Name="dodajUtworRokPowstania" HorizontalAlignment="Left" Margin="213,257,0,0" VerticalAlignment="Top" Height="26" Width="270"/>
+            <DatePicker x:Name="dodajUtworRokPowstania" HorizontalAlignment="Left" Margin="213,257,0,0" SelectedDate="1/1/2000" VerticalAlignment="Top" Height="26" Width="270"/>
             <TextBlock HorizontalAlignment="Left" Margin="58,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Rok powstania:"/></TextBlock>
             <Image HorizontalAlignment="Center" Height="26" Margin="731,151,59,0" VerticalAlignment="Top" Width="132" Source="Resources/Images/nowe_15.png" MouseUp="wybierzPiosenkeZDysku" OpacityMask="Black"/>
             <TextBlock HorizontalAlignment="Left" Margin="60,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Opis utworu:*"/></TextBlock>

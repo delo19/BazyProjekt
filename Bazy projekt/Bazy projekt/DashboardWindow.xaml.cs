@@ -282,6 +282,10 @@ namespace Bazy_projekt
             {
                 dodajUtworKomunikatOBledzie.Text = ex.Message;
             }
+            catch (Exception ex)
+            {
+                dodajUtworKomunikatOBledzie.Text = "Sprawdz poprawność danych";
+            }
         }
 
         private void WalidujUtwor(Bazy_projekt.Model.UtworyRow piosenka)

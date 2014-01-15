@@ -103,6 +103,33 @@ namespace Bazy_projekt
             }
         }
 
+        private void pickImage()
+        {
+            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+            Model.UżytkownicyDataTable uzytkownicy = adapter.GetData();
+            Model.UżytkownicyRow user = uzytkownicy.FindByLogin(SessionSingleton.zalogowanyUser.Login);
+
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+
+
+            // Get the selected file name and display in a TextBox 
+            if (dlg.ShowDialog() == true)
+            {
+                // Open document 
+                user.Awatar = dlg.FileName;
+                pathDoUtworu = dlg.FileName;
+
+                adapter.Update(uzytkownicy);
+                //avatarImage.Source = ;
+                File.Copy(pathDoUtworu, @"Awatars/" + user.Login, true);
+                MessageBox.Show("Zapisano!");
+            }
+
+
+        }
+
         void gridData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             Model.UtworyRow x = (Model.UtworyRow)gridData.Items.GetItemAt(gridData.SelectedIndex);
@@ -233,7 +260,7 @@ namespace Bazy_projekt
                 utwory.AddUtworyRow(piosenka);
                 adapter.Update(utwory);
                 //zapis pliku do folderu
-                File.Copy(pathDoUtworu, @"Music/" + adapter.GetData().Last().IDUtworu + piosenka.Format);
+                File.Copy(pathDoUtworu, @"Music/" + adapter.GetData().Last().IDUtworu + piosenka.Format, true);
 
             }
             catch (ValidationException ex)

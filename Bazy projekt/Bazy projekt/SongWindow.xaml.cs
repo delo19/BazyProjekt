@@ -121,5 +121,12 @@ namespace Bazy_projekt
             dw.Show();
             this.Close();
         }
+
+        private void edytujPiosenke(object sender, MouseButtonEventArgs e)
+        {
+            EditSongg son = new EditSongg();
+            son.Show();
+            this.Close();
+        }
     }
 }

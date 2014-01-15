@@ -35,7 +35,7 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <Image HorizontalAlignment="Center" Height="34" Margin="747,378,59,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black"/>
+            <Image HorizontalAlignment="Center" Height="34" Margin="747,378,59,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black" MouseUp="zapiszEdycjeKolekcji"/>
             <TextBlock HorizontalAlignment="Left" Margin="123,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
             <TextBox x:Name="dodajUtworTextBoxCena" HorizontalAlignment="Left" Height="26" Margin="213,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>

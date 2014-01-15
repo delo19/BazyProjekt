@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bazy_projekt.ModelTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,28 @@ namespace Bazy_projekt
         public EditCollection()
         {
             InitializeComponent();
+            Model.KolekcjeRow kolekcja = SessionSingleton.aktualnaKolekcja;
+            dodajUtworTextBoxCena.Text = kolekcja.CenaKolekcji;
+            dodajUtworTextBoxNazwaUtworu.Text = kolekcja.Nazwa;
+            dodajUtworTextBoxOpisUtworu.Text = kolekcja.Opis;
+        }
+
+        private void zapiszEdycjeKolekcji(object sender, MouseButtonEventArgs e)
+        {
+            KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
+            Model.KolekcjeDataTable kolekcje = adapter.GetData();
+            Bazy_projekt.Model.KolekcjeRow kolekcja = kolekcje.FindByIDKolekcji(SessionSingleton.aktualnaKolekcja.IDKolekcji);
+
+            kolekcja.Nazwa = dodajUtworTextBoxNazwaUtworu.Text;
+            kolekcja.CenaKolekcji = dodajUtworTextBoxCena.Text;
+            kolekcja.Opis = dodajUtworTextBoxOpisUtworu.Text;
+
+            //utwory.AcceptChanges(piosenka);
+            adapter.Update(kolekcje);
+            MessageBox.Show("Zapisano!");
+            DashboardWindow win = new DashboardWindow();
+            win.Show();
+            this.Close();
         }
     }
 }

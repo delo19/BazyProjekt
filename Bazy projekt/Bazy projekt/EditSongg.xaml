@@ -18,10 +18,10 @@
             <TextBlock HorizontalAlignment="Left" Margin="56,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="26"><Run Language="pl-pl" Text="Edytuj Utwór"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
             <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="58,110,0,0" VerticalAlignment="Top" Width="805"/>
             <TextBlock HorizontalAlignment="Left" Margin="58,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Kategoria wiekowa:"/></TextBlock>
-            <RadioButton Content="+3" HorizontalAlignment="Left" Margin="213,127,0,0" VerticalAlignment="Top"/>
-            <RadioButton Content="+12" HorizontalAlignment="Left" Margin="213,147,0,0" VerticalAlignment="Top"/>
-            <RadioButton Content="+16" HorizontalAlignment="Left" Margin="213,167,0,0" VerticalAlignment="Top"/>
-            <RadioButton Content="+18" HorizontalAlignment="Left" Margin="213,188,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="tb_3" Content="+3" HorizontalAlignment="Left" Margin="213,127,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="tb_12" Content="+12" HorizontalAlignment="Left" Margin="213,147,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="tb_16" Content="+16" HorizontalAlignment="Left" Margin="213,167,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="tb_18" Content="+18" HorizontalAlignment="Left" Margin="213,188,0,0" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="58,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Nazwa utworu:"/></TextBlock>
             <TextBox x:Name="dodajUtworTextBoxNazwaUtworu" HorizontalAlignment="Left" Height="26" Margin="213,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>
@@ -40,7 +40,7 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <Image HorizontalAlignment="Center" Height="34" Margin="747,378,59,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black"/>
+            <Image HorizontalAlignment="Center" Height="34" Margin="747,378,59,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black" MouseUp="zapiszEdycjeUtworu"/>
             <TextBlock HorizontalAlignment="Left" Margin="123,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
             <TextBox x:Name="dodajUtworTextBoxCena" HorizontalAlignment="Left" Height="26" Margin="213,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
                 <TextBox.SelectionBrush>

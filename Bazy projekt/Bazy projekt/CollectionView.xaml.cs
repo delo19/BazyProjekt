@@ -31,6 +31,7 @@ namespace Bazy_projekt
             {
                 songViewNazwaKolekcji.Text = SessionSingleton.aktualnaKolekcja.Nazwa;
                 songViewAutor.Text = SessionSingleton.aktualnaKolekcja.Login;
+                collectionViewOpis.Text = SessionSingleton.aktualnaKolekcja.Opis;
 
                 // tu masz pobieranie listy utworow
                 UtworyDlaKolekcjiTableAdapter adapterPrzydzialy = new UtworyDlaKolekcjiTableAdapter();

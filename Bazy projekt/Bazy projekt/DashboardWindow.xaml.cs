@@ -565,7 +565,7 @@ namespace Bazy_projekt
             }
             catch (Exception)
             {
-                //MessageBox.Show("Nie mozna usunac kolekcji poniewaz jest do niej przypisana oferta");
+                MessageBox.Show("Nie mozna usunac kolekcji poniewaz jest do niej przypisana oferta");
             }
         }
 
@@ -624,13 +624,20 @@ namespace Bazy_projekt
 
         private void usunUzytkownikowZaznaczonych(object sender, MouseButtonEventArgs e)
         {
-            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
-            Model.UżytkownicyDataTable utwory = adapter.GetData();
-            Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
-            Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
-            piosenka.Delete();
+            try
+            {
+                UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+                Model.UżytkownicyDataTable utwory = adapter.GetData();
+                Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
+                Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
+                piosenka.Delete();
 
-            adapter.Update(utwory);
+                adapter.Update(utwory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie mozna usunąc uzytkownika, ponieważ posiada utwory, z których aktualnie korzystają uzytkownicy");
+            }
         }
 
         private void szukajTbWszystkie_KeyDown(object sender, KeyEventArgs e)

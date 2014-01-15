@@ -27,7 +27,7 @@
             <Image x:Name="pobierzButton" HorizontalAlignment="Left" Height="42" Margin="1018,387,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_18.png"/>
             <Image HorizontalAlignment="Left" Height="42" Margin="1018,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_16.png"/>
             <Image x:Name="pauseSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/pauseButton_03.png" Visibility="Hidden"/>
-            <Image HorizontalAlignment="Left" Height="52" Margin="54,30,0,0" VerticalAlignment="Top" Width="50" Source="Resources/Images/back105.png"/>
+            <Image HorizontalAlignment="Left" Height="52" Margin="54,30,0,0" VerticalAlignment="Top" Width="50" Source="Resources/Images/back105.png" MouseUp="wsteka"/>
             <Rectangle Fill="Gainsboro" HorizontalAlignment="Left" Height="1" Margin="629,306,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
@@ -38,7 +38,17 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <DataGrid x:Name="utworyKolekcji" HorizontalAlignment="Left" Margin="418,144,0,0" Grid.Row="1" VerticalAlignment="Top" Height="285" Width="292"/>
+            <DataGrid x:Name="utworyKolekcji" HorizontalAlignment="Left" Margin="418,144,0,0" Grid.Row="1" VerticalAlignment="Top" Height="285" Width="292">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Nazwa Utworu" Width="290">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" FontSize="16" Opacity="0.7"><Run Language="pl-pl" Text="{Binding Nazwa}"/></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Grid>
     </Grid>

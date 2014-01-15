@@ -29,8 +29,40 @@ namespace Bazy_projekt
         {
             InitializeComponent();
             //TODO admin
-            if (!true)
+            if (true)
             {
+                dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
+                dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
+                utwory2.Visibility = System.Windows.Visibility.Hidden;
+                mojeUtwory.Visibility = System.Windows.Visibility.Hidden;
+                toHide1.Visibility = System.Windows.Visibility.Hidden;
+                toHide2.Visibility = System.Windows.Visibility.Hidden;
+                toHide3.Visibility = System.Windows.Visibility.Hidden;
+                toHide4.Visibility = System.Windows.Visibility.Hidden;
+                gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
+                gridData.Visibility = System.Windows.Visibility.Hidden;
+                panelAdmina.Visibility = System.Windows.Visibility.Visible;
+
+                Model.UtworyDataTable tab = pobierzUtwory(null, null, null);
+                for (int i = 0; i < tab.Count; i++)
+                {
+
+                    gridDataUtworyAdministrator.Items.Add(tab.ElementAt(i));
+
+                }
+
+
+                Model.KolekcjeDataTable tabKolekcje = pobierzKolekcje(null, null);
+                for (int j = 0; j < tabKolekcje.Count; j++)
+                {
+                    gridDataKolekcjeAdministrator.Items.Add(tabKolekcje.ElementAt(j));
+
+                }
+
+                gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
+              //  gridDataUtworyAdministrator.IsReadOnly = false;
+
+                adminPokazUtworyListe(null, null);
             }
             else
             {
@@ -298,6 +330,18 @@ namespace Bazy_projekt
                 gridData.Items.Add(tab.ElementAt(i));
 
             }
+
+            gridDataKolekcje.Items.Clear();
+
+            //TODO tutaj wypelnic gridData wszystkimi utworami  Model.UtworyDataTable tab = pobierzUtwory(null, "delxxxxo19", null);
+            Model.KolekcjeDataTable tab2 = pobierzKolekcje(null, null);
+           
+            for (int i = 0; i < tab2.Count; i++)
+            {
+
+                gridDataKolekcje.Items.Add(tab2.ElementAt(i));
+
+            }
         }
 
         private void dodajUtwor(object sender, MouseButtonEventArgs e)
@@ -342,6 +386,18 @@ namespace Bazy_projekt
             {
 
                 gridData.Items.Add(tab.ElementAt(i));
+
+            }
+
+
+            gridDataKolekcje.Items.Clear();
+
+
+            Model.KolekcjeDataTable tab2 = pobierzKolekcje(null, SessionSingleton.zalogowanyUser.Login);
+            for (int i = 0; i < tab2.Count; i++)
+            {
+
+                gridDataKolekcje.Items.Add(tab2.ElementAt(i));
 
             }
         }
@@ -389,6 +445,49 @@ namespace Bazy_projekt
             collection.Show();
             this.Close();
 
+        }
+
+        private void adminPokazUtworyListe(object sender, MouseButtonEventArgs e)
+        {
+            adminPokazUtwory.Opacity = 1.0;
+            adminPokazKolekcje.Opacity = 0.7;
+            adminPokazUzytkownikow.Opacity = 0.7;
+            gridDataUtworyAdministrator.Visibility = System.Windows.Visibility.Visible;
+            gridDataKolekcjeAdministrator.Visibility = System.Windows.Visibility.Hidden;
+            utworyAdmin.Visibility = System.Windows.Visibility.Visible;
+            adminusunKolekcje.Visibility = System.Windows.Visibility.Hidden;
+            adminusunUtworyButton.Visibility = System.Windows.Visibility.Visible;
+
+           // kolekcje.Visibility = System.Windows.Visibility.Hidden;
+
+        }
+
+        private void adminPokazListeKolekcji(object sender, MouseButtonEventArgs e)
+        {
+            adminPokazUtwory.Opacity = 0.7;
+            adminPokazKolekcje.Opacity = 1.0;
+            adminPokazUzytkownikow.Opacity = 0.7;
+            gridDataUtworyAdministrator.Visibility = System.Windows.Visibility.Hidden;
+           gridDataKolekcjeAdministrator.Visibility = System.Windows.Visibility.Visible;
+           adminusunKolekcje.Visibility = System.Windows.Visibility.Visible;
+           adminusunUtworyButton.Visibility = System.Windows.Visibility.Hidden;
+
+          //  utworyAdmin.Visibility = System.Windows.Visibility.Hidden;
+           // kolekcje.Visibility = System.Windows.Visibility.Visible;
+          //  kolekcjeAdmin.Visibility = System.Windows.Visibility.Visible;
+
+        }
+
+        private void usunKolekcjeZaznaczone(object sender, MouseButtonEventArgs e)
+        {
+            //TODO usuniecie zaznaczonych  z  gridDataUtworyAdministrator
+           
+        }
+
+        private void usunUtworyZaznaczone(object sender, MouseButtonEventArgs e)
+        {
+            //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
+            
         }
 
     }

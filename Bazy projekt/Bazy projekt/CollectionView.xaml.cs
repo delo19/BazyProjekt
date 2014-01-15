@@ -32,7 +32,19 @@ namespace Bazy_projekt
             UtworyDlaKolekcjiTableAdapter adapterPrzydzialy = new UtworyDlaKolekcjiTableAdapter();
             Model.UtworyDlaKolekcjiDataTable utwory = adapterPrzydzialy.GetData();
             var przydzialyOk = utwory.Select("IDKolekcji='" + SessionSingleton.aktualnaKolekcja.IDKolekcji + "'");
-            
+
+
+            for (int i = 0; i < przydzialyOk.Length; i++)
+            {
+                utworyKolekcji.Items.Add(przydzialyOk[i]);
+            }
+        }
+
+        private void wsteka(object sender, MouseButtonEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
+            this.Close();
         }
     }
 }

@@ -207,6 +207,7 @@
     <Content Include="Projekt1.14.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Images\zapisz_16.png" />
     <Resource Include="Resources\Images\edytujWtoek_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

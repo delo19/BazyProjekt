@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bazy_projekt.ModelTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -68,6 +69,30 @@ namespace Bazy_projekt
 
         private void kupPiosenke(object sender, MouseButtonEventArgs e)
         {
+            ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
+            ZamówieniaNaUtworyTableAdapter adapterZamowieniaNaUtwory = new ZamówieniaNaUtworyTableAdapter();
+
+            Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
+            Model.ZamówieniaNaUtworyDataTable zamowieniaNaUtwory = adapterZamowieniaNaUtwory.GetData();
+
+            Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
+            Bazy_projekt.Model.ZamówieniaNaUtworyRow zamowieniaNaUtworyRow = zamowieniaNaUtwory.NewZamówieniaNaUtworyRow();
+
+            zamowieniaRow.CzyUtwór = true;
+            zamowieniaRow.DataZakupu = DateTime.Now;
+            zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
+            zamowieniaRow.Status = true;
+
+            zamowienia.AddZamówieniaRow(zamowieniaRow);
+            adapterZamowienia.Update(zamowienia);
+
+            zamowieniaNaUtworyRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
+            zamowieniaNaUtworyRow.IDZamówienia = zamowienia.OrderBy(x => x.IDZamówienia).Last().IDZamówienia;
+
+            zamowieniaNaUtwory.AddZamówieniaNaUtworyRow(zamowieniaNaUtworyRow);
+            adapterZamowieniaNaUtwory.Update(zamowieniaNaUtwory);
+
+            
             MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
             //TODO Dodac piosenke do autora ( zeby mial ja w swoich utworach)
             //TODO Dodac do wykonawcy do jego salda tą kwote

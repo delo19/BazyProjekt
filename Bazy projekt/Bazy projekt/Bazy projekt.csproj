@@ -151,9 +151,9 @@
       <DependentUpon>Model.xsd</DependentUpon>
     </None>
     <None Include="Model.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Model.xss">
       <DependentUpon>Model.xsd</DependentUpon>
@@ -204,11 +204,13 @@
     <Resource Include="Resources\Images\przyciskiDashboard_12.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\zapisz_16.png" />
+    <Resource Include="Resources\Images\edytujWtoek_16.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Projekt1.14.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Images\zapisz_16.png" />
-    <Resource Include="Resources\Images\edytujWtoek_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

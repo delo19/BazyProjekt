@@ -64,15 +64,15 @@ namespace Bazy_projekt
                 for (int j = 0; j < tabUsers.Count; j++)
                 {
                     gridDataUzytkownicyAdministrator.Items.Add(tabUsers.ElementAt(j));
-                    
+
 
                 }
 
-                
+
                 gridDataKolekcje.Visibility = System.Windows.Visibility.Hidden;
 
 
-              //  gridDataUtworyAdministrator.IsReadOnly = false;
+                //  gridDataUtworyAdministrator.IsReadOnly = false;
 
                 adminPokazUtworyListe(null, null);
             }
@@ -274,6 +274,7 @@ namespace Bazy_projekt
                 adapter.Update(utwory);
                 //zapis pliku do folderu
                 File.Copy(pathDoUtworu, @"Music/" + adapter.GetData().Last().IDUtworu + piosenka.Format, true);
+                MessageBox.Show("Zapisano!");
 
             }
             catch (ValidationException ex)
@@ -292,22 +293,30 @@ namespace Bazy_projekt
         #region Dodaj Kolekcję
         private void dodanieUtworuDoKolekcji(object sender, MouseButtonEventArgs e)
         {
-            var utwor = dodajKolekcjeTextBoxListaUtworowUzytkownika.SelectedItem as Bazy_projekt.Model.UtworyRow;
-            if (!utworyDlaKolekcji.Any(x => x.IDUtworu == utwor.IDUtworu))
+            try
             {
-                utworyDlaKolekcji.Rows.Add(utwor.ItemArray);
-                dodajKolekcjeTextBoxListaNowychUtworow.Items.Add(utwor);
+                var utwor = dodajKolekcjeTextBoxListaUtworowUzytkownika.SelectedItem as Bazy_projekt.Model.UtworyRow;
+                if (!utworyDlaKolekcji.Any(x => x.IDUtworu == utwor.IDUtworu))
+                {
+                    utworyDlaKolekcji.Rows.Add(utwor.ItemArray);
+                    dodajKolekcjeTextBoxListaNowychUtworow.Items.Add(utwor);
+                }
             }
+            catch (Exception ex) { }
         }
 
         private void usunUtworZKolekcji(object sender, MouseButtonEventArgs e)
         {
-            var utwor = dodajKolekcjeTextBoxListaNowychUtworow.SelectedItem as Bazy_projekt.Model.UtworyRow;
-            if (utwor != null)
+            try
             {
-                utworyDlaKolekcji.Single(row => row.IDUtworu == utwor.IDUtworu).Delete();
-                dodajKolekcjeTextBoxListaNowychUtworow.Items.Remove(dodajKolekcjeTextBoxListaNowychUtworow.SelectedItem);
+                var utwor = dodajKolekcjeTextBoxListaNowychUtworow.SelectedItem as Bazy_projekt.Model.UtworyRow;
+                if (utwor != null)
+                {
+                    utworyDlaKolekcji.Single(row => row.IDUtworu == utwor.IDUtworu).Delete();
+                    dodajKolekcjeTextBoxListaNowychUtworow.Items.Remove(dodajKolekcjeTextBoxListaNowychUtworow.SelectedItem);
+                }
             }
+            catch (Exception ex) { }
         }
 
         private void DodajKolekcjeDoBazy(object sender, MouseButtonEventArgs e)
@@ -342,7 +351,7 @@ namespace Bazy_projekt
                 }
                 adapterPrzydzialy.Update(przydzialy);
 
-
+                MessageBox.Show("Zapisano!");
             }
             catch (ValidationException exc) { }
 
@@ -375,7 +384,7 @@ namespace Bazy_projekt
 
             //TODO tutaj wypelnic gridData wszystkimi utworami  Model.UtworyDataTable tab = pobierzUtwory(null, "delxxxxo19", null);
             Model.KolekcjeDataTable tab2 = pobierzKolekcje(null, null);
-           
+
             for (int i = 0; i < tab2.Count; i++)
             {
 
@@ -502,7 +511,7 @@ namespace Bazy_projekt
 
 
 
-           // kolekcje.Visibility = System.Windows.Visibility.Hidden;
+            // kolekcje.Visibility = System.Windows.Visibility.Hidden;
 
         }
 
@@ -512,15 +521,15 @@ namespace Bazy_projekt
             adminPokazKolekcje.Opacity = 1.0;
             adminPokazUzytkownikow.Opacity = 0.7;
             gridDataUtworyAdministrator.Visibility = System.Windows.Visibility.Hidden;
-           gridDataKolekcjeAdministrator.Visibility = System.Windows.Visibility.Visible;
-           adminusunKolekcje.Visibility = System.Windows.Visibility.Visible;
-           adminusunUtworyButton.Visibility = System.Windows.Visibility.Hidden;
-           gridDataUzytkownicyAdministrator.Visibility = System.Windows.Visibility.Hidden;
-           adminusunUzytkownikowZaznaczone.Visibility = System.Windows.Visibility.Hidden;
+            gridDataKolekcjeAdministrator.Visibility = System.Windows.Visibility.Visible;
+            adminusunKolekcje.Visibility = System.Windows.Visibility.Visible;
+            adminusunUtworyButton.Visibility = System.Windows.Visibility.Hidden;
+            gridDataUzytkownicyAdministrator.Visibility = System.Windows.Visibility.Hidden;
+            adminusunUzytkownikowZaznaczone.Visibility = System.Windows.Visibility.Hidden;
 
-          //  utworyAdmin.Visibility = System.Windows.Visibility.Hidden;
-           // kolekcje.Visibility = System.Windows.Visibility.Visible;
-          //  kolekcjeAdmin.Visibility = System.Windows.Visibility.Visible;
+            //  utworyAdmin.Visibility = System.Windows.Visibility.Hidden;
+            // kolekcje.Visibility = System.Windows.Visibility.Visible;
+            //  kolekcjeAdmin.Visibility = System.Windows.Visibility.Visible;
 
         }
 
@@ -561,14 +570,14 @@ namespace Bazy_projekt
             {
                 MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
             }
-            
+
         }
 
         private void usunUzytkownicyZaznaczone(object sender, MouseButtonEventArgs e)
         {
             //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
 
-         
+
 
         }
 
@@ -580,7 +589,7 @@ namespace Bazy_projekt
 
         }
 
-     
+
 
         private void adminPokazUzytkownikowMetod(object sender, MouseButtonEventArgs e)
         {

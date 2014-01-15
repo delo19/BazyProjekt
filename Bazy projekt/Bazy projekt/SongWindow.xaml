@@ -15,7 +15,7 @@
             <Image Grid.RowSpan="1" Source="Resources/Images/logoZTlem_03.png" Width="219" Stretch="None" Height="63"/>
             <TextBlock x:Name="songViewNazwaUtworu" HorizontalAlignment="Left" Margin="31,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1130" FontSize="50" Grid.Row="1" TextAlignment="Center" Opacity="0.75"><Run Language="pl-pl" Text="Nazwa Utworu"/></TextBlock>
             <Rectangle Fill="#FFB6B6B6" HorizontalAlignment="Left" Height="1" Margin="31,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1130"/>
-            <Image x:Name="playSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/playButton_03.png" PreviewMouseUp="playSong"/>
+            <Image x:Name="playSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/playButton_03.png" MouseUp="playSong" MouseDown="setPlay"/>
             <TextBlock x:Name="songViewOpis" HorizontalAlignment="Left" Margin="432,186,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="96" Width="729"/>
             <Image x:Name="star1" HorizontalAlignment="Left" Height="27" Margin="716,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
             <Image x:Name="star2" HorizontalAlignment="Left" Height="27" Margin="750,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>

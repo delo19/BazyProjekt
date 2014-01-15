@@ -23,7 +23,7 @@ namespace Bazy_projekt
     public partial class SongWindow : Window
     {
         MediaPlayer player;
-
+        bool setPlayIT = false;
         public SongWindow()
         {
             InitializeComponent();
@@ -125,6 +125,8 @@ namespace Bazy_projekt
 
         private void playSong(object sender, MouseButtonEventArgs e)
         {
+            if (!setPlayIT)
+                return;
             pauseSongButton.Visibility = System.Windows.Visibility.Visible;
             playSongButton.Visibility = System.Windows.Visibility.Collapsed;
 
@@ -152,6 +154,11 @@ namespace Bazy_projekt
             EditSongg son = new EditSongg();
             son.Show();
             this.Close();
+        }
+
+        private void setPlay(object sender, MouseButtonEventArgs e)
+        {
+            setPlayIT = true;
         }
     }
 }

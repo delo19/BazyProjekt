@@ -21,7 +21,7 @@ namespace Bazy_projekt
     public partial class CollectionView : Window
     {
         MediaPlayer player;
-
+        bool setPlayIT = false;
         public CollectionView()
         {
             InitializeComponent();
@@ -55,18 +55,27 @@ namespace Bazy_projekt
 
         private void playSong(object sender, MouseButtonEventArgs e)
         {
-            pauseSongButton.Visibility = System.Windows.Visibility.Visible;
-            playSongButton.Visibility = System.Windows.Visibility.Collapsed;
+            try
+            {
+                if (!setPlayIT)
+                    return;
+                pauseSongButton.Visibility = System.Windows.Visibility.Visible;
+                playSongButton.Visibility = System.Windows.Visibility.Collapsed;
 
-            player.Play();
-
+                player.Play();
+            }
+            catch (Exception ex) { }
         }
 
         private void pauseSong(object sender, MouseButtonEventArgs e)
         {
-            pauseSongButton.Visibility = System.Windows.Visibility.Collapsed;
-            playSongButton.Visibility = System.Windows.Visibility.Visible;
-            player.Pause();
+            try
+            {
+                pauseSongButton.Visibility = System.Windows.Visibility.Collapsed;
+                playSongButton.Visibility = System.Windows.Visibility.Visible;
+                player.Pause();
+            }
+            catch (Exception ex) { }
         }
 
 
@@ -114,7 +123,23 @@ namespace Bazy_projekt
 
         private void utworyKolekcji_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SessionSingleton.aktualnyUtwor = utworyKolekcji.SelectedItem as Model.UtworyRow;
+            try
+            {
+                player.Stop();
+                Model.UtworyDlaKolekcjiRow aktualny = (utworyKolekcji.SelectedItem as Model.UtworyDlaKolekcjiRow);
+                if (aktualny != null)
+                {
+                    Uri uri = new Uri(@"Music/" +
+                        aktualny.Utwory_IDUtworu + aktualny.Format, UriKind.Relative);
+                    player = new MediaPlayer();
+                    player.Open(uri);
+                }
+            }
+            catch (Exception) { }
+        }
+        private void setPlay(object sender, MouseButtonEventArgs e)
+        {
+            setPlayIT = true;
         }
 
 

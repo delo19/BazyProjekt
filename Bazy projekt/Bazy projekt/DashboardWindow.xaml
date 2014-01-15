@@ -92,7 +92,8 @@
                     </LinearGradientBrush>
                 </TextBox.SelectionBrush>
             </TextBox>
-            <ListBox x:Name="dodajKolekcjeTextBoxListaNowychUtworow" HorizontalAlignment="Left" Height="219" Margin="60,209,0,0" VerticalAlignment="Top" Width="147"/>
+            <ListBox x:Name="dodajKolekcjeTextBoxListaNowychUtworow" HorizontalAlignment="Left" Height="219" Margin="60,209,0,0" VerticalAlignment="Top" Width="147" />
+
             <TextBlock HorizontalAlignment="Left" Margin="59,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"><Run Language="pl-pl" Text="Nowa kolekcja:"/></TextBlock>
             <ListBox x:Name="dodajKolekcjeTextBoxListaUtworowUzytkownika" HorizontalAlignment="Left" Height="219" Margin="348,209,0,0" VerticalAlignment="Top" Width="151"/>
             <TextBlock HorizontalAlignment="Left" Margin="348,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="16"><Run Language="pl-pl" Text="Lista utworów:"/></TextBlock>
@@ -363,5 +364,10 @@
             <TextBlock x:Name="adminPokazUzytkownikow" HorizontalAlignment="Left" Margin="283,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" MouseUp="adminPokazUzytkownikowMetod"><Run Language="pl-pl" Text="Użytkownicy"/></TextBlock>
         </Grid>
     </Grid>
+    
+    
+    
+    
+    
 
 </Window>

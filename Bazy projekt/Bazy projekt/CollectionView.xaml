@@ -14,7 +14,7 @@
             <Image Grid.RowSpan="1" Source="Resources/Images/logoZTlem_03.png" Width="219" Stretch="None" Height="63"/>
             <TextBlock x:Name="songViewNazwaKolekcji" HorizontalAlignment="Left" Margin="31,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1130" FontSize="50" Grid.Row="1" TextAlignment="Center" Opacity="0.75"><Run Language="pl-pl" Text="Nazwa Utworu"/></TextBlock>
             <Rectangle Fill="#FFB6B6B6" HorizontalAlignment="Left" Height="1" Margin="31,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1130"/>
-            <Image x:Name="playSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/playButton_03.png"/>
+            <Image x:Name="playSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/playButton_03.png" MouseUp="playSong" MouseDown="setPlay"/>
             <TextBlock x:Name="collectionViewOpis" HorizontalAlignment="Left" Margin="775,186,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="137" Width="386"/>
             <Image x:Name="star1" HorizontalAlignment="Left" Height="27" Margin="923,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
             <Image x:Name="star2" HorizontalAlignment="Left" Height="27" Margin="957,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="29" Source="Resources/star.png"/>
@@ -26,7 +26,7 @@
             <TextBlock x:Name="collectionViewCena" HorizontalAlignment="Left" Margin="775,153,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="123" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
             <Image x:Name="pobierzButton" HorizontalAlignment="Left" Height="42" Margin="1018,387,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_18.png"/>
             <Image HorizontalAlignment="Left" Height="42" Margin="1018,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_16.png" MouseUp="kupUtwor"/>
-            <Image x:Name="pauseSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/pauseButton_03.png" Visibility="Hidden"/>
+            <Image x:Name="pauseSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/pauseButton_03.png" Visibility="Hidden" MouseUp="pauseSong"/>
             <Image HorizontalAlignment="Left" Height="52" Margin="54,30,0,0" VerticalAlignment="Top" Width="50" Source="Resources/Images/back105.png" MouseUp="wsteka"/>
             <Rectangle Fill="Gainsboro" HorizontalAlignment="Left" Height="1" Margin="629,306,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>

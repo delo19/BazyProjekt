@@ -46,5 +46,12 @@ namespace Bazy_projekt
             dw.Show();
             this.Close();
         }
+
+        private void edytujKolekcje(object sender, MouseButtonEventArgs e)
+        {
+            EditCollection ec = new EditCollection();
+            ec.Show();
+            this.Close();
+        }
     }
 }

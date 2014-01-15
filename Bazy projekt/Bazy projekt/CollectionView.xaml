@@ -49,6 +49,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+            <Image x:Name="edytujKolekcjePRzycisk" HorizontalAlignment="Left" Height="42" Margin="1018,293,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/edytujWtoek_16.png" MouseUp="edytujKolekcje"/>
 
         </Grid>
     </Grid>

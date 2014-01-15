@@ -67,7 +67,7 @@ namespace Bazy_projekt
                 uzytkownik.Awatar = "none";
                 uzytkownik.Saldo = 0;
                 uzytkownik.DataRejestracji = DateTime.Now;
-                //uzytkownik.IDUprawnienia = 4;
+                uzytkownik.IDUprawnienia = 4;
                 ValidateKlient(users, uzytkownik);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
@@ -108,7 +108,7 @@ namespace Bazy_projekt
                 uzytkownik.Ulica = ulicaTextBoxWykonawca.Text;
                 uzytkownik.KodPocztowy = kodPocztowy1TextBoxWykonawca.Text + "-" + kodPocztowy2TextBoxWykonawca.Text;
                 uzytkownik.DataRejestracji = DateTime.Now;
-                //uzytkownik.IDUprawnienia = 3;
+                uzytkownik.IDUprawnienia = 3;
                 ValidateKlient(users, uzytkownik);
                 ValidateWykonawca(users, uzytkownik);
                 //uzytkownik.Hasło = HasherManager.SetHash(uzytkownik.Hasło);

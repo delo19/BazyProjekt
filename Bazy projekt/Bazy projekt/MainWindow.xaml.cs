@@ -68,31 +68,5 @@ namespace Bazy_projekt
 
 
 
-        //void metodaTutorialowa()
-        //{
-        //    ///Tu mamy tabele uzytkownikow
-        //    Model.UżytkownicyDataTable users = new Model.UżytkownicyDataTable();
-        //    //Mamy metody takie jak szukanie, deletowanie itp.
-        //    //users.FindByLogin;
-        //    //chcemy dodac usera. tworzymy nowy rekord
-        //    Model.UżytkownicyRow uzytkownik = users.NewUżytkownicyRow();
-        //    //uzupelniamy dane
-        //    uzytkownik.Login = "test";
-        //    uzytkownik.DataRejestracji = DateTime.Now;
-        //    uzytkownik.Email = "";
-        //    //dodajemy do tabeli
-        //    users.AddUżytkownicyRow(uzytkownik);
-        //    //zapis do bazy zmian(taki commit)
-        //    users.AcceptChanges();
-
-        //    //inne przykłady:
-        //    //kasowanie usera
-        //    users.FindByLogin("testowy").Delete();
-        //    //updatowanie usera
-        //    users.FindByLogin("testowy").Saldo += 200;//zwiekszamy saldo :D
-
-        //    //PAMIETAMY O ZAPISIE DO BAZY PO KAZDEJ operacji!!!!!!!
-        //    users.AcceptChanges();//!!!!!!!!!!!!!!!!!
-        //}
     }
 }

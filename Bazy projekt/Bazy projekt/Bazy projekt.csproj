@@ -62,6 +62,11 @@
     <Compile Include="CollectionView.xaml.cs">
       <DependentUpon>CollectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="del191_blogDevDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>del191_blogDevDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EditCollection.xaml.cs">
       <DependentUpon>EditCollection.xaml</DependentUpon>
     </Compile>
@@ -147,6 +152,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="del191_blogDevDataSet.xsc">
+      <DependentUpon>del191_blogDevDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="del191_blogDevDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>del191_blogDevDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="del191_blogDevDataSet.xss">
+      <DependentUpon>del191_blogDevDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Model.xsc">
       <DependentUpon>Model.xsd</DependentUpon>
     </None>

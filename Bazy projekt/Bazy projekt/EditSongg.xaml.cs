@@ -41,7 +41,6 @@ namespace Bazy_projekt
             Model.UtworyDataTable utwory = adapter.GetData();
             Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(SessionSingleton.aktualnyUtwor.IDUtworu);
 
-            piosenka.Login = SessionSingleton.zalogowanyUser.Login;
             piosenka.Nazwa = dodajUtworTextBoxNazwaUtworu.Text;
             piosenka.Cena = int.Parse(dodajUtworTextBoxCena.Text);
             piosenka.Opis = dodajUtworTextBoxOpisUtworu.Text;

@@ -44,5 +44,16 @@ namespace Bazy_projekt.Properties {
                 return ((string)(this["Model"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql3.webio.pl,2401;Initial Catalog=del191_blogDev;Persist Security " +
+            "Info=True;User ID=del191_delo19")]
+        public string TestowyModel {
+            get {
+                return ((string)(this["TestowyModel"]));
+            }
+        }
     }
 }

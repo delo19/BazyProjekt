@@ -1,6 +1,7 @@
 ﻿using Bazy_projekt.ModelTableAdapters;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,12 +31,13 @@ namespace Bazy_projekt
             {
                 songViewNazwaKolekcji.Text = SessionSingleton.aktualnaKolekcja.Nazwa;
                 songViewAutor.Text = SessionSingleton.aktualnaKolekcja.Login;
+                collectionViewOpis.Text = SessionSingleton.aktualnaKolekcja.Opis;
 
                 // tu masz pobieranie listy utworow
                 UtworyDlaKolekcjiTableAdapter adapterPrzydzialy = new UtworyDlaKolekcjiTableAdapter();
                 Model.UtworyDlaKolekcjiDataTable utwory = adapterPrzydzialy.GetData();
                 var przydzialyOk = utwory.Select("IDKolekcji='" + SessionSingleton.aktualnaKolekcja.IDKolekcji + "'");
-
+                pobierzButton.Visibility = Visibility.Hidden;
 
                 for (int i = 0; i < przydzialyOk.Length; i++)
                 {
@@ -117,7 +119,8 @@ namespace Bazy_projekt
             //zamowieniaNaUtworyRow.IDZamówienia = zamowienia.OrderBy(x => x.IDZamówienia).Last().IDZamówienia;
 
             //adapterZamowieniaNaUtwory.Update(zamowieniaNaUtwory);
-
+            MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
+            pobierzButton.Visibility = Visibility.Visible;
 
         }
 
@@ -125,7 +128,8 @@ namespace Bazy_projekt
         {
             try
             {
-                player.Stop();
+                if (player != null)
+                    player.Stop();
                 Model.UtworyDlaKolekcjiRow aktualny = (utworyKolekcji.SelectedItem as Model.UtworyDlaKolekcjiRow);
                 if (aktualny != null)
                 {
@@ -142,6 +146,29 @@ namespace Bazy_projekt
             setPlayIT = true;
         }
 
+        private void pobierzPiosenke(object sender, MouseButtonEventArgs e)
+        {
+
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+             Model.UtworyDlaKolekcjiRow aktualny = (utworyKolekcji.SelectedItem as Model.UtworyDlaKolekcjiRow);
+             if (aktualny == null)
+                 return;
+
+            dlg.FileName =  aktualny.Nazwa;
+            dlg.DefaultExt = aktualny.Format; // Default file extension
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                string filename = dlg.FileName;
+                File.Copy(@"Music/" + aktualny.Utwory_IDUtworu + aktualny.Format, filename);
+            }
+
+        }
 
     }
 }

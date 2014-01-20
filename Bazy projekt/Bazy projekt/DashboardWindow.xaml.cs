@@ -78,6 +78,7 @@ namespace Bazy_projekt
             }
             else
             {
+                setUserUprawnienia();
                 dodajKolekcje2.Visibility = System.Windows.Visibility.Hidden;
                 dodajUtwor2.Visibility = System.Windows.Visibility.Hidden;
                 utwory2.Visibility = System.Windows.Visibility.Visible;
@@ -116,54 +117,7 @@ namespace Bazy_projekt
             }
         }
 
-        private void pickImage(object sender, MouseButtonEventArgs e)
-        {
-            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
-            Model.UżytkownicyDataTable uzytkownicy = adapter.GetData();
-            Model.UżytkownicyRow user = uzytkownicy.FindByLogin(SessionSingleton.zalogowanyUser.Login);
-
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".png";
-
-
-            // Get the selected file name and display in a TextBox 
-            if (dlg.ShowDialog() == true)
-            {
-                // Open document 
-                user.Awatar = dlg.FileName;
-                pathDoUtworu = dlg.FileName;
-
-                //adapter.Update(uzytkownicy);
-                avatarImage.Source = new BitmapImage(new Uri(dlg.FileName)); ;
-                File.Copy(pathDoUtworu, @"Awatars/" + user.Login, true);
-                MessageBox.Show("Zapisano!");
-            }
-
-
-        }
-
-        void gridData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            Model.UtworyRow x = (Model.UtworyRow)gridData.Items.GetItemAt(gridData.SelectedIndex);
-            SessionSingleton.aktualnyUtwor = x;
-            SongWindow w = new SongWindow();
-            w.Show();
-            this.Close();
-        }
-
-        void gridData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-        #region Utwory i kolekcje
+        #region Pobieranie danych
 
         public Model.UtworyDataTable pobierzUtwory(string nazwa, string wykonawca, int? rokPowstania)
         {
@@ -227,10 +181,6 @@ namespace Bazy_projekt
 
         #endregion Utwory i kolekcje
 
-        #region MOJE Utwory i kolekcje
-
-        #endregion MOJE Utwory i kolekcje
-
         #region Dodaj Utwór
         string pathDoUtworu = "";
         private void wybierzPiosenkeZDysku(object sender, MouseButtonEventArgs e)
@@ -280,6 +230,10 @@ namespace Bazy_projekt
             catch (ValidationException ex)
             {
                 dodajUtworKomunikatOBledzie.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                dodajUtworKomunikatOBledzie.Text = "Sprawdz poprawność danych";
             }
         }
 
@@ -361,6 +315,22 @@ namespace Bazy_projekt
         #endregion Dodaj Kolekcję
 
         #region zmiany Visilbility
+
+
+        void setUserUprawnienia()
+        {
+            switch (SessionSingleton.zalogowanyUser.IDUprawnienia)
+            {
+                case 3://klient
+                    toHide3.Visibility = Visibility.Hidden;
+                    toHide4.Visibility = Visibility.Hidden;
+                    break;
+                case 4://wykonawca
+                    break;
+                default:
+                    break;
+            }
+        }
         private void utworyIKolekcje(object sender, MouseButtonEventArgs e)
         {
             gridData.Visibility = System.Windows.Visibility.Visible;
@@ -451,14 +421,6 @@ namespace Bazy_projekt
             }
         }
 
-        #endregion zmiany Visibility
-
-        private void logout(object sender, MouseButtonEventArgs e)
-        {
-
-
-        }
-
         private void logout(object sender, RoutedEventArgs e)
         {
             SessionSingleton.zalogowanyUser = null;
@@ -533,54 +495,6 @@ namespace Bazy_projekt
 
         }
 
-        private void usunKolekcjeZaznaczone(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                //TODO usuniecie zaznaczonych  z  gridDataUtworyAdministrator
-                KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
-                Model.KolekcjeDataTable utwory = adapter.GetData();
-                Bazy_projekt.Model.KolekcjeRow row = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
-                Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(row.IDKolekcji);
-                piosenka.Delete();
-
-                adapter.Update(utwory);
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show("Nie mozna usunac kolekcji poniewaz jest do niej przypisana oferta");
-            }
-        }
-
-        private void usunUtworyZaznaczone(object sender, MouseButtonEventArgs e)
-        {
-            //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
-            try
-            {
-                UtworyTableAdapter adapter = new UtworyTableAdapter();
-                Model.UtworyDataTable utwory = adapter.GetData();
-                Bazy_projekt.Model.UtworyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UtworyRow;
-                Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(row.IDUtworu);
-                piosenka.Delete();
-
-                adapter.Update(utwory);
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
-            }
-
-        }
-
-        private void usunUzytkownicyZaznaczone(object sender, MouseButtonEventArgs e)
-        {
-            //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
-
-
-
-        }
-
         private Model.UżytkownicyDataTable GetUsers()
         {
             UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
@@ -588,8 +502,6 @@ namespace Bazy_projekt
             return uzytkownicy;
 
         }
-
-
 
         private void adminPokazUzytkownikowMetod(object sender, MouseButtonEventArgs e)
         {
@@ -605,16 +517,9 @@ namespace Bazy_projekt
             adminusunUzytkownikowZaznaczone.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void usunUzytkownikowZaznaczonych(object sender, MouseButtonEventArgs e)
-        {
-            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
-            Model.UżytkownicyDataTable utwory = adapter.GetData();
-            Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
-            Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
-            piosenka.Delete();
+        #endregion zmiany Visibility
 
-            adapter.Update(utwory);
-        }
+        #region szukanie i otwieranie
 
         private void szukajTbWszystkie_KeyDown(object sender, KeyEventArgs e)
         {
@@ -645,5 +550,165 @@ namespace Bazy_projekt
             }
         }
 
+        void gridData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            Model.UtworyRow x = (Model.UtworyRow)gridData.Items.GetItemAt(gridData.SelectedIndex);
+            SessionSingleton.aktualnyUtwor = x;
+            SongWindow w = new SongWindow();
+            w.Show();
+            this.Close();
+        }
+
+        #endregion szukanie i otwieranie
+
+        #region edycja
+
+        private void gridDataUtworyAdministrator_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Bazy_projekt.Model.UtworyRow utwor = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UtworyRow;
+
+            SessionSingleton.aktualnyUtwor = utwor;
+            EditSongg win = new EditSongg();
+            win.Show();
+            this.Close();
+        }
+
+        private void gridDataKolekcjeAdministrator_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Bazy_projekt.Model.KolekcjeRow utwor =
+            gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
+
+            SessionSingleton.aktualnaKolekcja = utwor;
+            EditCollection win = new EditCollection();
+            win.Show();
+            this.Close();
+        }
+
+        private void gridDataUzytkownicyAdministrator_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Bazy_projekt.Model.UżytkownicyRow user = gridDataUzytkownicyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
+
+            SessionSingleton.aktualnyUser = user;
+            EditUser u = new EditUser();
+            u.Show();
+            this.Close();
+
+
+        }
+
+        #endregion edycja
+
+        #region kasowanie
+
+        private void usunKolekcjeZaznaczone(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                //TODO usuniecie zaznaczonych  z  gridDataUtworyAdministrator
+                KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
+                Model.KolekcjeDataTable utwory = adapter.GetData();
+                Bazy_projekt.Model.KolekcjeRow row = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
+                Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(row.IDKolekcji);
+                piosenka.Delete();
+
+                adapter.Update(utwory);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nie mozna usunac kolekcji poniewaz jest do niej przypisana oferta");
+            }
+        }
+
+        private void usunUtworyZaznaczone(object sender, MouseButtonEventArgs e)
+        {
+            //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
+            try
+            {
+                Bazy_projekt.Model.UtworyRow utwor = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UtworyRow;
+
+                //1 wywal przydział
+                PrzydziałyTableAdapter przydzialyAdapter = new PrzydziałyTableAdapter();
+                Model.PrzydziałyDataTable przydzialy = przydzialyAdapter.GetData();
+                DataRow[] przydzialyDoWywalenia = przydzialy.Select("IDUtworu='" + utwor.IDUtworu + "'");
+                przydzialyDoWywalenia.ToList().ForEach(x => x.Delete());
+
+                //2 wywal zamowienia
+                ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
+                Model.ZamówieniaDataTable zamowienia = zamowieniaAdapter.GetData();
+                DataRow[] zamowieniaDoWywalenia = przydzialy.Select("IDUtworu='" + utwor.IDUtworu + "'");
+                zamowieniaDoWywalenia.ToList().ForEach(x => x.Delete());
+
+                //3 wywal utwor
+                UtworyTableAdapter utworyAdapter = new UtworyTableAdapter();
+                Model.UtworyDataTable utwory = utworyAdapter.GetData();
+                Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(utwor.IDUtworu);
+                piosenka.Delete();
+
+                //Model.PrzydziałyRow przydzialyRow = 
+
+
+                //adapter.Update(utwory);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
+            }
+
+        }
+
+        private void usunUzytkownikowZaznaczonych(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+                Model.UżytkownicyDataTable utwory = adapter.GetData();
+                Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
+                Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
+                piosenka.Delete();
+
+
+                adapter.Update(utwory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie mozna usunąc uzytkownika, ponieważ posiada utwory, z których aktualnie korzystają uzytkownicy");
+            }
+        }
+
+
+        #endregion kasowanie
+
+        #region inne
+
+        private void pickImage(object sender, MouseButtonEventArgs e)
+        {
+            UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
+            Model.UżytkownicyDataTable uzytkownicy = adapter.GetData();
+            Model.UżytkownicyRow user = uzytkownicy.FindByLogin(SessionSingleton.zalogowanyUser.Login);
+
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+
+
+            // Get the selected file name and display in a TextBox 
+            if (dlg.ShowDialog() == true)
+            {
+                // Open document 
+                user.Awatar = dlg.FileName;
+                pathDoUtworu = dlg.FileName;
+
+                //adapter.Update(uzytkownicy);
+                avatarImage.Source = new BitmapImage(new Uri(dlg.FileName)); ;
+                File.Copy(pathDoUtworu, @"Awatars/" + user.Login, true);
+                MessageBox.Show("Zapisano!");
+            }
+
+
+        }
+
+
+        #endregion inne
     }
 }

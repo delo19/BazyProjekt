@@ -33,5 +33,27 @@ namespace Bazy_projekt.Properties {
                 return ((string)(this["Projekt1_14ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\bin\\Debug\\Projekt1." +
+            "14.accdb")]
+        public string Model {
+            get {
+                return ((string)(this["Model"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql3.webio.pl,2401;Initial Catalog=del191_blogDev;Persist Security " +
+            "Info=True;User ID=del191_delo19")]
+        public string TestowyModel {
+            get {
+                return ((string)(this["TestowyModel"]));
+            }
+        }
     }
 }

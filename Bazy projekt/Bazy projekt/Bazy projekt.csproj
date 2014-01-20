@@ -62,6 +62,11 @@
     <Compile Include="CollectionView.xaml.cs">
       <DependentUpon>CollectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="del191_blogDevDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>del191_blogDevDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EditCollection.xaml.cs">
       <DependentUpon>EditCollection.xaml</DependentUpon>
     </Compile>
@@ -70,6 +75,9 @@
     </Compile>
     <Compile Include="EditSongg.xaml.cs">
       <DependentUpon>EditSongg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="HasherManager.cs" />
     <Compile Include="Model.Designer.cs">
@@ -102,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditSongg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,13 +159,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="del191_blogDevDataSet.xsc">
+      <DependentUpon>del191_blogDevDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="del191_blogDevDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>del191_blogDevDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="del191_blogDevDataSet.xss">
+      <DependentUpon>del191_blogDevDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Model.xsc">
       <DependentUpon>Model.xsd</DependentUpon>
     </None>
     <None Include="Model.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Model.xss">
       <DependentUpon>Model.xsd</DependentUpon>
@@ -204,11 +227,13 @@
     <Resource Include="Resources\Images\przyciskiDashboard_12.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\zapisz_16.png" />
+    <Resource Include="Resources\Images\edytujWtoek_16.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Projekt1.14.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Images\zapisz_16.png" />
-    <Resource Include="Resources\Images\edytujWtoek_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

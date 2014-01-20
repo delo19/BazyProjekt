@@ -6286,7 +6286,7 @@ namespace Bazy_projekt {
                         return ((string)(this[this.tableUżytkownicy.UlicaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ulica\' in table \'Użytkownicy\' is DBNull.", e);
+                        return "";
                     }
                 }
                 set {
@@ -6302,7 +6302,7 @@ namespace Bazy_projekt {
                         return ((string)(this[this.tableUżytkownicy.MiejscowośćColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Miejscowość\' in table \'Użytkownicy\' is DBNull.", e);
+                        return "";
                     }
                 }
                 set {

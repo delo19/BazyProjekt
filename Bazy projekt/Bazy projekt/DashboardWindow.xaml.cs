@@ -586,7 +586,12 @@ namespace Bazy_projekt
 
         private void gridDataUzytkownicyAdministrator_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //edycja usera
+            Bazy_projekt.Model.UżytkownicyRow user = gridDataUzytkownicyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
+
+            SessionSingleton.aktualnyUser = user;
+            EditUser u = new EditUser();
+            u.Show();
+            this.Close();
 
 
         }

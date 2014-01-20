@@ -226,7 +226,7 @@
         </DataGrid>
         <Button Content="Wyloguj&#xA;" HorizontalAlignment="Left" Margin="1089,10,0,0" VerticalAlignment="Top" Width="94" Height="23" MouseDown="logout" MouseUp="logout" Click="logout"/>
         <Grid x:Name="panelAdmina" Height="405" Margin="289,22,19,0" Grid.Row="1" VerticalAlignment="Top">
-            <Grid x:Name="kolekcjeAdmin" HorizontalAlignment="Left" Height="341" Margin="10,88,0,-24" VerticalAlignment="Top" Width="874">
+            <Grid x:Name="kolekcjeAdmin" HorizontalAlignment="Left" Height="341" Margin="10,88,0,-24" VerticalAlignment="Top" Width="874" d:IsHidden="True">
                 <DataGrid x:Name="gridDataUtworyAdministrator" IsReadOnly="True" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" Height="259" Width="802" Visibility="Visible" MouseDoubleClick="gridDataUtworyAdministrator_MouseDoubleClick">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="ID" Width="40">
@@ -277,8 +277,8 @@
                 </DataGrid>
                 <Image x:Name="adminusunKolekcje" HorizontalAlignment="Left" Height="36" Margin="674,303,0,0" VerticalAlignment="Top" Width="120" Source="Resources/Images/zapisz_16.png" MouseUp="usunKolekcjeZaznaczone"/>
             </Grid>
-            <Grid x:Name="uzytkownicy" HorizontalAlignment="Left" Height="341" Margin="0,88,0,-24" VerticalAlignment="Top" Width="874" d:IsHidden="True">
-                <DataGrid x:Name="gridDataUzytkownicyAdministrator" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Height="259" Width="802" Visibility="Visible" MouseDoubleClick="gridDataUzytkownicyAdministrator_MouseDoubleClick">
+            <Grid x:Name="uzytkownicy" HorizontalAlignment="Left" Height="341" Margin="0,88,0,-24" VerticalAlignment="Top" Width="874">
+                <DataGrid x:Name="gridDataUzytkownicyAdministrator" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Height="259" Width="802" Visibility="Visible" MouseDoubleClick="gridDataUzytkownicyAdministrator_MouseDoubleClick">
                     <DataGrid.Columns>
                       
 

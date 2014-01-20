@@ -630,7 +630,7 @@ namespace Bazy_projekt
                 //2 wywal zamowienia
                 ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
                 Model.ZamówieniaDataTable zamowienia = zamowieniaAdapter.GetData();
-                DataRow[] zamowieniaDoWywalenia = przydzialy.Select("IDUtworu='" + utwor.IDUtworu + "'");
+                DataRow[] zamowieniaDoWywalenia = zamowienia.Select("IDUtworu='" + utwor.IDUtworu + "'");
                 zamowieniaDoWywalenia.ToList().ForEach(x => x.Delete());
 
                 //3 wywal utwor
@@ -639,10 +639,11 @@ namespace Bazy_projekt
                 Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(utwor.IDUtworu);
                 piosenka.Delete();
 
-                //Model.PrzydziałyRow przydzialyRow = 
 
+                przydzialyAdapter.Update(przydzialy);
+                zamowieniaAdapter.Update(zamowienia);
+                utworyAdapter.Update(utwory);
 
-                //adapter.Update(utwory);
 
             }
             catch (Exception)

@@ -70,29 +70,20 @@ namespace Bazy_projekt
 
         private void kupPiosenke(object sender, MouseButtonEventArgs e)
         {
-            //ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
-            //ZamówieniaNaUtworyTableAdapter adapterZamowieniaNaUtwory = new ZamówieniaNaUtworyTableAdapter();
+            ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
 
-            //Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
-            //Model.ZamówieniaNaUtworyDataTable zamowieniaNaUtwory = adapterZamowieniaNaUtwory.GetData();
 
-            //Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
-            //Bazy_projekt.Model.ZamówieniaNaUtworyRow zamowieniaNaUtworyRow = zamowieniaNaUtwory.NewZamówieniaNaUtworyRow();
+            Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
+            Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
 
-            //zamowieniaRow.CzyUtwór = true;
-            //zamowieniaRow.DataZakupu = DateTime.Now;
-            //zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
-            //zamowieniaRow.Status = true;
+            zamowieniaRow.CzyUtwór = true;
+            zamowieniaRow.DataZakupu = DateTime.Now;
+            zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
+            zamowieniaRow.Status = true;
+            zamowieniaRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
 
-            //zamowienia.AddZamówieniaRow(zamowieniaRow);
-            //adapterZamowienia.Update(zamowienia);
-
-            //zamowieniaNaUtworyRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
-            //zamowieniaNaUtworyRow.IDZamówienia = zamowienia.OrderBy(x => x.IDZamówienia).Last().IDZamówienia;
-
-            //zamowieniaNaUtwory.AddZamówieniaNaUtworyRow(zamowieniaNaUtworyRow);
-            //adapterZamowieniaNaUtwory.Update(zamowieniaNaUtwory);
-
+            zamowienia.AddZamówieniaRow(zamowieniaRow);
+            adapterZamowienia.Update(zamowienia);
             
             MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
             pobierzButton.Visibility = Visibility.Visible;

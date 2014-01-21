@@ -121,10 +121,12 @@ namespace Bazy_projekt
 
         public Model.UtworyDataTable pobierzUtwory(string nazwa, string wykonawca, int? rokPowstania)
         {
+
             UtworyTableAdapter adapter = new UtworyTableAdapter();
             Model.UtworyDataTable utwory = adapter.GetData();
+            if (utwory.Count < 0)
+                return new Model.UtworyDataTable();
             DataTable wynik = utwory.CopyToDataTable();
-            bool empty = true;
 
             string message =
                 (!string.IsNullOrEmpty(nazwa) ? "Nazwa='" + nazwa + "'" : "") +
@@ -156,12 +158,15 @@ namespace Bazy_projekt
 
             return result;
 
+
         }
 
         public Model.KolekcjeDataTable pobierzKolekcje(string nazwa, string wykonawca)
         {
             KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
             Model.KolekcjeDataTable kolekcje = adapter.GetData();
+            if (kolekcje.Count < 0)
+                return new Model.KolekcjeDataTable();
             DataTable wynik = kolekcje.CopyToDataTable();
 
             if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count() > 0)
@@ -621,21 +626,21 @@ namespace Bazy_projekt
                         break;
 
                     case MessageBoxResult.No:
-                        
+
                         break;
 
                     case MessageBoxResult.Cancel:
-                        
+
                         break;
                 }
 
-                
+
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
+                MessageBox.Show("Nie mozna usunąc utworu. Prosimy o cierpliwość");
             }
         }
 
@@ -671,7 +676,7 @@ namespace Bazy_projekt
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
+                MessageBox.Show("Nie mozna usunąć. Prosimy o cierpliwość.");
             }
 
         }
@@ -680,29 +685,54 @@ namespace Bazy_projekt
         {
             try
             {
-                Bazy_projekt.Model.UżytkownicyRow uzytkownik = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
-                
-                //usun kolekcje uzytkownika
-                uzytkownik.GetKolekcjeRows().ToList().ForEach(x=> UsunKolekcje(x));
+                Bazy_projekt.Model.UżytkownicyRow uzytkownik = gridDataUzytkownicyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
 
-                //usun przydzialy uzytkownika
-               // uzytkownik.GetUtworyRows().ToList().ForEach(x => Usun(x));
-                //usun zamowienia uzytkownika
+                MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
 
-                uzytkownik.GetZamówieniaRows().ToList().ForEach(x => usunZamowienie(x));
+                MessageBoxResult rsltMessageBox = MessageBox.Show("Kasowanie użytkownika spowoduje skasowanie zamowien i utworów i kolekcji!", "Na pewno?", btnMessageBox, icnMessageBox);
+
+                switch (rsltMessageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        //usun kolekcje uzytkownika
+                        UżytkownicyTableAdapter uzytkownicyAdapter = new UżytkownicyTableAdapter();
+                        Model.UżytkownicyDataTable utwory = uzytkownicyAdapter.GetData();
+                        var user = utwory.FindByLogin(uzytkownik.Login);
+                        //var zam = user.GetZamówieniaRows();
+                        //var kol = user.GetKolekcjeRows();
+                        //var utw = user.GetUtworyRows();
+
+                        //if (zam != null && zam.Length > 0)
+                        //    zam.ToList().ForEach(x => usunZamowienie(x));
+                        //if (kol != null && kol.Length > 0)
+                        //    kol.ToList().ForEach(x => UsunKolekcje(x));
+                        //if (utw != null && utw.Length > 0)
+                        //    utw.ToList().ForEach(x => UsunUtwor(x));
+
+                        //4 usun uzytkownika
+
+                        user.Delete();
 
 
-                //4 usun uzytkownika
-                UżytkownicyTableAdapter uzytkownicyAdapter = new UżytkownicyTableAdapter();
-                Model.UżytkownicyDataTable utwory = uzytkownicyAdapter.GetData();
-                uzytkownik.Delete();
+                        uzytkownicyAdapter.Update(utwory);
+                        (new DashboardWindow()).Show();
+                        this.Close();
+                        break;
 
+                    case MessageBoxResult.No:
 
-                uzytkownicyAdapter.Update(utwory);
+                        break;
+
+                    case MessageBoxResult.Cancel:
+
+                        break;
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Nie mozna usunąc uzytkownika, ponieważ posiada utwory, z których aktualnie korzystają uzytkownicy");
+                MessageBox.Show("Nie mozna usunąć uzytkownika, usuń jego kolekcje a także utwory z bazy!");
             }
         }
 

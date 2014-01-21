@@ -1,0 +1,126 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Bazy_projekt.EditUser"
+        Title="EditCollection" Height="700" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="569*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/Images/bg.png"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1000*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.RowSpan="1" Source="Resources/Images/logoZTlem_03.png" Width="219" Stretch="None" Height="63"/>
+        <Grid x:Name="edytujKlientaGrid" HorizontalAlignment="Left" Height="438" Margin="145,10,0,0" VerticalAlignment="Top" Width="922" Grid.Row="1" d:IsHidden="True">
+            <TextBlock HorizontalAlignment="Left" Margin="56,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" FontSize="26"><Run Language="pl-pl" Text="Edytuj Użytkownika"/></TextBlock>
+            <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="58,110,0,0" VerticalAlignment="Top" Width="805"/>
+            <TextBlock HorizontalAlignment="Left" Margin="57,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16" Height="28"><Run Language="pl-pl" Text="Adres e-mail:"/></TextBlock>
+            <TextBox x:Name="edytujKlientaAdresEmail" HorizontalAlignment="Left" Height="26" Margin="213,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="57,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="16"><Run Language="pl-pl" Text="Nazwisko:"/></TextBlock>
+            <TextBox x:Name="edytujKlientanazwisko" HorizontalAlignment="Left" Height="24" Margin="213,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <Image HorizontalAlignment="Center" Height="34" Margin="747,378,59,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black" MouseUp="edytujKlienta"/>
+            <TextBlock HorizontalAlignment="Left" Margin="58,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Imię:"/></TextBlock>
+            <TextBox x:Name="edytujKlientaimie" HorizontalAlignment="Left" Height="26" Margin="213,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock x:Name="dodajUtworKomunikatOBledzie" HorizontalAlignment="Left" Margin="589,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Foreground="Red" TextAlignment="Right"/>
+        </Grid>
+        <Grid x:Name="edytujWykonawce" HorizontalAlignment="Left" Height="438" Margin="145,10,0,0" VerticalAlignment="Top" Width="922" Grid.Row="1">
+            <TextBlock HorizontalAlignment="Left" Margin="56,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" FontSize="26"><Run Language="pl-pl" Text="Edytuj Wykonawce"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+            <Rectangle Fill="#FF979797" HorizontalAlignment="Left" Height="1" Margin="58,110,0,0" VerticalAlignment="Top" Width="805"/>
+            <TextBlock HorizontalAlignment="Left" Margin="57,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16" Height="28"><Run Language="pl-pl" Text="Adres e-mail:"/></TextBlock>
+            <TextBox x:Name="edytujWykonawceAdresEmail" HorizontalAlignment="Left" Height="26" Margin="213,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="57,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="16"><Run Language="pl-pl" Text="Nazwisko:"/></TextBlock>
+            <TextBox x:Name="edytujWykonawceNazwisko" HorizontalAlignment="Left" Height="24" Margin="213,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <Image HorizontalAlignment="Center" Height="34" Margin="747,378,59,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black" MouseUp="edytujWyk2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="58,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="16"><Run Language="pl-pl" Text="Imię:"/></TextBlock>
+            <TextBox x:Name="edytujWykonawceImie" HorizontalAlignment="Left" Height="26" Margin="213,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock x:Name="dodajUtworKomunikatOBledzie1" HorizontalAlignment="Left" Margin="589,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Foreground="Red" TextAlignment="Right"/>
+            <TextBlock HorizontalAlignment="Left" Margin="57,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="16" Text="Ulica:"/>
+            <TextBox x:Name="edytujWykonawceUlica" HorizontalAlignment="Left" Height="24" Margin="213,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="57,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="16"><Run Language="pl-pl" Text="Miejscowość:"/></TextBlock>
+            <TextBox x:Name="edytujWykonawceNazwiskoMeijscowosc" HorizontalAlignment="Left" Height="24" Margin="213,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBlock HorizontalAlignment="Left" Margin="57,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="16"><Run Language="pl-pl" Text="Kod pocztowy:"/></TextBlock>
+            <TextBox x:Name="edytujWykonawceKodpocztowy1" HorizontalAlignment="Left" Height="24" Margin="213,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+            <TextBox x:Name="edytujWykonawceNazwisko_Copy3" HorizontalAlignment="Left" Height="24" Margin="287,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontSize="20" Padding="20,0,0,0" SelectionOpacity="0.6" Cursor="Arrow" FontFamily="Segoe WP Light">
+                <TextBox.SelectionBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF31616" Offset="0"/>
+                        <GradientStop Color="#7F00C5FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.SelectionBrush>
+            </TextBox>
+        </Grid>
+
+
+
+    </Grid>
+
+
+
+</Window>

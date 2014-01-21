@@ -133,21 +133,6 @@ namespace Bazy_projekt
                 (!string.IsNullOrEmpty(wykonawca) ? "Login='" + wykonawca + "'" : "") +
                 (!string.IsNullOrEmpty(rokPowstania.ToString()) ? "RokPowstania='" + rokPowstania + "'" : "");
 
-            //if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count()>0)
-            //{
-            //    wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
-            //    empty = false;
-            //}
-            //if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
-            //{
-            //    wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
-            //    empty = false;
-            //}
-            //if (rokPowstania != null && wynik.Select("RokPowstania='" + rokPowstania + "'").Count() > 0)
-            //{
-            //    wynik = wynik.Select("RokPowstania='" + rokPowstania + "'").CopyToDataTable();
-            //    empty = false;
-            //}
             Model.UtworyDataTable result = new Model.UtworyDataTable();
             var ob = wynik.Select(message);
             if (ob.Count() > 0)
@@ -182,6 +167,57 @@ namespace Bazy_projekt
 
         }
 
+        public Model.UtworyDataTable pobierzMojeUtwory(string nazwa, string wykonawca, int? rokPowstania)
+        {
+            ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
+            var zamowienia = zamowieniaAdapter.GetData().Select("Login='"+SessionSingleton.zalogowanyUser.Login+"'");
+
+            var zamu=SessionSingleton.zalogowanyUser.GetZamówieniaRows();
+
+            UtworyTableAdapter adapter = new UtworyTableAdapter();
+            Model.UtworyDataTable utwory = adapter.GetData();
+            if (utwory.Count < 0)
+                return new Model.UtworyDataTable();
+            DataTable wynik = utwory.CopyToDataTable();
+
+            string message =
+                (!string.IsNullOrEmpty(nazwa) ? "Nazwa='" + nazwa + "'" : "") +
+                (!string.IsNullOrEmpty(wykonawca) ? "Login='" + wykonawca + "'" : "") +
+                (!string.IsNullOrEmpty(rokPowstania.ToString()) ? "RokPowstania='" + rokPowstania + "'" : "");
+
+            Model.UtworyDataTable result = new Model.UtworyDataTable();
+            var ob = wynik.Select(message);
+            if (ob.Count() > 0)
+            {
+                wynik = ob.CopyToDataTable();
+                result.Merge(wynik);
+            }
+
+            return result;
+
+
+        }
+
+        public Model.KolekcjeDataTable pobierzMojeKolekcje(string nazwa, string wykonawca)
+        {
+            KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
+            Model.KolekcjeDataTable kolekcje = adapter.GetData();
+            if (kolekcje.Count < 0)
+                return new Model.KolekcjeDataTable();
+            DataTable wynik = kolekcje.CopyToDataTable();
+
+            if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count() > 0)
+                wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
+            if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
+                wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
+
+
+            Model.KolekcjeDataTable result = new Model.KolekcjeDataTable();
+            result.Merge(wynik);
+
+            return result;
+
+        }
 
 
         #endregion Utwory i kolekcje
@@ -405,7 +441,8 @@ namespace Bazy_projekt
             gridData.Items.Clear();
 
 
-            Model.UtworyDataTable tab = pobierzUtwory(null, SessionSingleton.zalogowanyUser.Login, null);
+            Model.UtworyDataTable tab = SessionSingleton.zalogowanyUser.IDUprawnienia==4?
+                pobierzUtwory(null, SessionSingleton.zalogowanyUser.Login, null) :pobierzMojeUtwory(null, SessionSingleton.zalogowanyUser.Login, null);
             for (int i = 0; i < tab.Count; i++)
             {
 
@@ -417,7 +454,8 @@ namespace Bazy_projekt
             gridDataKolekcje.Items.Clear();
 
 
-            Model.KolekcjeDataTable tab2 = pobierzKolekcje(null, SessionSingleton.zalogowanyUser.Login);
+            Model.KolekcjeDataTable tab2 = SessionSingleton.zalogowanyUser.IDUprawnienia == 4 ?
+                pobierzKolekcje(null, SessionSingleton.zalogowanyUser.Login) : pobierzMojeKolekcje(null, SessionSingleton.zalogowanyUser.Login);
             for (int i = 0; i < tab2.Count; i++)
             {
 

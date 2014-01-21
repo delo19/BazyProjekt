@@ -69,6 +69,7 @@ namespace Bazy_projekt
                 uzytkownik.DataRejestracji = DateTime.Now;
                 uzytkownik.IDUprawnienia = 3;
                 ValidateKlient(users, uzytkownik);
+                uzytkownik.Hasło = HasherManager.SetHash(uzytkownik.Hasło);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
                 MessageBox.Show("Dodano użytkownika! Możesz się zalogować.");
@@ -111,7 +112,7 @@ namespace Bazy_projekt
                 uzytkownik.IDUprawnienia = 4;
                 ValidateKlient(users, uzytkownik);
                 ValidateWykonawca(users, uzytkownik);
-                //uzytkownik.Hasło = HasherManager.SetHash(uzytkownik.Hasło);
+                uzytkownik.Hasło = HasherManager.SetHash(uzytkownik.Hasło);
                 users.AddUżytkownicyRow(uzytkownik);
                 adapter.Update(users);
                 MessageBox.Show("Dodano użytkownika! Możesz się zalogować.");

@@ -70,25 +70,36 @@ namespace Bazy_projekt
 
         private void kupPiosenke(object sender, MouseButtonEventArgs e)
         {
-            ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
+            try
+            {
+                ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
 
 
-            Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
-            Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
+                Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
+                Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
 
-            zamowieniaRow.CzyUtwór = true;
-            zamowieniaRow.DataZakupu = DateTime.Now;
-            zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
-            zamowieniaRow.Status = true;
-            zamowieniaRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
+                zamowieniaRow.CzyUtwór = true;
+                zamowieniaRow.DataZakupu = DateTime.Now;
+                zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
+                zamowieniaRow.Status = true;
+                zamowieniaRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
 
-            zamowienia.AddZamówieniaRow(zamowieniaRow);
-            adapterZamowienia.Update(zamowienia);
-            
-            MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
-            pobierzButton.Visibility = Visibility.Visible;
-            //TODO Dodac piosenke do autora ( zeby mial ja w swoich utworach)
-            //TODO Dodac do wykonawcy do jego salda tą kwote
+                zamowienia.AddZamówieniaRow(zamowieniaRow);
+                adapterZamowienia.Update(zamowienia);
+
+                MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
+                pobierzButton.Visibility = Visibility.Visible;
+
+                //Dodanie kasy dla autora                   
+                UżytkownicyTableAdapter adapterUzytkownicy = new UżytkownicyTableAdapter();
+                Model.UżytkownicyDataTable uzytkownicy = adapterUzytkownicy.GetData();
+                Bazy_projekt.Model.UżytkownicyRow uzytkownik =
+                    uzytkownicy.FindByLogin(SessionSingleton.aktualnyUtwor.Login);
+                uzytkownik.Saldo += SessionSingleton.aktualnyUtwor.Cena;
+
+                adapterUzytkownicy.Update(uzytkownicy);
+            }
+            catch (Exception ex) { }
 
         }
 

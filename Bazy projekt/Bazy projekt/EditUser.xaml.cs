@@ -22,29 +22,39 @@ namespace Bazy_projekt
     {
         public EditUser()
         {
-            InitializeComponent();
-            //TODO jezeli klient to ukryj  edytujWykonawce, jezeli wykonawca to ukryj edytujKlienta
-            Model.UżytkownicyRow aktualnyUser = SessionSingleton.aktualnyUser;
-            if(aktualnyUser.IDUprawnienia == 4){
-                //mamy tutaj wykonawce
-                edytujKlientaGrid.Visibility = System.Windows.Visibility.Hidden;
-                edytujWykonawce.Visibility = System.Windows.Visibility.Visible;
+            try
+            {
+                InitializeComponent();
+                //TODO jezeli klient to ukryj  edytujWykonawce, jezeli wykonawca to ukryj edytujKlienta
+                Model.UżytkownicyRow aktualnyUser = SessionSingleton.aktualnyUser;
+                if (aktualnyUser.IDUprawnienia == 4)
+                {
+                    //mamy tutaj wykonawce
+                    edytujKlientaGrid.Visibility = System.Windows.Visibility.Hidden;
+                    edytujWykonawce.Visibility = System.Windows.Visibility.Visible;
 
 
-                edytujWykonawceAdresEmail.Text = aktualnyUser.Email;
-                edytujWykonawceImie.Text = aktualnyUser.Imię;
-                edytujWykonawceNazwisko.Text = aktualnyUser.Nazwisko;
-                edytujWykonawceUlica.Text = aktualnyUser.Ulica;
-                edytujWykonawceNazwiskoMeijscowosc.Text = aktualnyUser.Miejscowość;
-                edytujWykonawceKodpocztowy1.Text = aktualnyUser.KodPocztowy;
+                    edytujWykonawceAdresEmail.Text = aktualnyUser.Email;
+                    edytujWykonawceImie.Text = aktualnyUser.Imię;
+                    edytujWykonawceNazwisko.Text = aktualnyUser.Nazwisko;
+                    edytujWykonawceUlica.Text = aktualnyUser.Ulica ?? aktualnyUser.Ulica;
+                    edytujWykonawceNazwiskoMeijscowosc.Text = aktualnyUser.Miejscowość ?? aktualnyUser.Miejscowość;
+                    edytujWykonawceKodpocztowy1.Text = aktualnyUser.KodPocztowy ?? aktualnyUser.KodPocztowy;
 
-            }else{
-                edytujWykonawce.Visibility = System.Windows.Visibility.Hidden;
-                edytujKlientaGrid.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    edytujWykonawce.Visibility = System.Windows.Visibility.Hidden;
+                    edytujKlientaGrid.Visibility = System.Windows.Visibility.Visible;
 
-                edytujKlientaAdresEmail.Text = aktualnyUser.Email;
-                edytujKlientaimie.Text = aktualnyUser.Imię;
-                edytujKlientanazwisko.Text = aktualnyUser.Nazwisko;
+                    edytujKlientaAdresEmail.Text = aktualnyUser.Email;
+                    edytujKlientaimie.Text = aktualnyUser.Imię;
+                    edytujKlientanazwisko.Text = aktualnyUser.Nazwisko;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystapił błąd. Prosimy spróbować później");
             }
   
         }

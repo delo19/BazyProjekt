@@ -589,9 +589,9 @@ namespace Bazy_projekt
             Bazy_projekt.Model.UżytkownicyRow user = gridDataUzytkownicyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
 
             SessionSingleton.aktualnyUser = user;
-            //EditUser u = new EditUser();
-            //u.Show();
-            //this.Close();
+            EditUser u = new EditUser();
+            u.Show();
+            this.Close();
 
 
         }
@@ -607,29 +607,29 @@ namespace Bazy_projekt
             try
             {
                 Bazy_projekt.Model.KolekcjeRow kolekcja = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
+                MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
 
-                //1 wywal przydział
-                PrzydziałyTableAdapter przydzialyAdapter = new PrzydziałyTableAdapter();
-                Model.PrzydziałyDataTable przydzialy = przydzialyAdapter.GetData();
-                DataRow[] przydzialyDoWywalenia = przydzialy.Select("IDKolekcji='" + kolekcja.IDKolekcji + "'");
-                przydzialyDoWywalenia.ToList().ForEach(x => x.Delete());
+                MessageBoxResult rsltMessageBox = MessageBox.Show("Kasowanie kolekcji spowoduje skasowanie zamowien i przydziałów", "Na pewno?", btnMessageBox, icnMessageBox);
 
-                //2 wywal zamowienia 
-                ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
-                Model.ZamówieniaDataTable zamowienia = zamowieniaAdapter.GetData();
-                DataRow[] zamowieniaDoWywalenia = zamowienia.Select("IDKolekcji='" + kolekcja.IDKolekcji + "'");
-                zamowieniaDoWywalenia.ToList().ForEach(x => x.Delete());
+                switch (rsltMessageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        UsunKolekcje(kolekcja);
+                        (new DashboardWindow()).Show();
+                        this.Close();
+                        break;
 
-                //3 wywal utwor
-                KolekcjeTableAdapter utworyAdapter = new KolekcjeTableAdapter();
-                Model.KolekcjeDataTable utwory = utworyAdapter.GetData();
-                Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(kolekcja.IDKolekcji);
-                piosenka.Delete();
+                    case MessageBoxResult.No:
+                        
+                        break;
 
+                    case MessageBoxResult.Cancel:
+                        
+                        break;
+                }
 
-                przydzialyAdapter.Update(przydzialy);
-                zamowieniaAdapter.Update(zamowienia);
-                utworyAdapter.Update(utwory);
+                
 
 
             }
@@ -645,29 +645,27 @@ namespace Bazy_projekt
             try
             {
                 Bazy_projekt.Model.UtworyRow utwor = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UtworyRow;
+                MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
 
-                //1 wywal przydział
-                PrzydziałyTableAdapter przydzialyAdapter = new PrzydziałyTableAdapter();
-                Model.PrzydziałyDataTable przydzialy = przydzialyAdapter.GetData();
-                DataRow[] przydzialyDoWywalenia = przydzialy.Select("IDUtworu='" + utwor.IDUtworu + "'");
-                przydzialyDoWywalenia.ToList().ForEach(x => x.Delete());
+                MessageBoxResult rsltMessageBox = MessageBox.Show("Kasowanie utworu spowoduje skasowanie zamowien i powiązań w kolekcji!", "Na pewno?", btnMessageBox, icnMessageBox);
 
-                //2 wywal zamowienia
-                ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
-                Model.ZamówieniaDataTable zamowienia = zamowieniaAdapter.GetData();
-                DataRow[] zamowieniaDoWywalenia = zamowienia.Select("IDUtworu='" + utwor.IDUtworu + "'");
-                zamowieniaDoWywalenia.ToList().ForEach(x => x.Delete());
+                switch (rsltMessageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        UsunUtwor(utwor);
+                        (new DashboardWindow()).Show();
+                        this.Close();
+                        break;
 
-                //3 wywal utwor
-                UtworyTableAdapter utworyAdapter = new UtworyTableAdapter();
-                Model.UtworyDataTable utwory = utworyAdapter.GetData();
-                Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(utwor.IDUtworu);
-                piosenka.Delete();
+                    case MessageBoxResult.No:
 
+                        break;
 
-                przydzialyAdapter.Update(przydzialy);
-                zamowieniaAdapter.Update(zamowienia);
-                utworyAdapter.Update(utwory);
+                    case MessageBoxResult.Cancel:
+
+                        break;
+                }
 
 
             }
@@ -685,12 +683,13 @@ namespace Bazy_projekt
                 Bazy_projekt.Model.UżytkownicyRow uzytkownik = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
                 
                 //usun kolekcje uzytkownika
+                uzytkownik.GetKolekcjeRows().ToList().ForEach(x=> UsunKolekcje(x));
 
                 //usun przydzialy uzytkownika
-
+               // uzytkownik.GetUtworyRows().ToList().ForEach(x => Usun(x));
                 //usun zamowienia uzytkownika
 
-
+                uzytkownik.GetZamówieniaRows().ToList().ForEach(x => usunZamowienie(x));
 
 
                 //4 usun uzytkownika
@@ -721,18 +720,66 @@ namespace Bazy_projekt
         }
 
 
-        private void UsunKolekcje()
+        private void UsunKolekcje(Bazy_projekt.Model.KolekcjeRow kolekcja)
         {
+            //1 wywal przydział
+            PrzydziałyTableAdapter przydzialyAdapter = new PrzydziałyTableAdapter();
+            Model.PrzydziałyDataTable przydzialy = przydzialyAdapter.GetData();
+            DataRow[] przydzialyDoWywalenia = przydzialy.Select("IDKolekcji='" + kolekcja.IDKolekcji + "'");
+            przydzialyDoWywalenia.ToList().ForEach(x => x.Delete());
+
+            //2 wywal zamowienia 
+            ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
+            Model.ZamówieniaDataTable zamowienia = zamowieniaAdapter.GetData();
+            DataRow[] zamowieniaDoWywalenia = zamowienia.Select("IDKolekcji='" + kolekcja.IDKolekcji + "'");
+            zamowieniaDoWywalenia.ToList().ForEach(x => x.Delete());
+
+            //3 wywal kolekcje
+            KolekcjeTableAdapter utworyAdapter = new KolekcjeTableAdapter();
+            Model.KolekcjeDataTable utwory = utworyAdapter.GetData();
+            Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(kolekcja.IDKolekcji);
+            piosenka.Delete();
+
+
+            przydzialyAdapter.Update(przydzialy);
+            zamowieniaAdapter.Update(zamowienia);
+            utworyAdapter.Update(utwory);
+        }
+
+        private void UsunUtwor(Bazy_projekt.Model.UtworyRow utwor)
+        {
+            //1 wywal przydział
+            PrzydziałyTableAdapter przydzialyAdapter = new PrzydziałyTableAdapter();
+            Model.PrzydziałyDataTable przydzialy = przydzialyAdapter.GetData();
+            DataRow[] przydzialyDoWywalenia = przydzialy.Select("IDUtworu='" + utwor.IDUtworu + "'");
+            przydzialyDoWywalenia.ToList().ForEach(x => x.Delete());
+
+            //2 wywal zamowienia
+            ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
+            Model.ZamówieniaDataTable zamowienia = zamowieniaAdapter.GetData();
+            DataRow[] zamowieniaDoWywalenia = zamowienia.Select("IDUtworu='" + utwor.IDUtworu + "'");
+            zamowieniaDoWywalenia.ToList().ForEach(x => x.Delete());
+
+            //3 wywal utwor
+            UtworyTableAdapter utworyAdapter = new UtworyTableAdapter();
+            Model.UtworyDataTable utwory = utworyAdapter.GetData();
+            Bazy_projekt.Model.UtworyRow piosenka = utwory.FindByIDUtworu(utwor.IDUtworu);
+            piosenka.Delete();
+
+
+            przydzialyAdapter.Update(przydzialy);
+            zamowieniaAdapter.Update(zamowienia);
+            utworyAdapter.Update(utwory);
 
         }
 
-        private void UsunUtwor()
+        private void usunZamowienie(Bazy_projekt.Model.ZamówieniaRow zamowienie)
         {
-
-        }
-
-        private void usunZamowienie()
-        {
+            ZamówieniaTableAdapter zamowienieAdapter = new ZamówieniaTableAdapter();
+            Model.ZamówieniaDataTable utwory = zamowienieAdapter.GetData();
+            Bazy_projekt.Model.ZamówieniaRow zam = utwory.FindByIDZamówienia(zamowienie.IDZamówienia);
+            zam.Delete();
+            zamowienieAdapter.Update(utwory);
 
         }
 

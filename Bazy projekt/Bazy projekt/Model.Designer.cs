@@ -3974,7 +3974,7 @@ namespace Bazy_projekt {
             public string Ulica {
                 get {
                     try {
-                        return ((string)(this[this.tableUżytkownicy.UlicaColumn]));
+                        return this[this.tableUżytkownicy.UlicaColumn]==null? null:((string)(this[this.tableUżytkownicy.UlicaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Ulica\' in table \'Użytkownicy\' is DBNull.", e);
@@ -3990,7 +3990,7 @@ namespace Bazy_projekt {
             public string Miejscowość {
                 get {
                     try {
-                        return ((string)(this[this.tableUżytkownicy.MiejscowośćColumn]));
+                        return this[this.tableUżytkownicy.MiejscowośćColumn] == null ? null : ((string)(this[this.tableUżytkownicy.MiejscowośćColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Miejscowość\' in table \'Użytkownicy\' is DBNull.", e);
@@ -4006,7 +4006,7 @@ namespace Bazy_projekt {
             public string KodPocztowy {
                 get {
                     try {
-                        return ((string)(this[this.tableUżytkownicy.KodPocztowyColumn]));
+                        return this[this.tableUżytkownicy.KodPocztowyColumn] == null ? null : ((string)(this[this.tableUżytkownicy.KodPocztowyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'KodPocztowy\' in table \'Użytkownicy\' is DBNull.", e);

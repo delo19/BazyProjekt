@@ -589,9 +589,9 @@ namespace Bazy_projekt
             Bazy_projekt.Model.UżytkownicyRow user = gridDataUzytkownicyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
 
             SessionSingleton.aktualnyUser = user;
-            EditUser u = new EditUser();
-            u.Show();
-            this.Close();
+            //EditUser u = new EditUser();
+            //u.Show();
+            //this.Close();
 
 
         }
@@ -602,20 +602,40 @@ namespace Bazy_projekt
 
         private void usunKolekcjeZaznaczone(object sender, MouseButtonEventArgs e)
         {
+
+            //TODO usuniecie zaznaczonych utowrow z gridDataUtworyAdministrator
             try
             {
-                //TODO usuniecie zaznaczonych  z  gridDataUtworyAdministrator
-                KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
-                Model.KolekcjeDataTable utwory = adapter.GetData();
-                Bazy_projekt.Model.KolekcjeRow row = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
-                Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(row.IDKolekcji);
+                Bazy_projekt.Model.KolekcjeRow kolekcja = gridDataKolekcjeAdministrator.SelectedItem as Bazy_projekt.Model.KolekcjeRow;
+
+                //1 wywal przydział
+                PrzydziałyTableAdapter przydzialyAdapter = new PrzydziałyTableAdapter();
+                Model.PrzydziałyDataTable przydzialy = przydzialyAdapter.GetData();
+                DataRow[] przydzialyDoWywalenia = przydzialy.Select("IDKolekcji='" + kolekcja.IDKolekcji + "'");
+                przydzialyDoWywalenia.ToList().ForEach(x => x.Delete());
+
+                //2 wywal zamowienia 
+                ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
+                Model.ZamówieniaDataTable zamowienia = zamowieniaAdapter.GetData();
+                DataRow[] zamowieniaDoWywalenia = zamowienia.Select("IDKolekcji='" + kolekcja.IDKolekcji + "'");
+                zamowieniaDoWywalenia.ToList().ForEach(x => x.Delete());
+
+                //3 wywal utwor
+                KolekcjeTableAdapter utworyAdapter = new KolekcjeTableAdapter();
+                Model.KolekcjeDataTable utwory = utworyAdapter.GetData();
+                Bazy_projekt.Model.KolekcjeRow piosenka = utwory.FindByIDKolekcji(kolekcja.IDKolekcji);
                 piosenka.Delete();
 
-                adapter.Update(utwory);
+
+                przydzialyAdapter.Update(przydzialy);
+                zamowieniaAdapter.Update(zamowienia);
+                utworyAdapter.Update(utwory);
+
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Nie mozna usunac kolekcji poniewaz jest do niej przypisana oferta");
+                MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
             }
         }
 
@@ -651,7 +671,7 @@ namespace Bazy_projekt
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Nie mozna usunąc utworu, ponieważ jest on przypisany do kolekcji");
             }
@@ -662,14 +682,24 @@ namespace Bazy_projekt
         {
             try
             {
-                UżytkownicyTableAdapter adapter = new UżytkownicyTableAdapter();
-                Model.UżytkownicyDataTable utwory = adapter.GetData();
-                Bazy_projekt.Model.UżytkownicyRow row = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
-                Bazy_projekt.Model.UżytkownicyRow piosenka = utwory.FindByLogin(row.Login);
-                piosenka.Delete();
+                Bazy_projekt.Model.UżytkownicyRow uzytkownik = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.UżytkownicyRow;
+                
+                //usun kolekcje uzytkownika
+
+                //usun przydzialy uzytkownika
+
+                //usun zamowienia uzytkownika
 
 
-                adapter.Update(utwory);
+
+
+                //4 usun uzytkownika
+                UżytkownicyTableAdapter uzytkownicyAdapter = new UżytkownicyTableAdapter();
+                Model.UżytkownicyDataTable utwory = uzytkownicyAdapter.GetData();
+                uzytkownik.Delete();
+
+
+                uzytkownicyAdapter.Update(utwory);
             }
             catch (Exception ex)
             {
@@ -677,6 +707,34 @@ namespace Bazy_projekt
             }
         }
 
+
+        //todo
+        private void usunZamowieniaZaznaczonych(object sender, MouseButtonEventArgs e)
+        {
+            Bazy_projekt.Model.ZamówieniaRow zamowienie = gridDataUtworyAdministrator.SelectedItem as Bazy_projekt.Model.ZamówieniaRow;
+
+
+            ZamówieniaTableAdapter zamowienieAdapter = new ZamówieniaTableAdapter();
+            Model.ZamówieniaDataTable utwory = zamowienieAdapter.GetData();
+            zamowienie.Delete();
+
+        }
+
+
+        private void UsunKolekcje()
+        {
+
+        }
+
+        private void UsunUtwor()
+        {
+
+        }
+
+        private void usunZamowienie()
+        {
+
+        }
 
         #endregion kasowanie
 

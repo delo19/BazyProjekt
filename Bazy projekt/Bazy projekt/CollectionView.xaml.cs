@@ -99,26 +99,37 @@ namespace Bazy_projekt
 
         private void kupUtwor(object sender, MouseButtonEventArgs e)
         {
-            //ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
-            //ZamówieniaNaUtworyTableAdapter adapterZamowieniaNaUtwory = new ZamówieniaNaUtworyTableAdapter();
 
-            //Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
-            //Model.ZamówieniaNaUtworyDataTable zamowieniaNaUtwory = adapterZamowieniaNaUtwory.GetData();
+            try
+            {
+                ZamówieniaTableAdapter adapterZamowienia = new ZamówieniaTableAdapter();
 
-            //Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
-            //Bazy_projekt.Model.ZamówieniaNaUtworyRow zamowieniaNaUtworyRow= zamowieniaNaUtwory.NewZamówieniaNaUtworyRow();
 
-            //zamowieniaRow.CzyUtwór = true;
-            //zamowieniaRow.DataZakupu = DateTime.Now;
-            //zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
-            //zamowieniaRow.Status = true;
+                Model.ZamówieniaDataTable zamowienia = adapterZamowienia.GetData();
+                Bazy_projekt.Model.ZamówieniaRow zamowieniaRow = zamowienia.NewZamówieniaRow();
 
-            //adapterZamowienia.Update(zamowienia);
+                zamowieniaRow.CzyUtwór = false;
+                zamowieniaRow.DataZakupu = DateTime.Now;
+                zamowieniaRow.Login = SessionSingleton.zalogowanyUser.Login;
+                zamowieniaRow.Status = true;
+                zamowieniaRow.IDKolekcji = SessionSingleton.aktualnaKolekcja.IDKolekcji;
 
-            //zamowieniaNaUtworyRow.IDUtworu = SessionSingleton.aktualnyUtwor.IDUtworu;
-            //zamowieniaNaUtworyRow.IDZamówienia = zamowienia.OrderBy(x => x.IDZamówienia).Last().IDZamówienia;
+                zamowienia.AddZamówieniaRow(zamowieniaRow);
+                adapterZamowienia.Update(zamowienia);
 
-            //adapterZamowieniaNaUtwory.Update(zamowieniaNaUtwory);
+                MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
+                pobierzButton.Visibility = Visibility.Visible;
+
+                //Dodanie kasy dla autora                   
+                UżytkownicyTableAdapter adapterUzytkownicy = new UżytkownicyTableAdapter();
+                Model.UżytkownicyDataTable uzytkownicy = adapterUzytkownicy.GetData();
+                Bazy_projekt.Model.UżytkownicyRow uzytkownik =
+                    uzytkownicy.FindByLogin(SessionSingleton.aktualnaKolekcja.Login);
+                uzytkownik.Saldo += SessionSingleton.aktualnaKolekcja.IDKolekcji;
+
+                adapterUzytkownicy.Update(uzytkownicy);
+            }
+            catch (Exception ex) { }
             MessageBox.Show("Piosenka Kupiona, możesz pobrać piosenkę na dysk");
             pobierzButton.Visibility = Visibility.Visible;
 

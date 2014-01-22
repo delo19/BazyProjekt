@@ -61,7 +61,7 @@ namespace Bazy_projekt
                 }
 
                 //
-                if (SessionSingleton.zalogowanyUser.IDUprawnienia != 4)
+                if (SessionSingleton.zalogowanyUser.IDUprawnienia != 4 || !SessionSingleton.zalogowanyUser.Login.Equals(SessionSingleton.aktualnaKolekcja.Login))
                 {
                     edytujKolekcjePRzycisk.Visibility = Visibility.Hidden;
                 }

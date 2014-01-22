@@ -4692,6 +4692,12 @@ namespace Bazy_projekt {
                     return ((ZamówieniaRow[])(base.GetChildRows(this.Table.ChildRelations["UtworyZamówienia"])));
                 }
             }
+
+            public override string ToString()
+            {
+                return Nazwa;
+            } 
+
         }
         
         /// <summary>

@@ -57,7 +57,7 @@ namespace Bazy_projekt
             }
 
             //
-            if (SessionSingleton.zalogowanyUser.IDUprawnienia != 4)
+            if (SessionSingleton.zalogowanyUser.IDUprawnienia != 4 || !SessionSingleton.zalogowanyUser.Login.Equals(SessionSingleton.aktualnyUtwor.Login))
             {
                 edytujPiosenkePrzycisk.Visibility = Visibility.Hidden;
             }

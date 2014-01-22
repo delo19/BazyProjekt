@@ -124,7 +124,7 @@ namespace Bazy_projekt
 
             UtworyTableAdapter adapter = new UtworyTableAdapter();
             Model.UtworyDataTable utwory = adapter.GetData();
-            if (utwory.Count < 0)
+            if (utwory.Count < 1)
                 return new Model.UtworyDataTable();
             DataTable wynik = utwory.CopyToDataTable();
 
@@ -169,7 +169,7 @@ namespace Bazy_projekt
 
         public Model.UtworyDataTable pobierzMojeUtwory(string nazwa, string wykonawca, int? rokPowstania)
         {
-
+            
             ZamówieniaUtworyTableAdapter adapterZamowienia = new ZamówieniaUtworyTableAdapter();
             Model.ZamówieniaUtworyDataTable zamowienia = adapterZamowienia.GetData();
 
@@ -184,8 +184,12 @@ namespace Bazy_projekt
             var ob = wynik.Select(message);
             if (ob.Count() > 0)
             {
-                wynik = ob.CopyToDataTable();
-                result.Merge(wynik);
+                try
+                {
+                    wynik = ob.CopyToDataTable();
+                    result.Merge(wynik);
+                }
+                catch (Exception ex) { }
             }
 
             return result;

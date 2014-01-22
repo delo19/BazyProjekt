@@ -2765,8 +2765,6 @@ namespace Bazy_projekt {
             
             private global::System.Data.DataColumn columnCzyUtwór;
             
-            private global::System.Data.DataColumn columnZamówienia_IDKolekcji;
-            
             private global::System.Data.DataColumn columnIDUtworu;
             
             private global::System.Data.DataColumn columnKolekcje_IDKolekcji;
@@ -2784,6 +2782,8 @@ namespace Bazy_projekt {
             private global::System.Data.DataColumn columnLiczbaUtworów;
             
             private global::System.Data.DataColumn columnOpis;
+            
+            private global::System.Data.DataColumn columnIDKolekcji;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2839,14 +2839,6 @@ namespace Bazy_projekt {
             public global::System.Data.DataColumn CzyUtwórColumn {
                 get {
                     return this.columnCzyUtwór;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Zamówienia_IDKolekcjiColumn {
-                get {
-                    return this.columnZamówienia_IDKolekcji;
                 }
             }
             
@@ -2924,6 +2916,14 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDKolekcjiColumn {
+                get {
+                    return this.columnIDKolekcji;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2959,13 +2959,12 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ZamówieniaKolekcjeRow AddZamówieniaKolekcjeRow(string Login, bool CzyUtwór, int Zamówienia_IDKolekcji, int IDUtworu, string Nazwa, string CenaKolekcji, string CenaUtworów, string KategoriaWiekowa, string Ocena, string LiczbaUtworów, string Opis) {
+            public ZamówieniaKolekcjeRow AddZamówieniaKolekcjeRow(string Login, bool CzyUtwór, int IDUtworu, string Nazwa, string CenaKolekcji, string CenaUtworów, string KategoriaWiekowa, string Ocena, string LiczbaUtworów, string Opis, int IDKolekcji) {
                 ZamówieniaKolekcjeRow rowZamówieniaKolekcjeRow = ((ZamówieniaKolekcjeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Login,
                         CzyUtwór,
-                        Zamówienia_IDKolekcji,
                         IDUtworu,
                         null,
                         Nazwa,
@@ -2974,7 +2973,8 @@ namespace Bazy_projekt {
                         KategoriaWiekowa,
                         Ocena,
                         LiczbaUtworów,
-                        Opis};
+                        Opis,
+                        IDKolekcji};
                 rowZamówieniaKolekcjeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowZamówieniaKolekcjeRow);
                 return rowZamówieniaKolekcjeRow;
@@ -3000,7 +3000,6 @@ namespace Bazy_projekt {
                 this.columnIDZamówienia = base.Columns["IDZamówienia"];
                 this.columnLogin = base.Columns["Login"];
                 this.columnCzyUtwór = base.Columns["CzyUtwór"];
-                this.columnZamówienia_IDKolekcji = base.Columns["Zamówienia_IDKolekcji"];
                 this.columnIDUtworu = base.Columns["IDUtworu"];
                 this.columnKolekcje_IDKolekcji = base.Columns["Kolekcje_IDKolekcji"];
                 this.columnNazwa = base.Columns["Nazwa"];
@@ -3010,6 +3009,7 @@ namespace Bazy_projekt {
                 this.columnOcena = base.Columns["Ocena"];
                 this.columnLiczbaUtworów = base.Columns["LiczbaUtworów"];
                 this.columnOpis = base.Columns["Opis"];
+                this.columnIDKolekcji = base.Columns["IDKolekcji"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3021,8 +3021,6 @@ namespace Bazy_projekt {
                 base.Columns.Add(this.columnLogin);
                 this.columnCzyUtwór = new global::System.Data.DataColumn("CzyUtwór", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCzyUtwór);
-                this.columnZamówienia_IDKolekcji = new global::System.Data.DataColumn("Zamówienia_IDKolekcji", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZamówienia_IDKolekcji);
                 this.columnIDUtworu = new global::System.Data.DataColumn("IDUtworu", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDUtworu);
                 this.columnKolekcje_IDKolekcji = new global::System.Data.DataColumn("Kolekcje_IDKolekcji", typeof(int), null, global::System.Data.MappingType.Element);
@@ -3041,6 +3039,8 @@ namespace Bazy_projekt {
                 base.Columns.Add(this.columnLiczbaUtworów);
                 this.columnOpis = new global::System.Data.DataColumn("Opis", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOpis);
+                this.columnIDKolekcji = new global::System.Data.DataColumn("IDKolekcji", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDKolekcji);
                 this.columnIDZamówienia.AutoIncrement = true;
                 this.columnIDZamówienia.AutoIncrementSeed = -1;
                 this.columnIDZamówienia.AutoIncrementStep = -1;
@@ -3590,8 +3590,6 @@ namespace Bazy_projekt {
             
             private global::System.Data.DataColumn columnCzyUtwór;
             
-            private global::System.Data.DataColumn columnZamówienia_IDUtworu;
-            
             private global::System.Data.DataColumn columnIDKolekcji;
             
             private global::System.Data.DataColumn columnUtwory_IDUtworu;
@@ -3609,6 +3607,8 @@ namespace Bazy_projekt {
             private global::System.Data.DataColumn columnKategoriaWiekowa;
             
             private global::System.Data.DataColumn columnOpis;
+            
+            private global::System.Data.DataColumn columnIDUtworu;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3664,14 +3664,6 @@ namespace Bazy_projekt {
             public global::System.Data.DataColumn CzyUtwórColumn {
                 get {
                     return this.columnCzyUtwór;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Zamówienia_IDUtworuColumn {
-                get {
-                    return this.columnZamówienia_IDUtworu;
                 }
             }
             
@@ -3749,6 +3741,14 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDUtworuColumn {
+                get {
+                    return this.columnIDUtworu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3784,13 +3784,12 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ZamówieniaUtworyRow AddZamówieniaUtworyRow(string Login, bool CzyUtwór, int Zamówienia_IDUtworu, int IDKolekcji, string Nazwa, short RokPowstania, int Cena, string Format, string Ocena, string KategoriaWiekowa, string Opis) {
+            public ZamówieniaUtworyRow AddZamówieniaUtworyRow(string Login, bool CzyUtwór, int IDKolekcji, string Nazwa, short RokPowstania, int Cena, string Format, string Ocena, string KategoriaWiekowa, string Opis, int IDUtworu) {
                 ZamówieniaUtworyRow rowZamówieniaUtworyRow = ((ZamówieniaUtworyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Login,
                         CzyUtwór,
-                        Zamówienia_IDUtworu,
                         IDKolekcji,
                         null,
                         Nazwa,
@@ -3799,7 +3798,8 @@ namespace Bazy_projekt {
                         Format,
                         Ocena,
                         KategoriaWiekowa,
-                        Opis};
+                        Opis,
+                        IDUtworu};
                 rowZamówieniaUtworyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowZamówieniaUtworyRow);
                 return rowZamówieniaUtworyRow;
@@ -3825,7 +3825,6 @@ namespace Bazy_projekt {
                 this.columnIDZamówienia = base.Columns["IDZamówienia"];
                 this.columnLogin = base.Columns["Login"];
                 this.columnCzyUtwór = base.Columns["CzyUtwór"];
-                this.columnZamówienia_IDUtworu = base.Columns["Zamówienia_IDUtworu"];
                 this.columnIDKolekcji = base.Columns["IDKolekcji"];
                 this.columnUtwory_IDUtworu = base.Columns["Utwory_IDUtworu"];
                 this.columnNazwa = base.Columns["Nazwa"];
@@ -3835,6 +3834,7 @@ namespace Bazy_projekt {
                 this.columnOcena = base.Columns["Ocena"];
                 this.columnKategoriaWiekowa = base.Columns["KategoriaWiekowa"];
                 this.columnOpis = base.Columns["Opis"];
+                this.columnIDUtworu = base.Columns["IDUtworu"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3846,8 +3846,6 @@ namespace Bazy_projekt {
                 base.Columns.Add(this.columnLogin);
                 this.columnCzyUtwór = new global::System.Data.DataColumn("CzyUtwór", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCzyUtwór);
-                this.columnZamówienia_IDUtworu = new global::System.Data.DataColumn("Zamówienia_IDUtworu", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZamówienia_IDUtworu);
                 this.columnIDKolekcji = new global::System.Data.DataColumn("IDKolekcji", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDKolekcji);
                 this.columnUtwory_IDUtworu = new global::System.Data.DataColumn("Utwory_IDUtworu", typeof(int), null, global::System.Data.MappingType.Element);
@@ -3866,6 +3864,8 @@ namespace Bazy_projekt {
                 base.Columns.Add(this.columnKategoriaWiekowa);
                 this.columnOpis = new global::System.Data.DataColumn("Opis", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOpis);
+                this.columnIDUtworu = new global::System.Data.DataColumn("IDUtworu", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDUtworu);
                 this.columnIDZamówienia.AutoIncrement = true;
                 this.columnIDZamówienia.AutoIncrementSeed = -1;
                 this.columnIDZamówienia.AutoIncrementStep = -1;
@@ -5447,23 +5447,6 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Zamówienia_IDKolekcji {
-                get {
-                    try {
-                        return ((int)(this[this.tableZamówieniaKolekcje.Zamówienia_IDKolekcjiColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Zamówienia_IDKolekcji\' in table \'ZamówieniaKolekcje\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZamówieniaKolekcje.Zamówienia_IDKolekcjiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int IDUtworu {
                 get {
                     try {
@@ -5609,6 +5592,22 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IDKolekcji {
+                get {
+                    try {
+                        return ((int)(this[this.tableZamówieniaKolekcje.IDKolekcjiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDKolekcji\' in table \'ZamówieniaKolekcje\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZamówieniaKolekcje.IDKolekcjiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDZamówieniaNull() {
                 return this.IsNull(this.tableZamówieniaKolekcje.IDZamówieniaColumn);
             }
@@ -5641,18 +5640,6 @@ namespace Bazy_projekt {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCzyUtwórNull() {
                 this[this.tableZamówieniaKolekcje.CzyUtwórColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsZamówienia_IDKolekcjiNull() {
-                return this.IsNull(this.tableZamówieniaKolekcje.Zamówienia_IDKolekcjiColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetZamówienia_IDKolekcjiNull() {
-                this[this.tableZamówieniaKolekcje.Zamówienia_IDKolekcjiColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5761,6 +5748,18 @@ namespace Bazy_projekt {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOpisNull() {
                 this[this.tableZamówieniaKolekcje.OpisColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDKolekcjiNull() {
+                return this.IsNull(this.tableZamówieniaKolekcje.IDKolekcjiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDKolekcjiNull() {
+                this[this.tableZamówieniaKolekcje.IDKolekcjiColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6152,23 +6151,6 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Zamówienia_IDUtworu {
-                get {
-                    try {
-                        return ((int)(this[this.tableZamówieniaUtwory.Zamówienia_IDUtworuColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Zamówienia_IDUtworu\' in table \'ZamówieniaUtwory\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableZamówieniaUtwory.Zamówienia_IDUtworuColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int IDKolekcji {
                 get {
                     try {
@@ -6313,6 +6295,22 @@ namespace Bazy_projekt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IDUtworu {
+                get {
+                    try {
+                        return ((int)(this[this.tableZamówieniaUtwory.IDUtworuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDUtworu\' in table \'ZamówieniaUtwory\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZamówieniaUtwory.IDUtworuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDZamówieniaNull() {
                 return this.IsNull(this.tableZamówieniaUtwory.IDZamówieniaColumn);
             }
@@ -6345,18 +6343,6 @@ namespace Bazy_projekt {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCzyUtwórNull() {
                 this[this.tableZamówieniaUtwory.CzyUtwórColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsZamówienia_IDUtworuNull() {
-                return this.IsNull(this.tableZamówieniaUtwory.Zamówienia_IDUtworuColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetZamówienia_IDUtworuNull() {
-                this[this.tableZamówieniaUtwory.Zamówienia_IDUtworuColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6465,6 +6451,18 @@ namespace Bazy_projekt {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOpisNull() {
                 this[this.tableZamówieniaUtwory.OpisColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDUtworuNull() {
+                return this.IsNull(this.tableZamówieniaUtwory.IDUtworuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDUtworuNull() {
+                this[this.tableZamówieniaUtwory.IDUtworuColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9870,7 +9868,6 @@ namespace Bazy_projekt.ModelTableAdapters {
             tableMapping.ColumnMappings.Add("IDZamówienia", "IDZamówienia");
             tableMapping.ColumnMappings.Add("Login", "Login");
             tableMapping.ColumnMappings.Add("CzyUtwór", "CzyUtwór");
-            tableMapping.ColumnMappings.Add("Zamówienia_IDKolekcji", "Zamówienia_IDKolekcji");
             tableMapping.ColumnMappings.Add("IDUtworu", "IDUtworu");
             tableMapping.ColumnMappings.Add("Kolekcje_IDKolekcji", "Kolekcje_IDKolekcji");
             tableMapping.ColumnMappings.Add("Nazwa", "Nazwa");
@@ -9880,6 +9877,7 @@ namespace Bazy_projekt.ModelTableAdapters {
             tableMapping.ColumnMappings.Add("Ocena", "Ocena");
             tableMapping.ColumnMappings.Add("LiczbaUtworów", "LiczbaUtworów");
             tableMapping.ColumnMappings.Add("Opis", "Opis");
+            tableMapping.ColumnMappings.Add("IDKolekcji", "IDKolekcji");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9896,9 +9894,9 @@ namespace Bazy_projekt.ModelTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDZamówienia, Login, CzyUtwór, Zamówienia_IDKolekcji, IDUtworu, Kolekcje_I" +
-                "DKolekcji, Nazwa, CenaKolekcji, CenaUtworów, KategoriaWiekowa, Ocena, LiczbaUtwo" +
-                "rów, Opis FROM ZamówieniaKolekcje";
+            this._commandCollection[0].CommandText = "SELECT IDZamówienia, Login, CzyUtwór, IDUtworu, Kolekcje_IDKolekcji, Nazwa, CenaK" +
+                "olekcji, CenaUtworów, KategoriaWiekowa, Ocena, LiczbaUtworów, Opis, IDKolekcji F" +
+                "ROM ZamówieniaKolekcje";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10229,7 +10227,6 @@ namespace Bazy_projekt.ModelTableAdapters {
             tableMapping.ColumnMappings.Add("IDZamówienia", "IDZamówienia");
             tableMapping.ColumnMappings.Add("Login", "Login");
             tableMapping.ColumnMappings.Add("CzyUtwór", "CzyUtwór");
-            tableMapping.ColumnMappings.Add("Zamówienia_IDUtworu", "Zamówienia_IDUtworu");
             tableMapping.ColumnMappings.Add("IDKolekcji", "IDKolekcji");
             tableMapping.ColumnMappings.Add("Utwory_IDUtworu", "Utwory_IDUtworu");
             tableMapping.ColumnMappings.Add("Nazwa", "Nazwa");
@@ -10239,6 +10236,7 @@ namespace Bazy_projekt.ModelTableAdapters {
             tableMapping.ColumnMappings.Add("Ocena", "Ocena");
             tableMapping.ColumnMappings.Add("KategoriaWiekowa", "KategoriaWiekowa");
             tableMapping.ColumnMappings.Add("Opis", "Opis");
+            tableMapping.ColumnMappings.Add("IDUtworu", "IDUtworu");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10255,9 +10253,9 @@ namespace Bazy_projekt.ModelTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDZamówienia, Login, CzyUtwór, Zamówienia_IDUtworu, IDKolekcji, Utwory_IDU" +
-                "tworu, Nazwa, RokPowstania, Cena, Format, Ocena, KategoriaWiekowa, Opis FROM Zam" +
-                "ówieniaUtwory";
+            this._commandCollection[0].CommandText = "SELECT IDZamówienia, Login, CzyUtwór, IDKolekcji, Utwory_IDUtworu, Nazwa, RokPows" +
+                "tania, Cena, Format, Ocena, KategoriaWiekowa, Opis, IDUtworu FROM ZamówieniaUtwo" +
+                "ry";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -170,21 +170,11 @@ namespace Bazy_projekt
         public Model.UtworyDataTable pobierzMojeUtwory(string nazwa, string wykonawca, int? rokPowstania)
         {
 
-            //UżytkownicyTableAdapter uzytkownicyAdapter = new UżytkownicyTableAdapter();
-            //var user = uzytkownicyAdapter.GetData().FindByLogin(SessionSingleton.zalogowanyUser.Login);
-            //var zamowienia = user.GetZamówieniaRows();
-            string message = "Login='" + SessionSingleton.zalogowanyUser.Login + "'";
             ZamówieniaUtworyTableAdapter adapterZamowienia = new ZamówieniaUtworyTableAdapter();
             Model.ZamówieniaUtworyDataTable zamowienia = adapterZamowienia.GetData();
 
             var wynik = zamowienia.CopyToDataTable();
-
-           
-            
-            //if (utwory.Count < 0)
-            //    return new Model.UtworyDataTable();
-            //DataTable wynik = utwory.CopyToDataTable();
-
+            string message = "Login='" + SessionSingleton.zalogowanyUser.Login + "'";
 
             Bazy_projekt.Model.UtworyDataTable result = new Model.UtworyDataTable();
             var ob = wynik.Select(message);

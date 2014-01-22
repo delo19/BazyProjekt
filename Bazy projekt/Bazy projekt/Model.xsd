@@ -514,7 +514,7 @@
               <DbSource ConnectionRef="Projekt1_14ConnectionString (Settings)" DbObjectName="ZamówieniaKolekcje" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT IDZamówienia, Login, CzyUtwór, Zamówienia_IDKolekcji, IDUtworu, Kolekcje_IDKolekcji, Nazwa, CenaKolekcji, CenaUtworów, KategoriaWiekowa, Ocena, LiczbaUtworów, Opis FROM ZamówieniaKolekcje</CommandText>
+                    <CommandText>SELECT IDZamówienia, Login, CzyUtwór, IDUtworu, Kolekcje_IDKolekcji, Nazwa, CenaKolekcji, CenaUtworów, KategoriaWiekowa, Ocena, LiczbaUtworów, Opis, IDKolekcji FROM ZamówieniaKolekcje</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -524,7 +524,6 @@
               <Mapping SourceColumn="IDZamówienia" DataSetColumn="IDZamówienia" />
               <Mapping SourceColumn="Login" DataSetColumn="Login" />
               <Mapping SourceColumn="CzyUtwór" DataSetColumn="CzyUtwór" />
-              <Mapping SourceColumn="Zamówienia_IDKolekcji" DataSetColumn="Zamówienia_IDKolekcji" />
               <Mapping SourceColumn="IDUtworu" DataSetColumn="IDUtworu" />
               <Mapping SourceColumn="Kolekcje_IDKolekcji" DataSetColumn="Kolekcje_IDKolekcji" />
               <Mapping SourceColumn="Nazwa" DataSetColumn="Nazwa" />
@@ -534,6 +533,7 @@
               <Mapping SourceColumn="Ocena" DataSetColumn="Ocena" />
               <Mapping SourceColumn="LiczbaUtworów" DataSetColumn="LiczbaUtworów" />
               <Mapping SourceColumn="Opis" DataSetColumn="Opis" />
+              <Mapping SourceColumn="IDKolekcji" DataSetColumn="IDKolekcji" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -568,7 +568,7 @@
               <DbSource ConnectionRef="Projekt1_14ConnectionString (Settings)" DbObjectName="ZamówieniaUtwory" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT IDZamówienia, Login, CzyUtwór, Zamówienia_IDUtworu, IDKolekcji, Utwory_IDUtworu, Nazwa, RokPowstania, Cena, Format, Ocena, KategoriaWiekowa, Opis FROM ZamówieniaUtwory</CommandText>
+                    <CommandText>SELECT IDZamówienia, Login, CzyUtwór, IDKolekcji, Utwory_IDUtworu, Nazwa, RokPowstania, Cena, Format, Ocena, KategoriaWiekowa, Opis, IDUtworu FROM ZamówieniaUtwory</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -578,7 +578,6 @@
               <Mapping SourceColumn="IDZamówienia" DataSetColumn="IDZamówienia" />
               <Mapping SourceColumn="Login" DataSetColumn="Login" />
               <Mapping SourceColumn="CzyUtwór" DataSetColumn="CzyUtwór" />
-              <Mapping SourceColumn="Zamówienia_IDUtworu" DataSetColumn="Zamówienia_IDUtworu" />
               <Mapping SourceColumn="IDKolekcji" DataSetColumn="IDKolekcji" />
               <Mapping SourceColumn="Utwory_IDUtworu" DataSetColumn="Utwory_IDUtworu" />
               <Mapping SourceColumn="Nazwa" DataSetColumn="Nazwa" />
@@ -588,6 +587,7 @@
               <Mapping SourceColumn="Ocena" DataSetColumn="Ocena" />
               <Mapping SourceColumn="KategoriaWiekowa" DataSetColumn="KategoriaWiekowa" />
               <Mapping SourceColumn="Opis" DataSetColumn="Opis" />
+              <Mapping SourceColumn="IDUtworu" DataSetColumn="IDUtworu" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -847,7 +847,6 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CzyUtwór" msprop:Generator_ColumnVarNameInTable="columnCzyUtwór" msprop:Generator_ColumnPropNameInRow="CzyUtwór" msprop:Generator_ColumnPropNameInTable="CzyUtwórColumn" msprop:Generator_UserColumnName="CzyUtwór" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Zamówienia_IDKolekcji" msprop:Generator_ColumnVarNameInTable="columnZamówienia_IDKolekcji" msprop:Generator_ColumnPropNameInRow="Zamówienia_IDKolekcji" msprop:Generator_ColumnPropNameInTable="Zamówienia_IDKolekcjiColumn" msprop:Generator_UserColumnName="Zamówienia_IDKolekcji" type="xs:int" minOccurs="0" />
               <xs:element name="IDUtworu" msprop:Generator_ColumnVarNameInTable="columnIDUtworu" msprop:Generator_ColumnPropNameInRow="IDUtworu" msprop:Generator_ColumnPropNameInTable="IDUtworuColumn" msprop:Generator_UserColumnName="IDUtworu" type="xs:int" minOccurs="0" />
               <xs:element name="Kolekcje_IDKolekcji" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnKolekcje_IDKolekcji" msprop:Generator_ColumnPropNameInRow="Kolekcje_IDKolekcji" msprop:Generator_ColumnPropNameInTable="Kolekcje_IDKolekcjiColumn" msprop:Generator_UserColumnName="Kolekcje_IDKolekcji" type="xs:int" minOccurs="0" />
               <xs:element name="Nazwa" msprop:Generator_ColumnVarNameInTable="columnNazwa" msprop:Generator_ColumnPropNameInRow="Nazwa" msprop:Generator_ColumnPropNameInTable="NazwaColumn" msprop:Generator_UserColumnName="Nazwa" minOccurs="0">
@@ -899,6 +898,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="IDKolekcji" msprop:Generator_ColumnVarNameInTable="columnIDKolekcji" msprop:Generator_ColumnPropNameInRow="IDKolekcji" msprop:Generator_ColumnPropNameInTable="IDKolekcjiColumn" msprop:Generator_UserColumnName="IDKolekcji" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -967,7 +967,6 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CzyUtwór" msprop:Generator_ColumnVarNameInTable="columnCzyUtwór" msprop:Generator_ColumnPropNameInRow="CzyUtwór" msprop:Generator_ColumnPropNameInTable="CzyUtwórColumn" msprop:Generator_UserColumnName="CzyUtwór" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Zamówienia_IDUtworu" msprop:Generator_ColumnVarNameInTable="columnZamówienia_IDUtworu" msprop:Generator_ColumnPropNameInRow="Zamówienia_IDUtworu" msprop:Generator_ColumnPropNameInTable="Zamówienia_IDUtworuColumn" msprop:Generator_UserColumnName="Zamówienia_IDUtworu" type="xs:int" minOccurs="0" />
               <xs:element name="IDKolekcji" msprop:Generator_ColumnVarNameInTable="columnIDKolekcji" msprop:Generator_ColumnPropNameInRow="IDKolekcji" msprop:Generator_ColumnPropNameInTable="IDKolekcjiColumn" msprop:Generator_UserColumnName="IDKolekcji" type="xs:int" minOccurs="0" />
               <xs:element name="Utwory_IDUtworu" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUtwory_IDUtworu" msprop:Generator_ColumnPropNameInRow="Utwory_IDUtworu" msprop:Generator_ColumnPropNameInTable="Utwory_IDUtworuColumn" msprop:Generator_UserColumnName="Utwory_IDUtworu" type="xs:int" minOccurs="0" />
               <xs:element name="Nazwa" msprop:Generator_ColumnVarNameInTable="columnNazwa" msprop:Generator_ColumnPropNameInRow="Nazwa" msprop:Generator_ColumnPropNameInTable="NazwaColumn" msprop:Generator_UserColumnName="Nazwa" minOccurs="0">
@@ -1007,6 +1006,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="IDUtworu" msprop:Generator_ColumnVarNameInTable="columnIDUtworu" msprop:Generator_ColumnPropNameInRow="IDUtworu" msprop:Generator_ColumnPropNameInTable="IDUtworuColumn" msprop:Generator_UserColumnName="IDUtworu" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

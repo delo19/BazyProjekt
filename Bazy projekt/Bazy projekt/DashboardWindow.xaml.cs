@@ -169,23 +169,24 @@ namespace Bazy_projekt
 
         public Model.UtworyDataTable pobierzMojeUtwory(string nazwa, string wykonawca, int? rokPowstania)
         {
-            ZamówieniaTableAdapter zamowieniaAdapter = new ZamówieniaTableAdapter();
-            var zamowienia = zamowieniaAdapter.GetData().Select("Login='"+SessionSingleton.zalogowanyUser.Login+"'");
 
-            var zamu=SessionSingleton.zalogowanyUser.GetZamówieniaRows();
+            //UżytkownicyTableAdapter uzytkownicyAdapter = new UżytkownicyTableAdapter();
+            //var user = uzytkownicyAdapter.GetData().FindByLogin(SessionSingleton.zalogowanyUser.Login);
+            //var zamowienia = user.GetZamówieniaRows();
+            string message = "Login='" + SessionSingleton.zalogowanyUser.Login + "'";
+            ZamówieniaUtworyTableAdapter adapterZamowienia = new ZamówieniaUtworyTableAdapter();
+            Model.ZamówieniaUtworyDataTable zamowienia = adapterZamowienia.GetData();
 
-            UtworyTableAdapter adapter = new UtworyTableAdapter();
-            Model.UtworyDataTable utwory = adapter.GetData();
-            if (utwory.Count < 0)
-                return new Model.UtworyDataTable();
-            DataTable wynik = utwory.CopyToDataTable();
+            var wynik = zamowienia.CopyToDataTable();
 
-            string message =
-                (!string.IsNullOrEmpty(nazwa) ? "Nazwa='" + nazwa + "'" : "") +
-                (!string.IsNullOrEmpty(wykonawca) ? "Login='" + wykonawca + "'" : "") +
-                (!string.IsNullOrEmpty(rokPowstania.ToString()) ? "RokPowstania='" + rokPowstania + "'" : "");
+           
+            
+            //if (utwory.Count < 0)
+            //    return new Model.UtworyDataTable();
+            //DataTable wynik = utwory.CopyToDataTable();
 
-            Model.UtworyDataTable result = new Model.UtworyDataTable();
+
+            Bazy_projekt.Model.UtworyDataTable result = new Model.UtworyDataTable();
             var ob = wynik.Select(message);
             if (ob.Count() > 0)
             {

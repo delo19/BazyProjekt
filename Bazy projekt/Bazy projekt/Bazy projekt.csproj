@@ -159,6 +159,7 @@
     </None>
     <None Include="Model.xsd">
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Model.xss">

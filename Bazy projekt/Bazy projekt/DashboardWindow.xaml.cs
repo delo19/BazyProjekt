@@ -150,7 +150,7 @@ namespace Bazy_projekt
         {
             KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
             Model.KolekcjeDataTable kolekcje = adapter.GetData();
-            if (kolekcje.Count < 0)
+            if (kolekcje.Count < 1)
                 return new Model.KolekcjeDataTable();
             DataTable wynik = kolekcje.CopyToDataTable();
 
@@ -173,7 +173,11 @@ namespace Bazy_projekt
             ZamówieniaUtworyTableAdapter adapterZamowienia = new ZamówieniaUtworyTableAdapter();
             Model.ZamówieniaUtworyDataTable zamowienia = adapterZamowienia.GetData();
 
+            if (zamowienia.Count < 1)
+                return new Model.UtworyDataTable();
+
             var wynik = zamowienia.CopyToDataTable();
+
             string message = "Login='" + SessionSingleton.zalogowanyUser.Login + "'";
 
             Bazy_projekt.Model.UtworyDataTable result = new Model.UtworyDataTable();
@@ -191,20 +195,23 @@ namespace Bazy_projekt
 
         public Model.KolekcjeDataTable pobierzMojeKolekcje(string nazwa, string wykonawca)
         {
-            KolekcjeTableAdapter adapter = new KolekcjeTableAdapter();
-            Model.KolekcjeDataTable kolekcje = adapter.GetData();
-            if (kolekcje.Count < 0)
+
+            ZamówieniaKolekcjeTableAdapter adapterZamowienia = new ZamówieniaKolekcjeTableAdapter();
+            Model.ZamówieniaKolekcjeDataTable zamowienia = adapterZamowienia.GetData();
+
+            if (zamowienia.Count <1)
                 return new Model.KolekcjeDataTable();
-            DataTable wynik = kolekcje.CopyToDataTable();
 
-            if (!string.IsNullOrEmpty(nazwa) && wynik.Select("Nazwa='" + nazwa + "'").Count() > 0)
-                wynik = wynik.Select("Nazwa='" + nazwa + "'").CopyToDataTable();
-            if (!string.IsNullOrEmpty(wykonawca) && wynik.Select("Login='" + wykonawca + "'").Count() > 0)
-                wynik = wynik.Select("Login='" + wykonawca + "'").CopyToDataTable();
+            var wynik = zamowienia.CopyToDataTable();
+            string message = "Login='" + SessionSingleton.zalogowanyUser.Login + "'";
 
-
-            Model.KolekcjeDataTable result = new Model.KolekcjeDataTable();
-            result.Merge(wynik);
+            Bazy_projekt.Model.KolekcjeDataTable result = new Model.KolekcjeDataTable();
+            var ob = wynik.Select(message);
+            if (ob.Count() > 0)
+            {
+                wynik = ob.CopyToDataTable();
+                result.Merge(wynik);
+            }
 
             return result;
 
@@ -432,8 +439,8 @@ namespace Bazy_projekt
             gridData.Items.Clear();
 
 
-            Model.UtworyDataTable tab = SessionSingleton.zalogowanyUser.IDUprawnienia==4?
-                pobierzUtwory(null, SessionSingleton.zalogowanyUser.Login, null) :pobierzMojeUtwory(null, SessionSingleton.zalogowanyUser.Login, null);
+            Model.UtworyDataTable tab = SessionSingleton.zalogowanyUser.IDUprawnienia == 4 ?
+                pobierzUtwory(null, SessionSingleton.zalogowanyUser.Login, null) : pobierzMojeUtwory(null, SessionSingleton.zalogowanyUser.Login, null);
             for (int i = 0; i < tab.Count; i++)
             {
 

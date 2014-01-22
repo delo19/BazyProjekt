@@ -24,7 +24,7 @@ namespace Bazy_projekt
     {
         MediaPlayer player;
         bool setPlayIT = false;
-        public SongWindow()
+        public SongWindow(bool czyKupiona)
         {
             InitializeComponent();
 
@@ -47,6 +47,20 @@ namespace Bazy_projekt
 
             pobierzButton.Visibility = Visibility.Hidden;
             pauseSong(null, null);
+
+            //jesli kupiona to daj guzik download
+            if (czyKupiona)
+            {
+
+                pobierzButton.Visibility = Visibility.Visible;
+                kupPrzycisk.Visibility = Visibility.Hidden;
+            }
+
+            //
+            if (SessionSingleton.zalogowanyUser.IDUprawnienia != 4)
+            {
+                edytujPiosenkePrzycisk.Visibility = Visibility.Hidden;
+            }
         }
 
         private void pobierzPiosenke(object sender, MouseButtonEventArgs e)
@@ -98,6 +112,8 @@ namespace Bazy_projekt
                 uzytkownik.Saldo += SessionSingleton.aktualnyUtwor.Cena;
 
                 adapterUzytkownicy.Update(uzytkownicy);
+
+
             }
             catch (Exception ex) { }
 

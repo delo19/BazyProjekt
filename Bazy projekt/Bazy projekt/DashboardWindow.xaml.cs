@@ -493,7 +493,7 @@ namespace Bazy_projekt
         private void wybierzUtwor(object sender, SelectionChangedEventArgs e)
         {
             SessionSingleton.aktualnaKolekcja = (Model.KolekcjeRow)gridDataKolekcje.Items.GetItemAt(gridDataKolekcje.SelectedIndex);
-            CollectionView collection = new CollectionView();
+            CollectionView collection = new CollectionView(mojeUtwory.IsVisible);
             collection.Show();
             this.Close();
 
@@ -595,7 +595,7 @@ namespace Bazy_projekt
         {
             Model.UtworyRow x = (Model.UtworyRow)gridData.Items.GetItemAt(gridData.SelectedIndex);
             SessionSingleton.aktualnyUtwor = x;
-            SongWindow w = new SongWindow();
+            SongWindow w = new SongWindow(mojeUtwory.IsVisible);
             w.Show();
             this.Close();
         }

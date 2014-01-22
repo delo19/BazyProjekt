@@ -26,10 +26,10 @@
             <Rectangle Fill="Gainsboro" HorizontalAlignment="Left" Height="1" Margin="432,180,0,0" Grid.Row="1" VerticalAlignment="Top" Width="729"/>
             <TextBlock x:Name="songViewCena" HorizontalAlignment="Left" Margin="432,153,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="123" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
             <Image x:Name="pobierzButton" HorizontalAlignment="Left" Height="42" Margin="716,330,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_18.png" MouseUp="pobierzPiosenke"/>
-            <Image HorizontalAlignment="Left" Height="42" Margin="715,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_16.png" MouseUp="kupPiosenke"/>
+            <Image x:Name="kupPrzycisk" HorizontalAlignment="Left" Height="42" Margin="715,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_16.png" MouseUp="kupPiosenke"/>
             <Image x:Name="pauseSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/pauseButton_03.png" PreviewMouseUp="pauseSong" Visibility="Hidden"/>
             <Image HorizontalAlignment="Left" Height="52" Margin="54,30,0,0" VerticalAlignment="Top" Width="50" Source="Resources/Images/back105.png" PreviewMouseDown="back"/>
-            <Image HorizontalAlignment="Center" Height="34" Margin="878,276,200,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black" Grid.Row="1" MouseUp="edytujPiosenke" />
+            <Image x:Name="edytujPiosenkePrzycisk" HorizontalAlignment="Center" Height="34" Margin="878,276,200,0" VerticalAlignment="Top" Width="116" Source="Resources/Images/edytujWtoek_16.png" OpacityMask="Black" Grid.Row="1" MouseUp="edytujPiosenke" />
 
         </Grid>
     </DockPanel>

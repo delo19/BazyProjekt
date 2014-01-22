@@ -25,7 +25,7 @@
             <Rectangle Fill="Gainsboro" HorizontalAlignment="Left" Height="1" Margin="775,180,0,0" Grid.Row="1" VerticalAlignment="Top" Width="386"/>
             <TextBlock x:Name="collectionViewCena" HorizontalAlignment="Left" Margin="775,153,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="123" FontSize="16"><Run Language="pl-pl" Text="Cena:"/></TextBlock>
             <Image x:Name="pobierzButton" HorizontalAlignment="Left" Height="42" Margin="1018,387,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" MouseUp="pobierzPiosenke" Source="Resources/Images/kubpobierz_18.png"/>
-            <Image HorizontalAlignment="Left" Height="42" Margin="1018,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_16.png" MouseUp="kupUtwor"/>
+            <Image x:Name="kupPrzycisk" HorizontalAlignment="Left" Height="42" Margin="1018,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="143" Source="Resources/Images/kubpobierz_16.png" MouseUp="kupUtwor"/>
             <Image x:Name="pauseSongButton" HorizontalAlignment="Left" Height="367" Margin="31,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Source="Resources/Images/pauseButton_03.png" Visibility="Hidden" MouseUp="pauseSong"/>
             <Image HorizontalAlignment="Left" Height="52" Margin="54,30,0,0" VerticalAlignment="Top" Width="50" Source="Resources/Images/back105.png" MouseUp="wsteka"/>
             <Rectangle Fill="Gainsboro" HorizontalAlignment="Left" Height="1" Margin="629,306,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5">

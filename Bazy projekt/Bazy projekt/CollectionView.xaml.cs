@@ -23,7 +23,8 @@ namespace Bazy_projekt
     {
         MediaPlayer player;
         bool setPlayIT = false;
-        public CollectionView()
+        bool czyKupiona = false;
+        public CollectionView(bool czyKupiona)
         {
             InitializeComponent();
 
@@ -50,6 +51,20 @@ namespace Bazy_projekt
                 player.Open(uri);
 
                 pauseSong(null, null);
+
+                //jesli kupiona to daj guzik download
+                if (czyKupiona)
+                {
+                    
+                    pobierzButton.Visibility = Visibility.Visible;
+                    kupPrzycisk.Visibility = Visibility.Hidden;
+                }
+
+                //
+                if (SessionSingleton.zalogowanyUser.IDUprawnienia != 4)
+                {
+                    edytujKolekcjePRzycisk.Visibility = Visibility.Hidden;
+                }
             }
             catch (Exception ex) { }
         }
